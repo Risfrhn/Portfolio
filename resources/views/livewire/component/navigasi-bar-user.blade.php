@@ -1,6 +1,6 @@
 <div>
     <nav id="navbar" class="navbar fixed  w-full z-20 top-0 start-0">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-4 xl:px-0">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-10 xl:px-0">
             <!-- Tampil di sm ke atas, sembunyikan di xs -->
             <a href="#"  class="hidden sm:flex items-center space-x-3 rtl:space-x-reverse text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
                 Portofolio.io
