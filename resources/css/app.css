@@ -4,6 +4,7 @@
 
 
 
+    /* ANIMASI GLOW */
     @keyframes glow {
     0%, 100% {
         filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.3));
@@ -56,4 +57,17 @@
     .animate-icon-3{
         animation: icon-animate 5s ease-in-out infinite;
         animation-delay: 4s;
+    }
+
+
+    /* NAVBAR */
+    .navbar.scrolled{
+        background-color: #0b0b14;
+        box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.1),   
+        0 6px 12px rgba(0, 0, 0, 0.15), 
+        0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+    .navbar {
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
