@@ -1,3 +1,6 @@
+@extends('components.base.base-header')
+@section('content')
+<x-component.navigasi_bar_user /> 
 <div class="container mx-auto max-w-screen-xl mt-10 px-5 xl:px-0">
     <div class="absolute z-1 w-[300px] h-[300px] md:w-[400px] md:h-[400px]  rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 animate-flare blur-[120px] top-[50px] left-[-100px]"></div>
     <div class="hidden  md:block absolute w-[300px] h-[300px] rounded-full bg-gradient-to-r from-pink-400 via-yellow-400 to-red-400 opacity-30 animate-flare-slow blur-[150px] bottom-[800px] xl:bottom-[40px] right-[0px]"></div>
@@ -20,10 +23,10 @@
                 </div>
             </div>
             <div class="flex flex-nowrap gap-8">
-                <livewire:component.ui-icon-sosmed link="www.linkedin.com/in/muhammad-risky-farhan-596783309" icon="fab fa-linkedin">
-                <livewire:component.ui-icon-sosmed link="https://github.com/Risfrhn/" icon="fab fa-github">
-                <livewire:component.ui-icon-sosmed link="https://www.instagram.com/risfrhn_/" icon="fab fa-instagram">
-                <livewire:component.ui-icon-sosmed link="https://steamcommunity.com/id/Zoow1/" icon="fab fa-steam">
+                <x-component.ui_icon_sosmed link="www.linkedin.com/in/muhammad-risky-farhan-596783309" icon="fab fa-linkedin"/>
+                <x-component.ui_icon_sosmed link="https://github.com/Risfrhn/" icon="fab fa-github"/>
+                <x-component.ui_icon_sosmed link="https://www.instagram.com/risfrhn_/" icon="fab fa-instagram"/>
+                <x-component.ui_icon_sosmed link="https://steamcommunity.com/id/Zoow1/" icon="fab fa-steam"/>
             </div>
         </div>
 
@@ -108,9 +111,9 @@
             </div>
             <div class="col-span-12 mt-0 md:mt-14 mb-14 z-10">
                 <div class="flex flex-wrap gap-3 place-content-center">
-                    <livewire:component.ui-card-var1 icon="fas fa-laptop-code" name="Web & App Development" desc="Pembangunan website, aplikasi web, atau mobile, termasuk sistem manajemen dan portal."/>
-                    <livewire:component.ui-card-var1 icon="fas fa-file" name="Pengelolaan Dokumen & Office" desc="Pengelolaan template, spreadsheet, laporan."/>
-                    <livewire:component.ui-card-var1 icon="fas fa-paint-brush" name="Desain & Konten Digital" desc="UI/UX dasar, pembuatan konten untuk web atau portal internal"/>
+                    <x-component.ui_card_var_1 icon="fas fa-laptop-code" name="Web & App Development" desc="Pembangunan website, aplikasi web, atau mobile, termasuk sistem manajemen dan portal."/>
+                    <x-component.ui_card_var_1 icon="fas fa-file" name="Pengelolaan Dokumen & Office" desc="Pengelolaan template, spreadsheet, laporan."/>
+                    <x-component.ui_card_var_1 icon="fas fa-paint-brush" name="Desain & Konten Digital" desc="UI/UX dasar, pembuatan konten untuk web atau portal internal"/>
                 </div>
             </div>
         </div>
@@ -131,13 +134,13 @@
         <img src="/Word.png" alt="" class="animate-icon-2 z-10 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[130px] right-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:right-[150px]">
         <img src="/Laravel.png" alt="" class="animate-icon-3 z-10 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[200px] right-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:right-[400px]">
 
-        <x-ui_layout_var_1 title="What I’ve Done" desc="Some of my recent projects">
+        <x-layout.ui_layout_var_1 title="What I’ve Done" desc="Some of my recent projects">
             <x-slot name="card">
-                <livewire:component.ui-card-var2 link="#" image="#" name="Test" type="Test" desc="Test">
-                <livewire:component.ui-card-var2 link="#" image="#" name="Test" type="Test" desc="Test">
-                <livewire:component.ui-card-var2 link="#" image="#" name="Test" type="Test" desc="Test">
+                <x-component.ui_card_var_2 link="#" image="#" name="Test" type="Test" desc="Test" />
+                <x-component.ui_card_var_2 link="#" image="#" name="Test" type="Test" desc="Test" />
+                <x-component.ui_card_var_2 link="#" image="#" name="Test" type="Test" desc="Test" />
             </x-slot>
-        </x-ui_layout_var_1>
+        </x-layout.ui_layout_var_1>
         <div class="hidden sm:block absolute z-[0] md:top-[500px] left-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[700px]  lg:w-[900px] lg:h-[500px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 blur-[120px] transform -translate-x-1/2 -translate-y-1/2"></div>
     </div>
 
@@ -145,19 +148,19 @@
     <!-- Product -->
     <div class="w-full h-[2px] mt-[40px] md:mt-[100px] bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.8));"></div>
     <div class="relative my-24">
-        <x-ui_layout_var_2 title="What I’ve Done" desc="Some of my recent projects">
+        <x-layout.ui_layout_var_2 title="What I’ve Done" desc="Some of my recent projects">
             <x-slot name="card">
-                <livewire:component.ui-card-var3 link="#" func="#" image="#" name="Test" type="Test" desc="Test">
-                <livewire:component.ui-card-var3 link="#" func="#" image="#" name="Test" type="Test" desc="Test">
-                <livewire:component.ui-card-var3 link="#" func="#" image="#" name="Test" type="Test" desc="Test">
+                <x-component.ui_card_var_3 link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
+                <x-component.ui_card_var_3 link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
+                <x-component.ui_card_var_3 link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
             </x-slot>
-        </x-ui_layout_var_2>
+        </x-layout.ui_layout_var_2>
         <div class="hidden sm:block absolute z-0 md:top-[300px] left-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[700px]  lg:w-[900px] lg:h-[300px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 blur-[120px] transform -translate-x-1/2 -translate-y-1/2"></div>
     </div>
 
 
     <!-- Kontak -->
-    <x-ui_layout_var_3 header="Get in touch" subHeader="Want to collaborate or build custom software? Get in touch!" headerBox1="Send message" descSubHeaderBox1="Want to collaborate or build custom software? Get in touch!" headerBox2="Join Me Online" descSubHeaderBox2="Stay in the loop with my projects and posts by following me.">
+    <x-layout.ui_layout_var_3 header="Get in touch" subHeader="Want to collaborate or build custom software? Get in touch!" headerBox1="Send message" descSubHeaderBox1="Want to collaborate or build custom software? Get in touch!" headerBox2="Join Me Online" descSubHeaderBox2="Stay in the loop with my projects and posts by following me.">
         <x-slot name="slot1">
             <livewire:component.ui_contact_var1/>
         </x-slot>
@@ -169,5 +172,6 @@
             <x-component.ui_contact_var_2 name="Steam/FarhanKebab" icon="fab fa-steam" link="https://steamcommunity.com/id/Zoow1/" bgColor="#012f9a"/>
             <x-component.ui_contact_var_2 name="Whatsapp/+6281345765427" icon="fab fa-phone" link="wa.me/081345765427" bgColor="#25D366"/>
         </x-slot>
-    </x-ui_layout_var_3>
+    </x-layout.ui_layout_var_3>
 </div>
+@endsection

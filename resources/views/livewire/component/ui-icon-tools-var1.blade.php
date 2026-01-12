@@ -20,7 +20,7 @@
 
         <div class="flex">
             <div class="w-full h-1.5 bg-gray-700 rounded mt-2 overflow-hidden">
-                <div class="h-full bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600" style="width: {{$this->LevelBar}} }"></div>
+                <div class="h-full bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600" style="width: {{ $this->LevelBar }}"></div>
             </div>
             <p class=" px-1 py-0.5 text-[10px] text-gray-400 ">{{ $this->level }}</p>
         </div>
