@@ -28,7 +28,7 @@
             aria-labelledby="accordion-card-heading-{{$id}}"
         >
             @foreach($children as $child)
-                <livewire:component.ui-icon-tools-var1 
+                <x-component.icon.var2 
                     :levels="$child['levels']" 
                     :nameTool="$child['nameTool']" 
                     :image="$child['image']"

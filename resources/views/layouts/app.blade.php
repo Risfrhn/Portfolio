@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Risky Farhan</title>
-    @livewireStyles
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+    @livewireStyles
 
     <!-- Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -24,10 +24,10 @@
         }
     </style>
 </head>
-<body>   
-    <main>
-        @yield('content')
-    </main>
+<body>  
+    <x-component.navbar.var1/>
+
+    {{ $slot ?? '' }}
 
     <footer class="bg-[#a78bfa]/10 py-5 text-center">
         <span class="text-sm text-purple-400">
@@ -36,6 +36,7 @@
     </footer>
 
     @livewireScripts
+    
 </body>
 </html>
     

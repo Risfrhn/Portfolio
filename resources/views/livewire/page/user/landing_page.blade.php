@@ -1,6 +1,4 @@
-@extends('components.base.base-header')
-@section('content')
-<x-component.navigasi_bar_user /> 
+
 <div class="container mx-auto max-w-screen-xl mt-10 px-5 xl:px-0">
     <div class="absolute z-1 w-[300px] h-[300px] md:w-[400px] md:h-[400px]  rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 animate-flare blur-[120px] top-[50px] left-[-100px]"></div>
     <div class="hidden  md:block absolute w-[300px] h-[300px] rounded-full bg-gradient-to-r from-pink-400 via-yellow-400 to-red-400 opacity-30 animate-flare-slow blur-[150px] bottom-[800px] xl:bottom-[40px] right-[0px]"></div>
@@ -16,17 +14,17 @@
 
             <div class="flex flex-wrap my-5 gap-36 lg:gap-40">
                 <div class="w-[0%]">
-                    <livewire:component.ui-button-var1 label="Download CV" action="#"/>
+                    <x-component.button.var1 label="Download CV" action="#"/>
                 </div>
                 <div class="w-[0%]">
-                    <livewire:component.ui-button-var1 label="Pengalaman saya" href="#"/>
+                    <x-component.button.var1 label="Pengalaman saya" href="#"/>
                 </div>
             </div>
             <div class="flex flex-nowrap gap-8">
-                <x-component.ui_icon_sosmed link="www.linkedin.com/in/muhammad-risky-farhan-596783309" icon="fab fa-linkedin"/>
-                <x-component.ui_icon_sosmed link="https://github.com/Risfrhn/" icon="fab fa-github"/>
-                <x-component.ui_icon_sosmed link="https://www.instagram.com/risfrhn_/" icon="fab fa-instagram"/>
-                <x-component.ui_icon_sosmed link="https://steamcommunity.com/id/Zoow1/" icon="fab fa-steam"/>
+                <x-component.icon.var1 link="www.linkedin.com/in/muhammad-risky-farhan-596783309" icon="fab fa-linkedin"/>
+                <x-component.icon.var1 link="https://github.com/Risfrhn/" icon="fab fa-github"/>
+                <x-component.icon.var1 link="https://www.instagram.com/risfrhn_/" icon="fab fa-instagram"/>
+                <x-component.icon.var1 link="https://steamcommunity.com/id/Zoow1/" icon="fab fa-steam"/>
             </div>
         </div>
 
@@ -73,7 +71,7 @@
                 <p class="text-white text-[10px] lg:text-xs xl:text-sm font-thin leading-loose xl:leading-[25px] pb-5">I am a Software Engineer passionate about problem-solving and building reliable, user-focused web applications. I hold a degree in Software Engineering from Telkom University and have one year of professional experience. I specialize in web development with PHP and the CodeIgniter framework, skilled in MySQL database management and REST API development. I prioritize writing clear, well-structured technical documentation and effective communication to support maintainable software and productive team collaboration.</p>
                 <div class="grid grid-cols-12 gap-3">
                     <div class="col-span-12 md:col-span-6">
-                        <livewire:component.ui-tabs-var1 id="1" icon="fas fa-desktop" title="Website development" desc="responsive and user-friendly" 
+                        <x-component.tab.var1 id="1" icon="fas fa-desktop" title="Website development" desc="responsive and user-friendly" 
                             :children="[
                                 ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png'],
                                 ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png'],
@@ -83,7 +81,7 @@
                         />
                     </div>
                     <div class="col-span-12 md:col-span-6">
-                        <livewire:component.ui-tabs-var1 id="2" icon="fas fa-mobile" title="Mobile development" desc="responsive and user-friendly"
+                        <x-component.tab.var1 id="2" icon="fas fa-mobile" title="Mobile development" desc="responsive and user-friendly"
                             :children="[
                                 ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png'],
                                 ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png'],
@@ -111,9 +109,9 @@
             </div>
             <div class="col-span-12 mt-0 md:mt-14 mb-14 z-10">
                 <div class="flex flex-wrap gap-3 place-content-center">
-                    <x-component.ui_card_var_1 icon="fas fa-laptop-code" name="Web & App Development" desc="Pembangunan website, aplikasi web, atau mobile, termasuk sistem manajemen dan portal."/>
-                    <x-component.ui_card_var_1 icon="fas fa-file" name="Pengelolaan Dokumen & Office" desc="Pengelolaan template, spreadsheet, laporan."/>
-                    <x-component.ui_card_var_1 icon="fas fa-paint-brush" name="Desain & Konten Digital" desc="UI/UX dasar, pembuatan konten untuk web atau portal internal"/>
+                    <x-component.card.var1 icon="fas fa-laptop-code" name="Web & App Development" desc="Pembangunan website, aplikasi web, atau mobile, termasuk sistem manajemen dan portal."/>
+                    <x-component.card.var1 icon="fas fa-file" name="Pengelolaan Dokumen & Office" desc="Pengelolaan template, spreadsheet, laporan."/>
+                    <x-component.card.var1 icon="fas fa-paint-brush" name="Desain & Konten Digital" desc="UI/UX dasar, pembuatan konten untuk web atau portal internal"/>
                 </div>
             </div>
         </div>
@@ -136,9 +134,9 @@
 
         <x-layout.ui_layout_var_1 title="What I’ve Done" desc="Some of my recent projects">
             <x-slot name="card">
-                <x-component.ui_card_var_2 link="#" image="#" name="Test" type="Test" desc="Test" />
-                <x-component.ui_card_var_2 link="#" image="#" name="Test" type="Test" desc="Test" />
-                <x-component.ui_card_var_2 link="#" image="#" name="Test" type="Test" desc="Test" />
+                <x-component.card.var2 link="#" image="#" name="Test" type="Test" desc="Test" />
+                <x-component.card.var2 link="#" image="#" name="Test" type="Test" desc="Test" />
+                <x-component.card.var2 link="#" image="#" name="Test" type="Test" desc="Test" />
             </x-slot>
         </x-layout.ui_layout_var_1>
         <div class="hidden sm:block absolute z-[0] md:top-[500px] left-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[700px]  lg:w-[900px] lg:h-[500px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 blur-[120px] transform -translate-x-1/2 -translate-y-1/2"></div>
@@ -150,9 +148,9 @@
     <div class="relative my-24">
         <x-layout.ui_layout_var_2 title="What I’ve Done" desc="Some of my recent projects">
             <x-slot name="card">
-                <x-component.ui_card_var_3 link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
-                <x-component.ui_card_var_3 link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
-                <x-component.ui_card_var_3 link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
+                <x-component.card.var3 link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
+                <x-component.card.var3 link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
+                <x-component.card.var3 link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
             </x-slot>
         </x-layout.ui_layout_var_2>
         <div class="hidden sm:block absolute z-0 md:top-[300px] left-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[700px]  lg:w-[900px] lg:h-[300px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 blur-[120px] transform -translate-x-1/2 -translate-y-1/2"></div>
@@ -165,13 +163,12 @@
             <livewire:component.ui_contact_var1/>
         </x-slot>
         <x-slot name="slot2">
-            <x-component.ui_contact_var_2 name="LinkedIn/Muhammad Risky Farhan" icon="fab fa-linkedin" link="www.linkedin.com/in/muhammad-risky-farhan-596783309" bgColor="#0077B5"/>
-            <x-component.ui_contact_var_2 name="Github/Risfrhn" icon="fab fa-github" link="https://github.com/Risfrhn/" bgColor="#4141aa"/>
-            <x-component.ui_contact_var_2 name="Instagram/risfrhn_" icon="fab fa-instagram" link="https://www.instagram.com/risfrhn_/" bgColor="#8900df"/>
-            <x-component.ui_contact_var_2 name="Email/rskyfrhn801@gmail.com" icon="fa-solid fa-envelope" link="" bgColor="#D44638"/>
-            <x-component.ui_contact_var_2 name="Steam/FarhanKebab" icon="fab fa-steam" link="https://steamcommunity.com/id/Zoow1/" bgColor="#012f9a"/>
-            <x-component.ui_contact_var_2 name="Whatsapp/+6281345765427" icon="fab fa-phone" link="wa.me/081345765427" bgColor="#25D366"/>
+            <x-component.contact.var2 name="LinkedIn/Muhammad Risky Farhan" icon="fab fa-linkedin" link="www.linkedin.com/in/muhammad-risky-farhan-596783309" bgColor="#0077B5"/>
+            <x-component.contact.var2 name="Github/Risfrhn" icon="fab fa-github" link="https://github.com/Risfrhn/" bgColor="#4141aa"/>
+            <x-component.contact.var2 name="Instagram/risfrhn_" icon="fab fa-instagram" link="https://www.instagram.com/risfrhn_/" bgColor="#8900df"/>
+            <x-component.contact.var2 name="Email/rskyfrhn801@gmail.com" icon="fa-solid fa-envelope" link="" bgColor="#D44638"/>
+            <x-component.contact.var2 name="Steam/FarhanKebab" icon="fab fa-steam" link="https://steamcommunity.com/id/Zoow1/" bgColor="#012f9a"/>
+            <x-component.contact.var2 name="Whatsapp/+6281345765427" icon="fab fa-phone" link="wa.me/081345765427" bgColor="#25D366"/>
         </x-slot>
     </x-layout.ui_layout_var_3>
 </div>
-@endsection

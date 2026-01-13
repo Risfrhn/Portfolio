@@ -15,14 +15,14 @@
         <p class="font-semibold text-sm">{{ $nameTool }}</p>
 
         <p class="mt-1 text-[11px] text-gray-400">
-            Skill level: <span class="font-semibold text-purple-300">{{ $this->LabelLevel }}</span>
+            Skill level: <span class="font-semibold text-purple-300">{{ $labelLevel }}</span>
         </p>
 
         <div class="flex">
             <div class="w-full h-1.5 bg-gray-700 rounded mt-2 overflow-hidden">
-                <div class="h-full bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600" style="width: {{ $this->LevelBar }}"></div>
+                <div class="h-full bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600" style="width: {{ $levelBar }}"></div>
             </div>
-            <p class=" px-1 py-0.5 text-[10px] text-gray-400 ">{{ $this->level }}</p>
+            <p class=" px-1 py-0.5 text-[10px] text-gray-400 ">{{ $level }}</p>
         </div>
     </div>
 </div>

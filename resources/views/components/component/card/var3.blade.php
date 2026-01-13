@@ -8,8 +8,8 @@
                     <p class="text-sm md:text-md font-semibold text-white">{{ $name }}</p>
                     <p class="text-xs md:text-sm text-white truncate">{{ $desc }}</p>
                 </div>
-                <livewire:component.ui-button-var1 label="Detail" href="{{$link}}"/>
-                <livewire:component.ui-button-var1 label="Pembelian" action="{{$func}}"/>
+                <x-component.button.var1 label="Detail" href="{{$link}}"/>
+                <x-component.button.var1 label="Pembelian" action="{{$func}}"/>
             </div>
         </div>
     </div>
