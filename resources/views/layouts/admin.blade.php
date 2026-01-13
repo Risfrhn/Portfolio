@@ -24,10 +24,16 @@
         }
     </style>
 </head>
-<body>  
-     
-    {{ $slot ?? '' }}
-
+<body>
+    <div class="min-h-screen flex flex-col">
+        <x-component.navbar.var2/>     
+        
+        <!-- Konten halaman -->
+        <main class="flex-1 bg-[#12121E] p-4 ml-0 sm:ml-64">
+            {{ $slot ?? '' }}
+        </main>
+        
+    </div>  
     @livewireScripts
 </body>
 </html>
