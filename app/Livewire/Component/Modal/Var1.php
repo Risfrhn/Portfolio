@@ -4,22 +4,50 @@ namespace App\Livewire\Component\Modal;
 
 use App\Service\Landing_Service;
 use Livewire\Component;
+use Livewire\Attributes\On;
+use Livewire\WithFileUploads;
 
 class Var1 extends Component
 {
-
+    use WithFileUploads;
+    // Update Landing
+    public ?bool $show = false;
     public $header;
     public $tentang;
-    public $skill;
-    public $CV;
+    public $skill = [];
+    public $CV = null;
+
+    protected $repo;
+
     protected $rules = [
         'header' => 'nullable|string',
         'skill' => 'nullable|array',
-        'CV' => 'nullable|mimes:pdf|max:2048',
+        'CV' => 'nullable|file|mimes:pdf|max:2048',
         'tentang' => 'nullable|string'
     ];
 
-    public function update(Landing_Service $service){
+    #[On('update-landing')] 
+    public function update($data){
+        $this->show = true;
+        
+        $this->header = $data['header'];
+        $this->skill = $data['skill'];
+        $this->tentang = $data['tentang'];
+        $this->CV = $data['CV'] ?? null;
+    }
+
+    
+    public function hide(){
+        $this->show = false;
+    }
+
+    #[On('tags-updated')]
+    public function updateTags($tags)
+    {
+        $this->skill = $tags;
+    }
+
+    public function save(Landing_Service $service){
         $validate = $this->validate();
         $result = $service->updateLanding($validate);
 
@@ -31,6 +59,7 @@ class Var1 extends Component
                 'message' => $result['message']
             ]);
         }
+        $this->dispatch('hide-modal');
     }
 
     public function render()

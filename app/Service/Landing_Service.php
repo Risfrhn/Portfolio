@@ -17,14 +17,14 @@ class Landing_Service
         $getData = $this->data->getDataLanding();
         $getData->deskripsi_header = $request['header'] ?? $getData->deskripsi_header;
         $getData->deskripsi_tentang = $request['tentang'] ?? $getData->deskripsi_tentang;
-        $getData->skill = $request['skill'] ?? $getData->skill;
+        $getData->skill_header = $request['skill'] ?? $getData->skill_header;
         if(isset($request['CV'])){
             $fullpath = $getData->CV ? storage_path('app/public/landing'.$getData->CV) : null;
             if($getData->CV && file_exists($fullpath)){
                 unlink($fullpath);
             }
-            $nama = 'CV-Muhammad Risky Farhan' . $request['cv']->getClientOriginalName();
-            $path = $request['cv']->storeAs('landing/', $nama, 'public');
+            $nama = 'CV-Muhammad Risky Farhan' . $request['CV']->getClientOriginalName();
+            $path = $request['CV']->storeAs('landing/', $nama, 'public');
         }
         $getData->CV = $path ?? $getData->CV;
         $getData->save();
