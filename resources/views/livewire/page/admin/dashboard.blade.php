@@ -1,7 +1,7 @@
 <div class="w-full mt-5">
     <div class="absolute z-1 w-[300px] h-[300px] md:w-[400px] md:h-[400px]  rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 animate-flare blur-[120px] top-[50px] left-[-100px]"></div>
     <div class="hidden  md:block absolute w-[300px] h-[300px] rounded-full bg-gradient-to-r from-pink-400 via-yellow-400 to-red-400 opacity-30 animate-flare-slow blur-[150px] bottom-[800px] xl:bottom-[40px] right-[0px]"></div>
-    <x-component.button.var1 label="Update Landing Data" action="#"/>
+    <x-component.button.var1 label="Update Landing Data" wire:click="$dispatch('open-modal', {component: 'component.modal.var1'})" />
     <div class="flex flex-row my-5">
         <div class="w-full p-10 bg-[#1D1D29]/30 rounded-md hidden md:block z-[99] backdrop-blur-lg shadow-xl">
             <div class="flex flex-row">

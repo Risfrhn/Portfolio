@@ -4,16 +4,20 @@ namespace App\Service;
 use App\Repository\User_Repository;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Repository\Landing_Repository;
 
 class Auth_Service
 {
     private User_Repository $user;
-    public function __construct(User_Repository $user)
+    public Landing_Repository $landing; 
+    public function __construct(User_Repository $user, Landing_Repository $landing)
     {
         $this->user = $user;
+        $this->landing = $landing;
     }
 
     public function authSystem($input){
+        $this->landing->getDataLanding();
         $userCek = $this->user->getUserByEmail($input['email']);
         if(!$userCek){
             return [
