@@ -4,10 +4,10 @@ namespace App\Livewire\Component;
 
 use Livewire\Component;
 
-class UiContactVar1 extends Component
+class ContactForm extends Component
 {
     public function render()
     {
-        return view('livewire.component.ui-contact-var1');
+        return view('livewire.component.contact-form');
     }
 }

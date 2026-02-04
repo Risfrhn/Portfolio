@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class project extends Model
 {
-    protected $tabel = 'project';
+    protected $table = 'project';
     protected $fillable = [
         'logo_projek',
         'gambar_flyer',

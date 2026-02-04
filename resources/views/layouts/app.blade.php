@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>  
-    <x-component.navbar.var1/>
+    <x-component.navbar.top-nav/>
 
     {{ $slot ?? '' }}
 

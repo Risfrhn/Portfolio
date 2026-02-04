@@ -1,17 +1,19 @@
 <?php
 
-namespace App\View\Components\component\icon;
+namespace App\View\Components\component\contact;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class var3 extends Component
+class Quote extends Component
 {
-    public ?string $nameTool;
-    public function __construct($nameTool)
+    /**
+     * Create a new component instance.
+     */
+    public function __construct()
     {
-        $this->nameTool = $nameTool;
+        //
     }
 
     /**
@@ -19,6 +21,6 @@ class var3 extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.component.icon.var3');
+        return view('components.component.contact.quote');
     }
 }

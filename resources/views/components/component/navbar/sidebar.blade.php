@@ -9,16 +9,16 @@
     <div class="h-full px-3 py-4 overflow-y-auto bg-[#1D1D29] border-e border-default">
         <ul class="space-y-2 font-medium flex flex-col h-full">
         <li>
-            <router-link :to="{name: 'DashboardAdmin'}" class="flex items-center px-2 py-1.5 text-white rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+            <a href="/dashboard-admin" wire:navigate  class="flex items-center px-2 py-1.5 text-white rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
                 <i class="fa-solid fa-table-list"></i>
                 <span class="ms-3">Dashboard</span>
-            </router-link>
+            </a>
         </li>
         <li>
-            <router-link :to="{name: 'ProjectAdmin'}"  class="flex items-center px-2 py-1.5 text-white rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+            <a href="/project-admin" wire:navigate  class="flex items-center px-2 py-1.5 text-white rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
                 <i class="fa-solid fa-file-code"></i>
                 <span class="flex-1 ms-3 whitespace-nowrap">Project</span>
-            </router-link>
+            </a>
         </li>
         <li>
             <router-link :to="{name: 'ExperienceAdmin'}" class="flex items-center px-2 py-1.5 text-white rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">

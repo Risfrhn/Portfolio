@@ -6,15 +6,19 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class var2 extends Component
+class SkillBadge extends Component
 {
-    public ?string $image = null;
-    public ?string $nameTool = null;
-    public ?int $levels = 1;
-    public string $labelLevel;
-    public string $level;
-    public int $levelBar;
-    public function __construct(?string $image = null, ?string $nameTool = null, ?int $levels = 1)
+    public $image;
+    public $nameTool;
+    public $levels;
+    public $labelLevel;
+    public $levelBar;
+    public $level;
+
+    /**
+     * Create a new component instance.
+     */
+    public function __construct($image = null, $nameTool = null, $levels = 1)
     {
         $this->image = $image;
         $this->nameTool = $nameTool;
@@ -23,7 +27,6 @@ class var2 extends Component
         $this->level = $this->getLevelProperty();
         $this->levelBar = $this->getLevelBarProperty();
     }
-    
 
     public function getLabelLevelProperty() : string
     {
@@ -41,13 +44,13 @@ class var2 extends Component
         return "{$this->levels}/4";
     }
 
-    public function getLevelBarProperty() : int
+    public function getLevelBarProperty() : string
     {
-        return (int) (($this->levels/4)*100);
+        return (string) (($this->levels/4)*100) . '%';
     }
 
     public function render(): View|Closure|string
     {
-        return view('components.component.icon.var2');
+        return view('components.component.icon.skill-badge');
     }
 }

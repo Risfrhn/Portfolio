@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\component\contact;
+namespace App\View\Components\component\navbar;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class var1 extends Component
+class Sidebar extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class var1 extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.component.contact.var1');
+        return view('components.component.navbar.sidebar');
     }
 }

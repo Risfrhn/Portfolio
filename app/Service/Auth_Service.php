@@ -43,4 +43,10 @@ class Auth_Service
             'status' => true
         ];
     } 
+
+    public function logout(){
+        Auth::logout();
+        session()->invalidate();
+        session()->regenerateToken();
+    }
 }

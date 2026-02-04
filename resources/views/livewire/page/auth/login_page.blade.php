@@ -8,7 +8,7 @@
             <p class="text-xs text-center text-gray-500 mb-5">We are happy to see you again</p>
             <form wire:submit.prevent="login">
                 <div class="mb-5 relative">
-                    <x-component.input.var1 label="Email" type="email" placeholder="Masukkan email" model="email" readonly="0"/>
+                    <x-component.input.form-group label="Email" type="email" placeholder="Masukkan email" model="email" readonly="0"/>
                     <span class="absolute right-5 top-14 -translate-y-1/2 text-gray-400 pointer-events-none">
                         <i class="fa-regular fa-envelope"></i>
                     </span>
@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="relative">
-                    <x-component.input.var1 label="Password" type="password" placeholder="Masukkan password" model="password" readonly="0"/>
+                    <x-component.input.form-group label="Password" type="password" placeholder="Masukkan password" model="password" readonly="0"/>
                     @error('password')
                         <p class="text-red-500 text-sm mt-1">
                             {{ $message }}

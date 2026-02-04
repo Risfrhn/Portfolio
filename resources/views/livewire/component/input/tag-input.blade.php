@@ -14,9 +14,9 @@
         <div class="flex flex-wrap gap-2 my-3">
         @foreach($tags as $data => $tag)
             <div  wire:key="tags-{{ $data }}" class="flex items-center gap-1">
-                <x-component.icon.var3 nameTool="{{$tag}}">
+                <x-component.icon.wrapper nameTool="{{$tag}}">
                     <button type="button" wire:click="remove({{$data}})" class="text-white mx-2 text-xs">x</button>
-                </x-component.icon.var3>
+                </x-component.icon.wrapper>
             </div>
         @endforeach
         </div>

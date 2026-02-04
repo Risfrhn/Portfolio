@@ -2,43 +2,57 @@
 
 namespace App\Livewire\Page\Admin;
 use App\Repository\Landing_Repository;
+use App\Service\Project_Service;
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class Dashboard extends Component
 {
     public ?bool $show = false;
+    public ?bool $showModalLogOut = false;
     public $data;
+    public $total_projek;
+    public $pengalaman;
+    public $total_product;
 
-    public function mount(Landing_Repository $repo)
+    public function mount(Landing_Repository $repo, Project_Service $service)
     {
         $this->data = $repo->getDataLanding();
+
+        $this->total_projek = $service->countDataByType('portfolio');
+        $this->total_product = $service->countDataByType('product');
     }
 
-    public function open($id){
+    public function openEdit($id){
         $this->show = true;
         $landing = $this->data;
         $skills = $landing->skill_header;
-        
-        if (is_string($skills)) {
-            $decoded = json_decode($skills, true);
-            $skills = ($decoded && json_last_error() === JSON_ERROR_NONE) 
-                ? $decoded 
-                : array_map('trim', explode(',', $skills));
-        }
-        
-        $skills = is_array($skills) ? $skills : [];
+        $decoded = (is_array($skills)) ? $skills : [];
         $this->dispatch('update-landing', 
             [
                 'id'=> $id, 
                 'header'=> $landing->deskripsi_header,
-                'skill'=> $skills,
+                'skill'=> $decoded,
                 'CV'=> $landing->CV ?? null,
                 'tentang'=> $landing->deskripsi_tentang
             ]
         );
     }
+    #[On('close-modal-update')]
+    public function hideUpdate()
+    {
+        $this->show = false;
+    }
 
     
+    public function openModalLogOut(){
+        $this->showModalLogOut = true;
+    }
+    #[On('close-modal-logout')]
+    public function hideLogOut()
+    {
+        $this->showModalLogOut = false;
+    }
 
     public function render()
     {

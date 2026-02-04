@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class var1 extends Component
+class StatIcon extends Component
 {
     public ?string $icon;
     public ?string $name;
@@ -20,6 +20,6 @@ class var1 extends Component
     
     public function render(): View|Closure|string
     {
-        return view('components.component.card.var1');
+        return view('components.component.card.stat-icon');
     }
 }

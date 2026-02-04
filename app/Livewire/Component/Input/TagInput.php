@@ -1,16 +1,23 @@
 <?php
 
 namespace App\Livewire\Component\Input;
-
+use Livewire\Attributes\On;
 use Livewire\Component;
 
-class Var1 extends Component
+class TagInput extends Component
 {
     public ?string $input;
     public array $tags = [];
+
     public function mount($tags = [])
     {
         $this->tags = $tags ?? [];
+    }
+
+    #[On('refresh-tags')]
+    public function refreshTags($tags)
+    {
+        $this->tags = $tags;
     }
 
     public function add(){
@@ -28,6 +35,6 @@ class Var1 extends Component
 
     public function render()
     {
-        return view('livewire.component.input.var1');
+        return view('livewire.component.input.tag-input');
     }
 }

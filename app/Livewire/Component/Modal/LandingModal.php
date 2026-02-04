@@ -7,17 +7,15 @@ use Livewire\Component;
 use Livewire\Attributes\On;
 use Livewire\WithFileUploads;
 
-class Var1 extends Component
+class LandingModal extends Component
 {
     use WithFileUploads;
     // Update Landing
-    public ?bool $show = false;
+    public ?bool $showUpdateLanding = false;
     public $header;
     public $tentang;
     public $skill = [];
     public $CV = null;
-
-    protected $repo;
 
     protected $rules = [
         'header' => 'nullable|string',
@@ -28,17 +26,18 @@ class Var1 extends Component
 
     #[On('update-landing')] 
     public function update($data){
-        $this->show = true;
-        
-        $this->header = $data['header'];
         $this->skill = $data['skill'];
+        $this->dispatch('refresh-tags', $this->skill);
+        $this->showUpdateLanding = true;
+        $this->header = $data['header'];
         $this->tentang = $data['tentang'];
         $this->CV = $data['CV'] ?? null;
     }
 
     
-    public function hide(){
-        $this->show = false;
+    public function close()
+    {
+        $this->dispatch('close-modal-update');
     }
 
     #[On('tags-updated')]
@@ -59,11 +58,10 @@ class Var1 extends Component
                 'message' => $result['message']
             ]);
         }
-        $this->dispatch('hide-modal');
     }
 
     public function render()
     {
-        return view('livewire.component.modal.var1');
+        return view('livewire.component.modal.landing-modal');
     }
 }

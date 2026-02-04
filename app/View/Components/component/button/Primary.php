@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class var1 extends Component
+class Primary extends Component
 {
     public ?string $label;
     public ?string $action;
@@ -22,6 +22,6 @@ class var1 extends Component
     
     public function render(): View|Closure|string
     {
-        return view('components.component.button.var1');
+        return view('components.component.button.primary');
     }
 }

@@ -1,19 +1,22 @@
 <?php
 
-namespace App\View\Components\component\navbar;
+namespace App\View\Components\component\icon;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class var2 extends Component
+class SimpleButton extends Component
 {
+    public $link;
+    public $icon;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($link, $icon)
     {
-        //
+        $this->link = $link;
+        $this->icon = $icon;
     }
 
     /**
@@ -21,6 +24,6 @@ class var2 extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.component.navbar.var2');
+        return view('components.component.icon.simple-button');
     }
 }
