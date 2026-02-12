@@ -5,9 +5,11 @@ use Livewire\Component;
 use App\Service\Project_Service;
 use Livewire\Attributes\Validate;
 use Livewire\Attributes\On;
+use Livewire\WithFileUploads;
 
 class ProjectModal extends Component
 {
+    use WithFileUploads;
     public $showModal = false;
     public $dataId = null;
     public ?string $head = null;
@@ -27,8 +29,10 @@ class ProjectModal extends Component
     ];
     public $kategoriOptions = [
         'Website' => 'Website',
-        'Mobile' => 'Mobile App',
-        'System' => 'System Management',
+        'App mobile' => 'App mobile',
+        'UI/UX Design' => 'UI/UX Design',
+        'App desktop' => 'App desktop',
+        'Documentation' => 'Documentation'
     ];
 
     #[Validate('required|string|max:255', as: 'nama project')]
@@ -73,6 +77,12 @@ class ProjectModal extends Component
     #[Validate('nullable|array', as: 'alat')]
     public $alat = [];
 
+    #[Validate('nullable|image|max:10240', as: 'logo projek')]
+    public $logo_projek;
+
+    #[Validate('nullable|image|max:10240', as: 'gambar flyer')]
+    public $gambar_flyer;
+
     #[On('update-project')] 
     public function update($data){
         $this->dataId = $data['id'] ?? null;
@@ -92,6 +102,8 @@ class ProjectModal extends Component
         $this->link_github = $data['link_github'];
         $this->link_app = $data['link_app'];
         $this->link_website = $data['link_website'];
+        $this->logo_projek = $data['logo_projek'];
+        $this->gambar_flyer = $data['gambar_flyer'];
     }
 
     #[On('tags-updated')]

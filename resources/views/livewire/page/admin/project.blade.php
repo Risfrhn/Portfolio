@@ -23,6 +23,7 @@
                 </button>
             </div>
         </div>
+
         <livewire:component.table.project-table 
             :project="$project" 
             :actions="['edit' => 'bukaModalEdit', 'delete' => 'bukaModalDelete']"
@@ -44,7 +45,7 @@
                 head="Delete Projek" 
                 desk="Apakah anda yakin ingin menghapus data ini?"
                 action="delete"
-                closeEvent="close-modal-delete"
+                closeEvent="tutupModalDelete"
             />
         @endif
 
@@ -52,7 +53,7 @@
             <livewire:component.modal.project-modal 
                 :dataId="$projectId"
                 head="Edit Projek" 
-                desk="Silahkan edit data projek"
+                desk="Silahkan edit data projek lama ke data terbaru anda"
                 closeEvent="tutupModalEdit"
             />
         @endif

@@ -57,9 +57,16 @@ class Project extends Component
                 'link_github'=> $data->link_github,
                 'link_app'=> $data->link_app,
                 'link_website'=> $data->link_website,
-                'alat'=> $decoded
+                'alat'=> $decoded,
+                'logo_projek'=> $data->logo_projek,
+                'gambar_flyer'=> $data->gambar_flyer
             ]
         );
+    }
+
+    #[On('close-modal-edit')]
+    public function tutupModalEdit(){
+        $this->showModalEdit = false;
     }
 
     // Modal delete
@@ -80,8 +87,6 @@ class Project extends Component
         $project->delete($this->projectId);
         $this->showModalDelete = false;
     }
-
-
 
     public function render()
     {

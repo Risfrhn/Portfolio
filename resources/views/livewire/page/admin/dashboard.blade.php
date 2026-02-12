@@ -25,7 +25,6 @@
         @if($show)
             <livewire:component.modal.landing-modal />
         @endif
-        <x-component.button.floating wire:click="openModalLogOut"/>
         
         @if($showModalLogOut)
             <livewire:component.alert.alert-konfirmasi head="Sign out" desk="Apakah anda yakin mau keluar?" action="logout" closeEvent="close-modal-logout"/>

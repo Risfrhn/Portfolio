@@ -10,20 +10,7 @@ class AlertKonfirmasi extends Component
     public $head;
     public $desk;
     public $action;
-    public $closeEvent;
-
-    public function mount($head, $desk, $action, $closeEvent)
-    {
-        $this->head = $head;
-        $this->desk = $desk;
-        $this->action = $action;
-        $this->closeEvent = $closeEvent;
-    }
-
-    public function close()
-    {
-        $this->dispatch($this->closeEvent);
-    }
+    public $closeEvent = '';
 
     public function confirm(Auth_Service $auth)
     {
@@ -36,7 +23,7 @@ class AlertKonfirmasi extends Component
 
     public function tutupModalDelete()
     {
-        $this->dispatch($this->closeEvent);
+        $this->dispatch('close-modal-delete');
     }
 
     public function render()

@@ -29,6 +29,15 @@ class Project_Repository
     public function find($id){
         return project::find($id);
     }
+    
+    public function getDataByName($nama){
+        $cek = project::where('nama_projek', $nama)->get();
+        if($cek){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     public function delete($id){
         return project::where('id', $id)->delete();
