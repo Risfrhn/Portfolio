@@ -1,9 +1,7 @@
 <?php
 
-namespace App\View\Components\component\card;
+namespace App\View\Components\Component\Card;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class HorizontalListItem extends Component
@@ -14,10 +12,8 @@ class HorizontalListItem extends Component
     public $name;
     public $type;
     public $desc;
-    /**
-     * Create a new component instance.
-     */
-    public function __construct( $link,$func, $image, $name, $type, $desc)
+
+    public function __construct($link = null, $func = null, $image = null, $name = null, $type = null, $desc = null)
     {
         $this->link = $link;
         $this->func = $func;
@@ -27,10 +23,7 @@ class HorizontalListItem extends Component
         $this->desc = $desc;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.component.card.horizontal-list-item');
     }

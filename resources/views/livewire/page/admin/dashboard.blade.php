@@ -15,25 +15,20 @@
             </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <livewire:component.card.stat-card count="{{$total_product}}" text="Total product" icon="fas fa-laptop-code" />
-            <livewire:component.card.stat-card count="{{$total_projek}}" text="Total project" icon="fas fa-laptop-code" />
-            <livewire:component.card.stat-card count="20" text="Total experience" icon="fas fa-laptop-code" />
+            <x-component.card.stat-card count="{{$total_product}}" text="Total product" icon="fas fa-laptop-code" />
+            <x-component.card.stat-card count="{{$total_projek}}" text="Total project" icon="fas fa-laptop-code" />
+            <x-component.card.stat-card count="20" text="Total experience" icon="fas fa-laptop-code" />
         </div>
         <div class="w-full h-[2px] my-[40px] bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.8));"></div>
         
         <!-- Modal -->
         @if($show)
-            <livewire:component.modal.landing-modal 
-                :header="$header"
-                :tentang="$tentang"
-                :skill="$skill"
-                :CV="$CV"
-            />
+            <livewire:component.modal.landing-modal />
         @endif
-        <x-component.button.floating click="openModalLogOut"/>
+        <x-component.button.floating wire:click="openModalLogOut"/>
         
         @if($showModalLogOut)
-            <livewire:component.modal.logout-modal/>
+            <livewire:component.alert.alert-konfirmasi head="Sign out" desk="Apakah anda yakin mau keluar?" action="logout" closeEvent="close-modal-logout"/>
         @endif
         
     </div>

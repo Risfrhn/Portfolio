@@ -1,26 +1,25 @@
 <?php
 
-namespace App\View\Components\component\button;
+namespace App\View\Components\Component\Button;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Primary extends Component
 {
-    public ?string $label;
-    public ?string $action;
-    public ?string $href;
-    public ?string $submit;
-    public function __construct(?string $label = null, ?string $action = null, ?string $href = null, ?string $submit = null)
+    public $label;
+    public $action;
+    public $href;
+    public $submit;
+
+    public function __construct($label = null, $action = null, $href = null, $submit = null)
     {
         $this->label = $label;
         $this->action = $action;
         $this->href = $href;
         $this->submit = $submit;
     }
-    
-    public function render(): View|Closure|string
+
+    public function render()
     {
         return view('components.component.button.primary');
     }

@@ -13,12 +13,22 @@ class LandingModal extends Component
     // Update Landing
     public ?bool $showUpdateLanding = false;
     public $header;
+    public $subHeader;
+    public $headerBox1;
+    public $descSubHeaderBox1;
+    public $headerBox2;
+    public $descSubHeaderBox2;
     public $tentang;
     public $skill = [];
     public $CV = null;
 
     protected $rules = [
         'header' => 'nullable|string',
+        'subHeader' => 'nullable|string',
+        'headerBox1' => 'nullable|string',
+        'descSubHeaderBox1' => 'nullable|string',
+        'headerBox2' => 'nullable|string',
+        'descSubHeaderBox2' => 'nullable|string',
         'skill' => 'nullable|array',
         'CV' => 'nullable|file|mimes:pdf|max:2048',
         'tentang' => 'nullable|string'
@@ -29,8 +39,15 @@ class LandingModal extends Component
         $this->skill = $data['skill'];
         $this->dispatch('refresh-tags', $this->skill);
         $this->showUpdateLanding = true;
-        $this->header = $data['header'];
-        $this->tentang = $data['tentang'];
+        
+        $this->header = $data['header'] ?? null;
+        $this->subHeader = $data['sub_header'] ?? null; // Assuming snake_case in DB
+        $this->headerBox1 = $data['header_box_1'] ?? null;
+        $this->descSubHeaderBox1 = $data['desc_box_1'] ?? null;
+        $this->headerBox2 = $data['header_box_2'] ?? null;
+        $this->descSubHeaderBox2 = $data['desc_box_2'] ?? null;
+        
+        $this->tentang = $data['tentang'] ?? null;
         $this->CV = $data['CV'] ?? null;
     }
 

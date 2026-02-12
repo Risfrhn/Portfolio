@@ -1,20 +1,18 @@
 <?php
 
-namespace App\View\Components\component\tab;
+namespace App\View\Components\Component\Tab;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class AccordionItem extends Component
 {
-    public ?string $id;
-    public ?string $icon;
-    public ?string $title;
-    public ?string $desc;
-    public array $children;
+    public $id;
+    public $icon;
+    public $title;
+    public $desc;
+    public $children;
 
-    public function __construct(?string $id = null, ?string $icon = null, ?string $title = null, ?string $desc = null, array $children = [])
+    public function __construct($id = null, $icon = null, $title = null, $desc = null, $children = [])
     {
         $this->id = $id;
         $this->icon = $icon;
@@ -23,7 +21,7 @@ class AccordionItem extends Component
         $this->children = $children;
     }
 
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.component.tab.accordion-item');
     }

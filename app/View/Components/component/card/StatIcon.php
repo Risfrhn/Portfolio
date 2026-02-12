@@ -1,24 +1,23 @@
 <?php
 
-namespace App\View\Components\component\card;
+namespace App\View\Components\Component\Card;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class StatIcon extends Component
 {
-    public ?string $icon;
-    public ?string $name;
-    public ?string $desc;
-    public function __construct(?string $icon = null, ?string $name = null, ?string $desc = null)
+    public $icon;
+    public $name;
+    public $desc;
+
+    public function __construct($icon = null, $name = null, $desc = null)
     {
         $this->icon = $icon;
         $this->name = $name;
         $this->desc = $desc;
     }
-    
-    public function render(): View|Closure|string
+
+    public function render()
     {
         return view('components.component.card.stat-icon');
     }

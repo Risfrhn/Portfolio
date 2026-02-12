@@ -1,26 +1,19 @@
 <?php
 
-namespace App\View\Components\component\icon;
+namespace App\View\Components\Component\Icon;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Wrapper extends Component
 {
     public $nameTool;
-    /**
-     * Create a new component instance.
-     */
-    public function __construct( $nameTool)
+
+    public function __construct($nameTool = 'Unknown')
     {
         $this->nameTool = $nameTool;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.component.icon.wrapper');
     }

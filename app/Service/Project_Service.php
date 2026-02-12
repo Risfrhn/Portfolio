@@ -13,12 +13,12 @@ class Project_Service
 
     public function countDataByType($type) : int
     {
-        return $this->project->getAllDataByType($type)->count();
+        return $this->project->getAllData($type)->count();
     }
     
-    public function getDataBytype($type)
+    public function getData($type = null, $keyword = null)
     {
-        $data = $this->project->getAllDataByType($type);
+        $data = $this->project->getAllData($type, $keyword);
         if($data){
             return[
                 'data'=>$data,
@@ -37,6 +37,29 @@ class Project_Service
         $data = $this->project->create($input);
         return [
             'data'=>$data
+        ];
+    }
+
+    public function edit($input, $id){
+        $data = $this->project->edit($input, $id);
+        return [
+            'data'=>$data
+        ];
+    }
+
+    public function delete($id){
+        $data = $this->project->delete($id);
+        if($data){
+            return[
+                'data'=>$data,
+                'message'=>'Data berhasil dihapus',
+                'status'=>true
+            ];
+        }
+        return[
+            'data'=> [],
+            'message'=>'Data gagal dihapus',
+            'status'=> false
         ];
     }
 }

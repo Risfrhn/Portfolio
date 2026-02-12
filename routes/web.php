@@ -11,3 +11,4 @@ Route::get('/', LandingPage::class)->name('landing-page');
 Route::get('/login-page', LoginPage::class);
 Route::get('/dashboard-admin', Dashboard::class)->name('dashboard-admin');
 Route::get('/project-admin', Project::class)->name('dashboard-admin');
+

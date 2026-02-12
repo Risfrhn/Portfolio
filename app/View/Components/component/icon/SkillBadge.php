@@ -1,9 +1,7 @@
 <?php
 
-namespace App\View\Components\component\icon;
+namespace App\View\Components\Component\Icon;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class SkillBadge extends Component
@@ -15,22 +13,19 @@ class SkillBadge extends Component
     public $levelBar;
     public $level;
 
-    /**
-     * Create a new component instance.
-     */
-    public function __construct($image = null, $nameTool = null, $levels = 1)
+    public function __construct($image = null, $nameTool = null, $levels = null)
     {
         $this->image = $image;
         $this->nameTool = $nameTool;
         $this->levels = $levels;
-        $this->labelLevel = $this->getLabelLevelProperty();
-        $this->level = $this->getLevelProperty();
-        $this->levelBar = $this->getLevelBarProperty();
+        $this->labelLevel = $this->getLabelLevel($levels);
+        $this->level = "{$levels}/4";
+        $this->levelBar = (string) (($levels/4)*100) . '%';
     }
 
-    public function getLabelLevelProperty() : string
+    public function getLabelLevel($levels) : string
     {
-        return match($this->levels){
+        return match($levels){
             1 => 'beginner',
             2 => 'intermediate',
             3 => 'advanced',
@@ -39,17 +34,7 @@ class SkillBadge extends Component
         };
     }
 
-    public function getLevelProperty() : string
-    {
-        return "{$this->levels}/4";
-    }
-
-    public function getLevelBarProperty() : string
-    {
-        return (string) (($this->levels/4)*100) . '%';
-    }
-
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.component.icon.skill-badge');
     }

@@ -1,9 +1,7 @@
 <?php
 
-namespace App\View\Components\component\contact;
+namespace App\View\Components\Component\Contact;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class SocialLink extends Component
@@ -12,21 +10,16 @@ class SocialLink extends Component
     public $bgColor;
     public $icon;
     public $name;
-    /**
-     * Create a new component instance.
-     */
-    public function __construct($link, $bgColor, $icon, $name)
+
+    public function __construct($name = null, $icon = null, $link = null, $bgColor = null)
     {
+        $this->name = $name;
+        $this->icon = $icon;
         $this->link = $link;
         $this->bgColor = $bgColor;
-        $this->icon = $icon;
-        $this->name = $name;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.component.contact.social-link');
     }

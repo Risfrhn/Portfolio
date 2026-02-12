@@ -1,28 +1,23 @@
 <?php
 
-namespace App\View\Components\component\input;
+namespace App\View\Components\Component\Input;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class SelectGroup extends Component
 {
     public $label;
-    public $modelValue;
-    /**
-     * Create a new component instance.
-     */
-    public function __construct($label, $modelValue = null)
+    public $model;
+    public $options;
+
+    public function __construct($label = null, $model = null, $options = [])
     {
         $this->label = $label;
-        $this->modelValue = $modelValue;
+        $this->model = $model;
+        $this->options = $options ?? [];
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.component.input.select-group');
     }

@@ -6,7 +6,7 @@
                     <th class="py-3 px-6">Nama Projek</th>
                     <th class="py-3 px-6">Tipe Projek</th>
                     <th class="py-3 px-6">Kategori Projek</th>
-                    <th class="py-3 px-6">Alat Projek</th>
+                    <th class="py-3 px-6">harga Projek</th>
                     <th class="py-3 px-6">Aksi Projek</th>
                 </tr>
             </thead>
@@ -16,10 +16,10 @@
                         <td class="py-4 px-6">{{$item->nama_projek}}</td>
                         <td class="py-4 px-6">{{$item->tipe_projek}}</td>
                         <td class="py-4 px-6">{{$item->kategori}}</td>
-                        <td class="py-4 px-6">{{$item->alat}}</td>
+                        <td class="py-4 px-6">{{$item->harga}}</td>
                         <td class="py-4 px-6">
-                            <button class="text-blue-500 hover:text-blue-600 transition-colors mx-1"><i class="fas fa-edit"></i></button>
-                            <button class="text-red-500 hover:text-red-600 transition-colors mx-1"><i class="fas fa-trash"></i></button>
+                            <button wire:click="{{ $editFungsi }}({{ $item->id }})" class="text-blue-500 hover:text-blue-600 transition-colors mx-1"><i class="fas fa-edit"></i></button>
+                            <button wire:click="{{ $deleteFungsi }}({{ $item->id }})" class="text-red-500 hover:text-red-600 transition-colors mx-1"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
                 @endforeach

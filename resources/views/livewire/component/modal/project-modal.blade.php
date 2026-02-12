@@ -4,33 +4,48 @@
             <div class="grid grid-cols-12 p-5">
                 <div class="col-span-12 text-center flex flex-col justify-center items-center mb-10">
                     <img src="/Forms.gif" alt="" class="w-20">
-                    <slot name="tagSlot"/>
                     <p class="text-2xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent my-3">{{ $head }}</p>
                     <p class="text-xs w-[300px] text-gray-500">{{$desk}}</p>
                 </div>
-                <div class="col-span-12 grid grid-cols-1 gap-5 mb-5">
-                    <x-component.input.form-group label="Nama Projek" type="text" placeholder="Masukkan Nama Projek" modelValue="nama_projek" readonly="0"/>
-                    <x-component.input.form-group label="Nama Perusahaan" type="text" placeholder="Masukkan Nama Perusahaan" modelValue="perusahaan" readonly="0"/>
-                    <x-component.input.form-group label="Deskripsi Projek" type="text" placeholder="Masukkan Deskripsi Projek" modelValue="deskripsi_projek" readonly="0"/>
-                    <x-component.input.form-group label="Deskripsi Fitur" type="text" placeholder="Masukkan Deskripsi Fitur" modelValue="fitur" readonly="0"/>
-                    <x-component.input.form-group label="Harga" type="number" placeholder="Masukkan Harga" modelValue="harga" readonly="0"/>
+                <div class="col-span-12">
+                     <x-component.input.form-group label="Name" type="text" model="nama_projek" placeholder="Masukkan nama project"/>
                 </div>
-                <div class="col-span-12 grid grid-cols-2 gap-5 mb-5">
-                    <x-component.input.form-group label="Tanggal Mulai" type="date" placeholder="Masukkan Tanggal Mulai" modelValue="tanggal_mulai" readonly="0"/>
-                    <x-component.input.form-group label="Tanggal Akhir" type="date" placeholder="Masukkan Tanggal Akhir" modelValue="tanggal_akhir" readonly="0"/>
-                    <x-component.input.select-group label="Masukkan Posisi" modelValue="posisi"/>
-                    <x-component.input.select-group label="Masukkan Tipe Projek" modelValue="tipe_projek"/>
+                <div class="col-span-12">
+                     <x-component.input.form-group label="Perusahaan" type="text" model="perusahaan" placeholder="Masukkan nama perusahaan"/>
                 </div>
-                <div class="col-span-12 grid grid-cols-1 gap-5 mb-5">
-                    <x-component.input.select-group label="Masukkan Kategori Projek" modelValue="kategori"/>
-                    <x-component.input.form-group label="Link Github" type="text" placeholder="Masukkan Link Github" modelValue="link_github" readonly="0"/>
-                    <x-component.input.form-group label="Link aplikasi" type="text" placeholder="Masukkan Link aplikasi" modelValue="link_app" readonly="0"/>
-                    <x-component.input.form-group label="Link website" type="number" placeholder="Masukkan Link website" modelValue="link_website" readonly="0"/>
-                    <livewire:component.input.tag-input />
+                <div class="col-span-12">
+                     <x-component.input.form-group label="Deskripsi" type="text" model="deskripsi_projek" placeholder="Masukkan deskripsi project"/>
                 </div>
-                <div class="col-span-12 grid grid-cols-1 gap-5 mx-5">
-                    <x-component.button.primary label="Tambah Data" wire:click="create" class="w-full"/>
-                    <button wire:click="tutupModalTambah" class="text-sm font-medium mx-2 md:mx-0 py-[8px] px-10 text-white text-red-600  rounded-full shadow-lg border-2 border-red-600 hover:bg-red-600  hover:text-white hover:shadow-[0_0_20px_rgba(130,90,250,0.4)]">
+                <!-- Row 2 -->
+                <div class="col-span-12 grid grid-cols-2 gap-5">
+                    <x-component.input.select-group label="Tipe" model="tipe_projek" :options="$tipeOptions"/>
+                    <x-component.input.form-group label="Harga" type="text" model="harga" placeholder="Masukkan harga project"/>
+                </div>
+                <!-- Row 3 -->
+                <div class="col-span-12">
+                    <x-component.input.form-group label="Fitur" type="text" model="fitur" placeholder="Masukkan fitur project"/>
+                </div>
+                <div class="col-span-12 grid grid-cols-2 gap-5">
+                    <x-component.input.form-group label="Tanggal Mulai" type="date" placeholder="Masukkan Tanggal Mulai" model="tanggal_mulai" readonly="0"/>
+                    <x-component.input.form-group label="Tanggal Akhir" type="date" placeholder="Masukkan Tanggal Akhir" model="tanggal_akhir" readonly="0"/>
+                </div>
+                <!-- Row 4 -->
+                <div class="col-span-12 grid grid-cols-2 gap-5">
+                    <x-component.input.select-group label="Posisi" model="posisi" :options="$posisiOptions"/>
+                    <x-component.input.select-group label="Kategori" model="kategori" :options="$kategoriOptions"/>
+                </div>
+                <!-- Row 5 -->
+                <div class="col-span-12 grid grid-cols-1 gap-5">
+                    <x-component.input.form-group label="Link Github" type="text" placeholder="Masukkan Link Github" model="link_github" readonly="0"/>
+                    <x-component.input.form-group label="Link aplikasi" type="text" placeholder="Masukkan Link aplikasi" model="link_app" readonly="0"/>
+                    <x-component.input.form-group label="Link website" type="text" placeholder="Masukkan Link website" model="link_website" readonly="0"/>
+                </div>
+                <div class="col-span-12">
+                      <livewire:component.input.tag-input :tags="$alat"/>
+                </div>
+                <div class="col-span-12 grid grid-cols-1 gap-5 mx-5 ">
+                   <x-component.button.primary label="{{ $dataId ? 'Update Data' : 'Tambah Data' }}" wire:click="save" class="w-full flex"/>
+                    <button wire:click="{{$closeEvent}}" class="text-sm font-medium mx-2 md:mx-0 py-[8px] px-10 text-white text-red-600  rounded-full shadow-lg border-2 border-red-600 hover:bg-red-600  hover:text-white hover:shadow-[0_0_20px_rgba(130,90,250,0.4)] w-full flex items-center justify-center">
                         Close
                     </button> 
                 </div>

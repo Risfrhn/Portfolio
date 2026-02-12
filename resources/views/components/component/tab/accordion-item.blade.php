@@ -34,11 +34,13 @@
         :style="isOpen ? 'max-height: 24rem; opacity: 1; padding-top: 1rem; padding-bottom: 1rem;' : 'max-height: 0; opacity: 0; padding-top: 0; padding-bottom: 0;'"
     >
         @foreach($children as $child)
-            <x-component.icon.skill-badge 
-                :levels="$child['levels']" 
-                :nameTool="$child['nameTool']" 
-                :image="$child['image']"
-            />
+            <div class="col-span-6 md:col-span-4 lg:col-span-3">
+                <x-component.icon.skill-badge 
+                image="{{$child['image']}}" 
+                nameTool="{{$child['nameTool']}}" 
+                levels="{{$child['levels']}}" 
+                />
+            </div>
         @endforeach
     </div>
 </div>

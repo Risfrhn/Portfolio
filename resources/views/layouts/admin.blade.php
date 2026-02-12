@@ -26,7 +26,7 @@
 </head>
 <body>
     <div class="min-h-screen flex flex-col">
-        <x-component.navbar.sidebar/>     
+        <livewire:component.navbar.sidebar/>     
         
         <!-- Konten halaman -->
         <main class="flex-1 bg-[#12121E] p-4 ml-0 sm:ml-64">

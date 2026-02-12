@@ -1,25 +1,20 @@
 <?php
 
-namespace App\View\Components\component\contact;
+namespace App\View\Components\Component\Contact;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Quote extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public function __construct($name = null, $job = null, $quote = null, $image = null)
     {
-        //
+        $this->name = $name;
+        $this->job = $job;
+        $this->quote = $quote;
+        $this->image = $image;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.component.contact.quote');
     }

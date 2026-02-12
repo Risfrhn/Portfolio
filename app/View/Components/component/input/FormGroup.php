@@ -1,9 +1,7 @@
 <?php
 
-namespace App\View\Components\component\input;
+namespace App\View\Components\Component\Input;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class FormGroup extends Component
@@ -14,23 +12,18 @@ class FormGroup extends Component
     public $message;
     public $placeholder;
     public $readonly;
-    /**
-     * Create a new component instance.
-     */
-    public function __construct($label, $type, $model = null, $modelValue = null, $message = null, $placeholder = null, $readonly = null)
+
+    public function __construct($label = null, $type = null, $model = null, $message = null, $placeholder = null, $readonly = null)
     {
         $this->label = $label;
         $this->type = $type;
-        $this->model = $model ?? $modelValue;
+        $this->model = $model;
         $this->message = $message;
         $this->placeholder = $placeholder;
         $this->readonly = $readonly;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.component.input.form-group');
     }

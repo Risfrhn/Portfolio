@@ -132,13 +132,24 @@
         <img src="/Word.png" alt="" class="animate-icon-2 z-10 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[130px] right-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:right-[150px]">
         <img src="/Laravel.png" alt="" class="animate-icon-3 z-10 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[200px] right-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:right-[400px]">
 
-        <x-layout.ui_layout_var_1 title="What I’ve Done" desc="Some of my recent projects">
-            <x-slot name="card">
-                <x-component.card.project-thumbnail link="#" image="#" name="Test" type="Test" desc="Test" />
-                <x-component.card.project-thumbnail link="#" image="#" name="Test" type="Test" desc="Test" />
-                <x-component.card.project-thumbnail link="#" image="#" name="Test" type="Test" desc="Test" />
-            </x-slot>
-        </x-layout.ui_layout_var_1>
+        <div class="relative mt-36 mb-24 z-10">
+            <div class="grid grid-cols-12 my-24 gap-4 z-10">
+                <div class="col-span-12">
+                    <p class="text-3xl text-center lg:text-5xl lg:my-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent" style="filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.9));">What I’ve Done</p>
+                </div>
+                <div class="col-span-12">
+                    <p class="text-gray-500 text-center mt-1 mb-5">Some of my recent projects</p>
+                </div>
+                <div class="col-span-12 mt-5">
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <x-component.card.project-thumbnail link="#" image="#" name="Test" type="Test" desc="Test" />
+                        <x-component.card.project-thumbnail link="#" image="#" name="Test" type="Test" desc="Test" />
+                        <x-component.card.project-thumbnail link="#" image="#" name="Test" type="Test" desc="Test" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="hidden sm:block absolute z-[0] md:top-[500px] left-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[700px]  lg:w-[900px] lg:h-[500px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 blur-[120px] transform -translate-x-1/2 -translate-y-1/2"></div>
     </div>
 
@@ -146,29 +157,70 @@
     <!-- Product -->
     <div class="w-full h-[2px] mt-[40px] md:mt-[100px] bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.8));"></div>
     <div class="relative my-24">
-        <x-layout.ui_layout_var_2 title="What I’ve Done" desc="Some of my recent projects">
-            <x-slot name="card">
-                <x-component.card.horizontal-list-item link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
-                <x-component.card.horizontal-list-item link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
-                <x-component.card.horizontal-list-item link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
-            </x-slot>
-        </x-layout.ui_layout_var_2>
+        <div class="relative mt-36 mb-14 z-10">
+            <div class="grid grid-cols-12 my-14 gap-4 z-10">
+                <div class="col-span-12">
+                    <p class="text-3xl text-center lg:text-5xl lg:my-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
+                        What I’ve Done
+                    </p>
+                </div>
+
+                <div class="col-span-12">
+                    <p class="text-gray-500 text-center mt-1 mb-5">Some of my recent projects</p>
+                </div>
+
+                <div class="col-span-12 z-10">
+                    <div class="grid grid-cols-12 place-content-center gap-3">
+                        <x-component.card.horizontal-list-item link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
+                        <x-component.card.horizontal-list-item link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
+                        <x-component.card.horizontal-list-item link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="hidden sm:block absolute z-0 md:top-[300px] left-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[700px]  lg:w-[900px] lg:h-[300px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 blur-[120px] transform -translate-x-1/2 -translate-y-1/2"></div>
     </div>
 
 
     <!-- Kontak -->
-    <x-layout.ui_layout_var_3 header="Get in touch" subHeader="Want to collaborate or build custom software? Get in touch!" headerBox1="Send message" descSubHeaderBox1="Want to collaborate or build custom software? Get in touch!" headerBox2="Join Me Online" descSubHeaderBox2="Stay in the loop with my projects and posts by following me.">
-        <x-slot name="slot1">
-            <livewire:component.contact-form />
-        </x-slot>
-        <x-slot name="slot2">
-            <x-component.contact.social-link name="LinkedIn/Muhammad Risky Farhan" icon="fab fa-linkedin" link="www.linkedin.com/in/muhammad-risky-farhan-596783309" bgColor="#0077B5"/>
-            <x-component.contact.social-link name="Github/Risfrhn" icon="fab fa-github" link="https://github.com/Risfrhn/" bgColor="#4141aa"/>
-            <x-component.contact.social-link name="Instagram/risfrhn_" icon="fab fa-instagram" link="https://www.instagram.com/risfrhn_/" bgColor="#8900df"/>
-            <x-component.contact.social-link name="Email/rskyfrhn801@gmail.com" icon="fa-solid fa-envelope" link="" bgColor="#D44638"/>
-            <x-component.contact.social-link name="Steam/FarhanKebab" icon="fab fa-steam" link="https://steamcommunity.com/id/Zoow1/" bgColor="#012f9a"/>
-            <x-component.contact.social-link name="Whatsapp/+6281345765427" icon="fab fa-phone" link="wa.me/081345765427" bgColor="#25D366"/>
-        </x-slot>
-    </x-layout.ui_layout_var_3>
+    <div class="w-full h-[2px] mt-[40px] md:mt-[100px] bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.8));"></div>
+    <div id="ContactSection" class="relative mt-24 mb-40 mx-3">
+        <div class="grid grid-cols-12 my-24 gap-4 z-10">
+            <div class="col-span-12">
+                <p class="text-3xl text-center lg:text-5xl lg:my-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent" style="filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.9));">Get in touch</p>
+            </div>
+            <div class="col-span-12">
+                <p class="text-gray-500 text-center mt-1">Want to collaborate or build custom software? Get in touch!</p>
+            </div>
+            <div class="col-span-12">
+                <div class="grid grid-cols-12 my-10 h-full gap-4 z-10">
+                    <div class="col-span-12 md:col-span-6 h-full bg-[#a78bfa]/10 rounded-xl pt-10 px-5">
+                        <div class="col-span-12">
+                            <p class="text-3xl text-center lg:text-5xl lg:my-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent" style="filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.9));">Send message</p>
+                        </div>
+                        <div class="col-span-12">
+                            <p class="text-gray-500 text-center mt-1">Want to collaborate or build custom software? Get in touch!</p>
+                        </div>
+                        <livewire:component.contact-form />
+                    </div>
+                    <div class="col-span-12 md:col-span-6 h-full bg-[#a78bfa]/10  rounded-xl pt-10 px-5">
+                        <div class="col-span-12">
+                            <p class="text-3xl text-center lg:text-5xl lg:my-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent" style="filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.9));">Join Me Online</p>
+                        </div>
+                        <div class="col-span-12 mb-10">
+                            <p class="text-gray-500 text-center mt-1">Stay in the loop with my projects and posts by following me.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-3 place-content-center">
+                            <x-component.contact.social-link name="LinkedIn/Muhammad Risky Farhan" icon="fab fa-linkedin" link="www.linkedin.com/in/muhammad-risky-farhan-596783309" bgColor="#0077B5"/>
+                            <x-component.contact.social-link name="Github/Risfrhn" icon="fab fa-github" link="https://github.com/Risfrhn/" bgColor="#4141aa"/>
+                            <x-component.contact.social-link name="Instagram/risfrhn_" icon="fab fa-instagram" link="https://www.instagram.com/risfrhn_/" bgColor="#8900df"/>
+                            <x-component.contact.social-link name="Email/rskyfrhn801@gmail.com" icon="fa-solid fa-envelope" link="" bgColor="#D44638"/>
+                            <x-component.contact.social-link name="Steam/FarhanKebab" icon="fab fa-steam" link="https://steamcommunity.com/id/Zoow1/" bgColor="#012f9a"/>
+                            <x-component.contact.social-link name="Whatsapp/+6281345765427" icon="fab fa-phone" link="wa.me/081345765427" bgColor="#25D366"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

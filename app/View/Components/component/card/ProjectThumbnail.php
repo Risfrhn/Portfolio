@@ -1,9 +1,7 @@
 <?php
 
-namespace App\View\Components\component\card;
+namespace App\View\Components\Component\Card;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class ProjectThumbnail extends Component
@@ -13,10 +11,8 @@ class ProjectThumbnail extends Component
     public $name;
     public $type;
     public $desc;
-    /**
-     * Create a new component instance.
-     */
-    public function __construct( $link, $image, $name, $type, $desc)
+
+    public function __construct($link = null, $image = null, $name = null, $type = null, $desc = null)
     {
         $this->link = $link;
         $this->image = $image;
@@ -25,10 +21,7 @@ class ProjectThumbnail extends Component
         $this->desc = $desc;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.component.card.project-thumbnail');
     }
