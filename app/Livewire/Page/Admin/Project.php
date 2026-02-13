@@ -59,7 +59,8 @@ class Project extends Component
                 'link_website'=> $data->link_website,
                 'alat'=> $decoded,
                 'logo_projek'=> $data->logo_projek,
-                'gambar_flyer'=> $data->gambar_flyer
+                'gambar_flyer'=> $data->gambar_flyer,
+                'gambar'=> $data->gambar
             ]
         );
     }

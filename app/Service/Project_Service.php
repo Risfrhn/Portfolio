@@ -53,8 +53,24 @@ class Project_Service
             $nama = 'project-'.time().$input['gambar_flyer']->getClientOriginalName();
             $path2 = $input['gambar_flyer']->storeAs('project/'. $input['nama_projek']. '/flyer', $nama, 'public');
         }
-        $input['gambar_flyer'] = $path1;
-        $input['logo_projek'] = $path2;
+        if(isset($input['gambar']) && is_array($input['gambar'])){
+            $paths = [];
+            foreach($input['gambar'] as $index => $file){
+                if(is_object($file)) {
+                    $nama = 'project-'.time().'-'.$index.'-'.$file->getClientOriginalName();
+                    $paths[] = $file->storeAs(
+                        'project/'.$input['nama_projek'].'/gambar',
+                        $nama,
+                        'public'
+                    );
+                } else {
+                    $paths[] = $file;
+                }
+            }
+            $input['gambar'] = json_encode($paths);
+        }
+        $input['gambar_flyer'] = $path2;
+        $input['logo_projek'] = $path1;
         $data = $this->project->create($input);
         return [
             'data'=>$data
@@ -63,6 +79,8 @@ class Project_Service
 
     public function edit($input, $id){
         $cek = $this->project->find($id);
+        $path1 = null;
+        $path2 = null;
         if($cek){
             if(isset($input['logo_projek'])){
                 $fullpath1 = $cek->logo_projek ? Storage::disk('public')->path($cek->logo_projek) : null;
@@ -80,9 +98,40 @@ class Project_Service
                 $nama = 'project-'.time().$input['gambar_flyer']->getClientOriginalName();
                 $path2 = $input['gambar_flyer']->storeAs('project/'. $input['nama_projek']. '/flyer', $nama, 'public');
             }
+            if(isset($input['gambar']) && is_array($input['gambar'])){
+                $paths = [];
+                foreach($input['gambar'] as $index => $file){
+                    if(is_object($file)) {
+                        $nama = 'project-'.time().'-'.$index.'-'.$file->getClientOriginalName();
+                        $paths[] = $file->storeAs(
+                            'project/'.$input['nama_projek'].'/gambar',
+                            $nama,
+                            'public'
+                        );
+                    } else {
+                        $paths[] = $file;
+                    }
+                }
+                $input['gambar'] = json_encode($paths);
+            }
         }
-        $input['gambar_flyer'] = $path1;
-        $input['logo_projek'] = $path2;
+        $input['gambar_flyer'] = $path2 ?? $cek->gambar_flyer;
+        $input['logo_projek'] = $path1 ?? $cek->logo_projek;
+        $input['gambar'] = $paths ?? $cek->gambar;
+        $input['nama_projek'] = $input['nama_projek'] ?? $cek->nama_projek;
+        $input['deskripsi_projek'] = $input['deskripsi_projek'] ?? $cek->deskripsi_projek;
+        $input['perusahaan'] = $input['perusahaan'] ?? $cek->perusahaan;
+        $input['tanggal_mulai'] = $input['tanggal_mulai'] ?? $cek->tanggal_mulai;
+        $input['tanggal_akhir'] = $input['tanggal_akhir'] ?? $cek->tanggal_akhir;
+        $input['posisi'] = $input['posisi'] ?? $cek->posisi;
+        $input['tipe_projek'] = $input['tipe_projek'] ?? $cek->tipe_projek;
+        $input['kategori'] = $input['kategori'] ?? $cek->kategori;
+        $input['alat'] = $input['alat'] ?? $cek->alat;
+        $input['fitur'] = $input['fitur'] ?? $cek->fitur;
+        $input['harga'] = $input['harga'] ?? $cek->harga;
+        $input['link_website'] = $input['link_website'] ?? $cek->link_website;
+        $input['link_app'] = $input['link_app'] ?? $cek->link_app;
+        $input['link_github'] = $input['link_github'] ?? $cek->link_github;
         $data = $this->project->edit($input, $id);
         return [
             'data'=>$data

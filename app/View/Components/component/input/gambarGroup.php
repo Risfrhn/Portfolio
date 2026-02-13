@@ -9,9 +9,11 @@ use Illuminate\View\Component;
 class gambarGroup extends Component
 {
     public $model;
-    public function __construct($model)
+    public $label;
+    public function __construct($model, $label)
     {
         $this->model = $model;
+        $this->label = $label;
     }
 
     /**

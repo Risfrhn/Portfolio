@@ -10,6 +10,12 @@ use Livewire\WithFileUploads;
 class ProjectModal extends Component
 {
     use WithFileUploads;
+    
+    // Multiple Input Gambar 
+    public $tempImages = [];
+    public $gambar_flyer_db = [];
+    public $logo_projek_db = [];
+
     public $showModal = false;
     public $dataId = null;
     public ?string $head = null;
@@ -35,13 +41,13 @@ class ProjectModal extends Component
         'Documentation' => 'Documentation'
     ];
 
-    #[Validate('required|string|max:255', as: 'nama project')]
+    #[Validate('nullable|string|max:255', as: 'nama project')]
     public $nama_projek;
 
-    #[Validate('required|string|max:255', as: 'nama perusahaan')]
+    #[Validate('nullable|string|max:255', as: 'nama perusahaan')]
     public $perusahaan;
 
-    #[Validate('required|string', as: 'deskripsi')]
+    #[Validate('nullable|string', as: 'deskripsi')]
     public $deskripsi_projek;
 
     #[Validate('nullable|string', as: 'fitur')]
@@ -50,19 +56,19 @@ class ProjectModal extends Component
     #[Validate('nullable|string', as: 'harga')]
     public $harga;
 
-    #[Validate('required|date', as: 'tanggal mulai')]
+    #[Validate('nullable|date', as: 'tanggal mulai')]
     public $tanggal_mulai;
 
     #[Validate('nullable|date|after_or_equal:tanggal_mulai', as: 'tanggal akhir')]
     public $tanggal_akhir;
 
-    #[Validate('required|string', as: 'posisi')]
+    #[Validate('nullable|string', as: 'posisi')]
     public $posisi;
 
-    #[Validate('required|string', as: 'tipe')]
+    #[Validate('nullable|string', as: 'tipe')]
     public $tipe_projek;
 
-    #[Validate('required|string', as: 'kategori')]
+    #[Validate('nullable|string', as: 'kategori')]
     public $kategori;
 
     #[Validate('nullable|url', as: 'link github')]
@@ -83,6 +89,13 @@ class ProjectModal extends Component
     #[Validate('nullable|image|max:10240', as: 'gambar flyer')]
     public $gambar_flyer;
 
+    #[Validate([
+        'gambar' => 'nullable|array',
+        'gambar.*' => 'nullable'
+    ])]
+    public $gambar = [];
+
+
     #[On('update-project')] 
     public function update($data){
         $this->dataId = $data['id'] ?? null;
@@ -102,8 +115,9 @@ class ProjectModal extends Component
         $this->link_github = $data['link_github'];
         $this->link_app = $data['link_app'];
         $this->link_website = $data['link_website'];
-        $this->logo_projek = $data['logo_projek'];
-        $this->gambar_flyer = $data['gambar_flyer'];
+        $this->logo_projek_db = $data['logo_projek'];
+        $this->gambar_flyer_db = $data['gambar_flyer'];
+        $this->gambar = $data['gambar'];
     }
 
     #[On('tags-updated')]
@@ -115,7 +129,7 @@ class ProjectModal extends Component
     // Fungsi
     public function save(Project_Service $service){
         $validated = $this->validate();
-        
+      
         if ($this->dataId) {
             $service->edit($validated, $this->dataId);
             $this->dispatch('refresh-data');
@@ -125,8 +139,25 @@ class ProjectModal extends Component
             $this->dispatch('refresh-data');
             $this->dispatch('close-modal');
         }
+    }
 
-        
+    // Multiple input gambar
+    public function add()
+    {
+        $this->validate([
+            'tempImages.*' => 'image|max:10240',
+        ]);
+
+        foreach ($this->tempImages as $img) {
+            $this->gambar[] = $img;
+        }
+        $this->reset('tempImages');
+    }
+
+
+    public function remove($index){
+        unset($this->gambar[$index]);
+        $this->gambar = array_values($this->gambar); 
     }
 
 
