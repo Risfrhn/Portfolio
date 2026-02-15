@@ -13,8 +13,8 @@ class ProjectModal extends Component
     
     // Multiple Input Gambar 
     public $tempImages = [];
-    public $gambar_flyer_db = [];
-    public $logo_projek_db = [];
+    public $gambar_flyer_db;
+    public $logo_projek_db;
 
     public $showModal = false;
     public $dataId = null;
@@ -117,7 +117,7 @@ class ProjectModal extends Component
         $this->link_website = $data['link_website'];
         $this->logo_projek_db = $data['logo_projek'];
         $this->gambar_flyer_db = $data['gambar_flyer'];
-        $this->gambar = $data['gambar'];
+        $this->gambar = is_array($data['gambar']) ? $data['gambar'] : json_decode($data['gambar'], true) ?? [];
     }
 
     #[On('tags-updated')]

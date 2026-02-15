@@ -115,6 +115,15 @@ class Project_Service
                 $input['gambar'] = json_encode($paths);
             }
         }
+
+        // Delete gambar yang tidak ada di array
+        $files = Storage::disk('public')->files('project/'.$input['nama_projek'].'/gambar');
+        $array_gambar = json_decode($input['gambar'], true) ?? [];
+        foreach($files as $cekData){
+            if(!in_array($cekData, $array_gambar)){
+                Storage::disk('public')->delete($cekData);
+            }
+        }
         $input['gambar_flyer'] = $path2 ?? $cek->gambar_flyer;
         $input['logo_projek'] = $path1 ?? $cek->logo_projek;
         $input['gambar'] = $paths ?? $cek->gambar;

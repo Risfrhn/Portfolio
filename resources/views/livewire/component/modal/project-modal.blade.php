@@ -109,7 +109,7 @@
                                             @foreach($gambar as $data => $image)
                                                 <div wire:key="images-{{ $data }}" class="flex items-center gap-1 shrink-0">
                                                     <div class="relative inline-block">
-                                                    @if(is_object($image) && method_exists($image,'temporaryUrl'))
+                                                        @if(is_object($image) && method_exists($image,'temporaryUrl'))
                                                             <img src="{{ $image->temporaryUrl() }}" width="150">
                                                         @else
                                                             <img src="{{ asset('storage/'.$image) }}" width="150">
