@@ -1,43 +1,58 @@
 <div>
-    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base ms-3 mt-3 text-sm p-2 focus:outline-none inline-flex sm:hidden">
-        <span class="sr-only">Open sidebar</span>
-        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
-        </svg>
-    </button>
-
-    <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-[#1D1D29] border-e border-default">
-            <ul class="space-y-2 font-medium flex flex-col h-full">
-                <li>
-                    <a href="/dashboard-admin" wire:navigate  class="flex items-center px-2 py-1.5 text-white rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                        <i class="fa-solid fa-table-list"></i>
-                        <span class="ms-3">Dashboard</span>
+    <aside id="logo-sidebar" class="hidden sm:block fixed left-4 top-4 bottom-4 z-40 bg-[#0b0b14] shadow-xl rounded-2xl border border-white/10" aria-label="Sidebar">
+        <div class="h-full flex flex-col items-center py-6">
+            <ul class="flex flex-col">
+                <li class="mx-auto">
+                    <a href="https://flowbite.com/" class="flex items-center justify-center mt-2">
+                        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
                     </a>
                 </li>
-                <li>
-                    <a href="/project-admin" wire:navigate  class="flex items-center px-2 py-1.5 text-white rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                        <i class="fa-solid fa-file-code"></i>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Project</span>
+                <li class="mx-auto my-8">
+                    <a href="/search-admin" wire:navigate class="px-4 py-1.5 text-lg text-[#424954] hover:text-[#4C7BC3]">
+                        <i class="fa-solid fa-magnifying-glass p-2 bg-black text-white rounded-lg"></i>
                     </a>
                 </li>
-                <li>
-                    <router-link :to="{name: 'ExperienceAdmin'}" class="flex items-center px-2 py-1.5 text-white rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Experience</span>
-                    </router-link>
+                <li class="mx-auto mb-2">
+                    <p class="text-xs text-gray-500 font-semibold">Menu</p>
                 </li>
-                <li class="mt-auto">
-                    <button wire:click="openModalConfirm" class="w-full flex items-center px-2 py-1.5 text-white rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/></svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap text-left">Sign Out</span>
-                    </button>
+                <li class="mx-auto my-2">
+                    <a href="/dashboard-admin" wire:navigate class="pr-3.5 pl-2.5 py-1.5 text-lg text-[#424954] border-l-4 border-transparent hover:border-[#4C7BC3] hover:text-[#4C7BC3] transition-all duration-300">
+                        <i class="fa-solid fa-house p-2 hover:bg-black hover:text-white hover:p-2 rounded-lg"></i>
+                    </a>
+                </li>
+                <li class="mx-auto my-2">
+                    <a href="/project-admin" wire:navigate class="pr-3.5 pl-2.5 py-1.5 text-lg text-[#424954] border-l-4 border-transparent hover:border-[#4C7BC3] hover:text-[#4C7BC3] transition-all duration-300">
+                        <i class="fa-solid fa-folder-open p-2 hover:bg-black hover:text-white hover:p-2 rounded-lg"></i>
+                    </a>
+                </li>
+                <li class="mx-auto my-2">
+                    <a href="/experience-admin" wire:navigate class="pr-3.5 pl-2.5 py-1.5 text-lg text-[#424954] border-l-4 border-transparent hover:border-[#4C7BC3] hover:text-[#4C7BC3] transition-all duration-300">
+                        <i class="fa-solid fa-briefcase p-2 hover:bg-black hover:text-white hover:p-2 rounded-lg"></i>
+                    </a>
+                </li>
+                <li class="mx-auto my-2">
+                    <a href="/sertifikat-admin" wire:navigate class="pr-3.5 pl-2.5 py-1.5 text-lg text-[#424954] border-l-4 border-transparent hover:border-[#4C7BC3] hover:text-[#4C7BC3] transition-all duration-300">
+                        <i class="fa-solid fa-certificate p-2 hover:bg-black hover:text-white hover:p-2 rounded-lg"></i>
+                    </a>
                 </li>
             </ul>
+            <div class="mt-auto py-6 border-t-2 border-white/30">
+                <ul class="flex flex-col">
+                    <li class="mx-auto mb-2">
+                        <p class="text-xs text-gray-500 font-semibold">Other</p>
+                    </li>
+                    <li class="my-2">
+                        <a href="setting" wire:navigate class="pr-3.5 pl-2.5 py-1.5 text-lg text-[#424954] border-l-4 border-transparent hover:border-[#4C7BC3] hover:text-[#4C7BC3] transition-all duration-300">
+                            <i class="fa-solid fa-gear p-2 hover:bg-black hover:text-white hover:p-2 rounded-lg"></i>
+                        </a>
+                    </li>
+                    <li class="mt-2">
+                        <a href="logout" wire:navigate class="pr-3.5 pl-2.5 py-1.5 text-lg text-[#424954] border-l-4 border-transparent hover:border-[#4C7BC3] hover:text-[#4C7BC3] transition-all duration-300">
+                            <i class="fa-solid fa-right-from-bracket p-2 hover:bg-black hover:text-white hover:p-2 rounded-lg"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-        @if($showModalLogOut)
-            <livewire:component.alert.alert-konfirmasi head="Sign out" desk="Apakah anda yakin mau keluar?" action="logout" closeEvent="close-modal-logout"/>
-        @endif
     </aside>
 </div>

@@ -29,7 +29,7 @@
         <livewire:component.navbar.sidebar/>     
         
         <!-- Konten halaman -->
-        <main class="flex-1 bg-[#12121E] p-4 ml-0 sm:ml-64">
+        <main class="flex-1 bg-[#12121E] p-4 m-0 sm:m-5 ml-0 rounded-lg sm:ml-28">
             {{ $slot }}
             @livewireScripts
         </main>

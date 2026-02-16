@@ -18,8 +18,14 @@
             <x-component.card.stat-card count="{{$total_product}}" text="Total product" icon="fas fa-laptop-code" />
             <x-component.card.stat-card count="{{$total_projek}}" text="Total project" icon="fas fa-laptop-code" />
             <x-component.card.stat-card count="20" text="Total experience" icon="fas fa-laptop-code" />
+            <x-component.card.stat-card count="20" text="Total sertifkat" icon="fas fa-laptop-code" />
         </div>
         <div class="w-full h-[2px] my-[40px] bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.8));"></div>
+        
+        <h2 class="text-4xl mb-5 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">Preview dashboard</h2>
+        <div class="relative overflow-hidden p-5 bg-black z-0 bg-[#1D1D29]/30 rounded-md">
+            <livewire:page.user.landing-page />
+        </div>
         
         <!-- Modal -->
         @if($show)
