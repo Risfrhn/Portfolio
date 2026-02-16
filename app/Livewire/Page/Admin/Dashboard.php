@@ -10,6 +10,7 @@ class Dashboard extends Component
 {
     public ?bool $show = false;
     public ?bool $showModalLogOut = false;
+    public ?bool $showPreviewLanding = false;
     public $data;
     public $total_projek;
     public $pengalaman;
@@ -54,8 +55,22 @@ class Dashboard extends Component
         $this->showModalLogOut = false;
     }
 
+    public function openPreviewModalLanding(){
+        $this->showPreviewLanding = true;
+    }
+
+    #[On('close-modal-preview')]
+    public function closePreviewModalLanding(){
+        $this->showPreviewLanding = false;
+    }
+
     public function render()
     {
-        return view('livewire.page.admin.dashboard')->layout('layouts.admin');
+        return view('livewire.page.admin.dashboard',[
+            'data' => $this->data,
+            'total_projek' => $this->total_projek,
+            'pengalaman' => $this->pengalaman,
+            'total_product' => $this->total_product,
+        ])->layout('layouts.admin');
     }
 }
