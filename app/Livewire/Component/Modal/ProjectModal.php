@@ -3,6 +3,7 @@
 namespace App\Livewire\Component\Modal;
 use Livewire\Component;
 use App\Service\Project_Service;
+use App\Repository\Project_Repository;
 use Livewire\Attributes\Validate;
 use Livewire\Attributes\On;
 use Livewire\WithFileUploads;
@@ -96,29 +97,45 @@ class ProjectModal extends Component
     public $gambar = [];
 
 
-    #[On('update-project')] 
-    public function update($data){
-        $this->dataId = $data['id'] ?? null;
-        $this->alat = $data['alat'] ?? [];
+    #[On('load-project')] 
+    public function update($id){
+        $data = app(Project_Repository::class)->find($id);
+
+        if (!$data) return;
+
+        $this->fill([
+            'dataId' => $data->id,
+            'nama_projek' => $data->nama_projek,
+            'perusahaan' => $data->perusahaan,
+            'deskripsi_projek' => $data->deskripsi_projek,
+            'fitur' => $data->fitur,
+            'harga' => $data->harga,
+            'tanggal_mulai' => $data->tanggal_mulai,
+            'tanggal_akhir' => $data->tanggal_akhir,
+            'posisi' => $data->posisi,
+            'tipe_projek' => $data->tipe_projek,
+            'kategori' => $data->kategori,
+            'link_github' => $data->link_github,
+            'link_app' => $data->link_app,
+            'link_website' => $data->link_website,
+            'logo_projek_db' => $data->logo_projek,
+            'gambar_flyer_db' => $data->gambar_flyer,
+        ]);
+
+        $this->alat = is_array($data->alat)
+            ? $data->alat
+            : json_decode($data->alat, true) ?? [];
+
+        $this->gambar = is_array($data->gambar)
+            ? $data->gambar
+            : json_decode($data->gambar, true) ?? [];
+
         $this->dispatch('refresh-tags', $this->alat);
+
         $this->showModal = true;
-        $this->nama_projek = $data['nama_projek'];
-        $this->perusahaan = $data['perusahaan'];
-        $this->deskripsi_projek = $data['deskripsi_projek'];
-        $this->fitur = $data['fitur'];
-        $this->harga = $data['harga'];
-        $this->tanggal_mulai = $data['tanggal_mulai'];
-        $this->tanggal_akhir = $data['tanggal_akhir'];
-        $this->posisi = $data['posisi'];
-        $this->tipe_projek = $data['tipe_projek'];
-        $this->kategori = $data['kategori'];
-        $this->link_github = $data['link_github'];
-        $this->link_app = $data['link_app'];
-        $this->link_website = $data['link_website'];
-        $this->logo_projek_db = $data['logo_projek'];
-        $this->gambar_flyer_db = $data['gambar_flyer'];
-        $this->gambar = is_array($data['gambar']) ? $data['gambar'] : json_decode($data['gambar'], true) ?? [];
     }
+
+    
 
     #[On('tags-updated')]
     public function updateTags($tags)
