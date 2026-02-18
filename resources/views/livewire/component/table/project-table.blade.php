@@ -19,8 +19,8 @@
                             <td class="py-4 px-6">{{$item->kategori}}</td>
                             <td class="py-4 px-6">{{ "Rp " . number_format($item->harga, 0, ',', '.') }}</td>
                             <td class="py-4 px-6">
-                                <button wire:click="{{ $editFungsi }}({{ $item->id }})" class="text-blue-500 hover:text-blue-600 transition-colors mx-1"><i class="fas fa-edit"></i></button>
-                                <button wire:click="{{ $deleteFungsi }}({{ $item->id }})" class="text-red-500 hover:text-red-600 transition-colors mx-1"><i class="fas fa-trash"></i></button>
+                                <button wire:click="bukaModalEdit({{ $item->id }})" class="text-blue-500 hover:text-blue-600 transition-colors mx-1"><i class="fas fa-edit"></i></button>
+                                <button wire:click="bukaModalDelete({{ $item->id }})" class="text-red-500 hover:text-red-600 transition-colors mx-1"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     @endforeach
