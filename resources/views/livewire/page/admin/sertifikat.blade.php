@@ -42,4 +42,12 @@
             desk="Silahkan tambah data sertifikat terbaru anda"
         />
     @endif
+
+    @if($showModalEdit)
+        <livewire:component.modal.sertifikat-modal 
+            closeEvent="tutupModalEdit"
+            head="Edit Data Sertifikat"
+            desk="Silahkan edit data sertifikat terbaru anda"
+        />
+    @endif
 </div>

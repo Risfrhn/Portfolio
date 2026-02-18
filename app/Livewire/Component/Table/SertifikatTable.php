@@ -14,6 +14,10 @@ class SertifikatTable extends Component
         $this->dispatch('buka-alert-delete', $id);
     }
 
+    public function bukaModalEdit($id = null){
+        $this->dispatch('buka-modal-edit-sertifikat', $id);
+    }
+
     public function render()
     {
         return view('livewire.component.table.sertifikat-table');

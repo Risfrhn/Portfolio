@@ -17,6 +17,7 @@ class Sertifikat extends Component
 
     public $showModalTambah = false;
     public $showModalDelete = false;
+    public $showModalEdit = false;
 
     public function boot(Sertifikat_Repository $repo, Sertifikat_Service $service)
     {
@@ -52,6 +53,18 @@ class Sertifikat extends Component
     #[On('close-modal-delete-sertifikat')]
     public function tutupModalDelete(){
         $this->showModalDelete = false;
+    }
+
+    // modal edit
+    #[On('buka-modal-edit-sertifikat')]
+    public function bukaModalEdit($id = null){
+        $this->dispatch('load-sertifikat', id: $id);
+        $this->showModalEdit = true;
+    }
+
+    #[On('close-modal-edit-sertifikat')]
+    public function tutupModalEdit(){
+        $this->showModalEdit = false;
     }
 
 

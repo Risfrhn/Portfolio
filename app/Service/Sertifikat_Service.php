@@ -29,6 +29,7 @@ class Sertifikat_Service
         ];
     }
 
+
     public function create($input){
         $input['gambar_sertifikat'] = $this->manageGambar($input['gambar_sertifikat'], null, 'sertifikat/'. $input['judul']. '/gambar');
         $input['file_sertifikat'] = $this->manageGambar($input['file_sertifikat'], null, 'sertifikat/'. $input['judul']. '/file');
@@ -71,11 +72,46 @@ class Sertifikat_Service
         ];
     }
 
+    public function edit($input, $id){
+        $cek = $this->sertifikat->find($id);
+        if(!$cek){
+            return[
+                'data' => [],
+                'status' => $cek,
+                'message' => "Data tidak ditemukan"
+            ];
+        }
+
+        if($cek->judul != $input['judul']){
+            $path_old = 'sertifikat/'. $cek->judul;
+            $path_new = 'sertifikat/'. $input['judul'];
+            if(Storage::disk('public')->exists($path_old)){
+                Storage::disk('public')->move($path_old, $path_new);
+                Storage::disk('public')->deleteDirectory($path_old);
+            }
+        }
+        $input['gambar_sertifikat'] = $this->manageGambar($input['gambar_sertifikat'], $cek->gambar_sertifikat, 'sertifikat/'. $input['judul']. '/gambar');
+        $input['file_sertifikat'] = $this->manageGambar($input['file_sertifikat'], $cek->file_sertifikat, 'sertifikat/'. $input['judul']. '/file');
+
+        $input['file_sertifikat'] = $input['file_sertifikat'] ?? $cek->file_sertifikat;
+        $input['gambar_sertifikat'] = $input['gambar_sertifikat'] ?? $cek->gambar_sertifikat;
+        $input['judul'] = $input['judul'] ?? $cek->judul;
+        $input['nama_institusi'] = $input['nama_institusi'] ?? $cek->nama_institusi;
+        $input['tanggal_terbit'] = $input['tanggal_terbit'] ?? $cek->tanggal_terbit;
+        $input['tanggal_berlaku'] = $input['tanggal_berlaku'] ?? $cek->tanggal_berlaku;
+        $input['nomor_sertifikat'] = $input['nomor_sertifikat'] ?? $cek->nomor_sertifikat;
+        $data = $this->sertifikat->edit($input, $id);
+        return [
+            'data'=>$data
+        ];
+    }
+
     private function manageGambar(&$input, $cek = null, $path){
         $path_save = null;
         $fullpath = null;
         if(isset($input)){
             $fullpath1 = $cek ? Storage::disk('public')->path($cek) : null;
+
             if($fullpath1 && file_exists($fullpath1)){
                 unlink($fullpath1);
             }

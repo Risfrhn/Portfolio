@@ -19,7 +19,7 @@
                             <td class="py-4 px-6">{{$item->tanggal_terbit}}</td>
                             <td class="py-4 px-6">{{$item->tanggal_berlaku}}</td>
                             <td class="py-4 px-6">
-                                <button wire:click="#" class="text-blue-500 hover:text-blue-600 transition-colors mx-1"><i class="fas fa-edit"></i></button>
+                                <button wire:click="bukaModalEdit({{$item->id}})" class="text-blue-500 hover:text-blue-600 transition-colors mx-1"><i class="fas fa-edit"></i></button>
                                 <button wire:click="bukaAlertDelete({{$item->id}})" class="text-red-500 hover:text-red-600 transition-colors mx-1"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>

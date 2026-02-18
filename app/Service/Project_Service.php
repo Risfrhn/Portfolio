@@ -60,6 +60,15 @@ class Project_Service
             ];
         }
 
+        if($cek->nama_projek != $input['nama_projek']){
+            $path_old = 'project/'. $cek->nama_projek;
+            $path_new = 'project/'. $input['nama_projek'];
+            if(Storage::disk('public')->exists($path_old)){
+                Storage::disk('public')->move($path_old, $path_new);
+                Storage::disk('public')->deleteDirectory($path_old);
+            }
+        }
+
         $input['logo_projek'] = $this->manageGambar($input['logo_projek'], $cek->logo_projek, 'project/'. $input['nama_projek']. '/logo');
         $input['gambar_flyer'] = $this->manageGambar($input['gambar_flyer'], $cek->gambar_flyer, 'project/'. $input['nama_projek']. '/flyer');
         $input['gambar'] = $this->manageGambarMultiple($input['gambar'], 'project/'. $input['nama_projek']. '/gambar');

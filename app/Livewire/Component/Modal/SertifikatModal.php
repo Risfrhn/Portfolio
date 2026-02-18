@@ -37,44 +37,45 @@ class SertifikatModal extends Component
     public $file_sertifikat;
     public $file_sertifikat_db;
 
-    // #[On('load-sertifikat')] 
-    // public function update($id){
-    //     $data = app(Sertifikat_Repository::class)->find($id);
+    #[On('load-sertifikat')] 
+    public function update($id){
+        $data = app(Sertifikat_Repository::class)->find($id);
 
-    //     if (!$data) return;
+        if (!$data) return;
 
-    //     $this->fill([
-    //         'dataId' => $data->id,
-    //         'nomor_sertifikat' => $data->nomor_sertifikat,
-    //         'judul' => $data->judul,
-    //         'nama_institusi' => $data->nama_institusi,
-    //         'tanggal_terbit' => $data->tanggal_terbit ? \Carbon\Carbon::parse($data->tanggal_terbit)->format('Y-m-d') : null,
-    //         'tanggal_berlaku' => $data->tanggal_berlaku ? \Carbon\Carbon::parse($data->tanggal_berlaku)->format('Y-m-d') : null,
-    //         'gambar_sertifikat_db' => $data->gambar_sertifikat,
-    //         'file_sertifikat_db' => $data->file_sertifikat,
-    //     ]);
+        $this->fill([
+            'dataId' => $data->id,
+            'nomor_sertifikat' => $data->nomor_sertifikat,
+            'judul' => $data->judul,
+            'nama_institusi' => $data->nama_institusi,
+            'tanggal_terbit' => $data->tanggal_terbit ? \Carbon\Carbon::parse($data->tanggal_terbit)->format('Y-m-d') : null,
+            'tanggal_berlaku' => $data->tanggal_berlaku ? \Carbon\Carbon::parse($data->tanggal_berlaku)->format('Y-m-d') : null,
+            'gambar_sertifikat_db' => $data->gambar_sertifikat,
+            'file_sertifikat_db' => $data->file_sertifikat,
+        ]);
 
-    //     $this->showModal = true;
-    // }
+        $this->showModal = true;
+    }
 
     public function save(Sertifikat_Service $service){
         $validated = $this->validate();
       
         if ($this->dataId) {
             $service->edit($validated, $this->dataId);
-            $this->dispatch('refresh-data');
-            $this->dispatch('close-modal-edit');
+            $this->dispatch('close-modal-edit-sertifikat');
         } else {
             $service->create($validated);
-            $this->dispatch('refresh-data');
             $this->dispatch('close-modal-tambah');
         }
-        $this->reset();
     }
 
     public function tutupModalTambah(){
         $this->dispatch('close-modal-tambah');
         $this->reset();
+    }
+
+    public function tutupModalEdit(){
+        $this->dispatch('close-modal-edit-sertifikat');
     }
 
     public function render()

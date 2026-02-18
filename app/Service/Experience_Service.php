@@ -53,6 +53,15 @@ class Experience_Service
             ];
         }
 
+        if($cek->perusahaan != $input['perusahaan']){
+            $path_old = 'experience/'. $cek->perusahaan;
+            $path_new = 'experience/'. $input['perusahaan'];
+            if(Storage::disk('public')->exists($path_old)){
+                Storage::disk('public')->move($path_old, $path_new);
+                Storage::disk('public')->deleteDirectory($path_old);
+            }
+        }
+
         $input['logo'] = $this->manageGambar($input['logo'], $cek->logo, 'experience/'. $input['perusahaan']. '/logo');
         $input['flyer'] = $this->manageGambar($input['flyer'], $cek->flyer, 'experience/'. $input['perusahaan']. '/flyer');
         $input['gambar'] = $this->manageGambarMultiple($input['gambar'], 'experience/'. $input['perusahaan']. '/gambar');
