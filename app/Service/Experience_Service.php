@@ -1,20 +1,20 @@
 <?php
 
 namespace App\Service;
-use App\Repository\Project_Repository;
+use App\Repository\Experience_Repository;
 use Illuminate\Support\Facades\Storage;
 
-class Project_Service
+class Experience_Service
 {
-    public Project_Repository $project;
-    public function __construct(Project_Repository $project)
+    public Experience_Repository $experience;
+    public function __construct(Experience_Repository $experience)
     {
-        $this->project = $project; 
+        $this->experience = $experience; 
     }
     
-    public function getData($type = null, $keyword = null)
+    public function getData($type = null, $keyword = null, $posisi = null)
     {
-        $data = $this->project->getAllData($type, $keyword);
+        $data = $this->experience->getAllData($type, $keyword, $posisi);
         if($data){
             return[
                 'data'=>$data,
@@ -32,26 +32,19 @@ class Project_Service
     public function create($input){
         $path1 = null;
         $path2 = null;
-        $cekProject = $this->project->getDataByName($input['nama_projek']);
-        if($cekProject){
-            return[
-                'data' => [],
-                'status' => $cekProject,
-                'message' => "Data sudah ada"
-            ];
-        }else{
-            $input['logo_projek'] = $this->manageGambar($input['logo_projek'], null, 'project/'. $input['nama_projek']. '/logo');
-            $input['gambar_flyer'] = $this->manageGambar($input['gambar_flyer'], null, 'project/'. $input['nama_projek']. '/flyer');
-            $input['gambar'] = $this->manageGambarMultiple($input['gambar'], null, 'project/'. $input['nama_projek']. '/gambar');
-            $data = $this->project->create($input);
-            return [
-                'data'=>$data
-            ];   
-        }
+        $input['logo'] = $this->manageGambar($input['logo'], null, 'experience/'. $input['perusahaan']. '/logo');
+        $input['flyer'] = $this->manageGambar($input['flyer'], null, 'experience/'. $input['perusahaan']. '/flyer');
+        $input['gambar'] = $this->manageGambarMultiple($input['gambar'], 'experience/'. $input['perusahaan']. '/gambar');
+        $data = $this->experience->create($input);
+        return [
+            'data'=>$data,
+            'message'=>'Data berhasil ditambahkan',
+            'status'=>true
+        ];
     }
 
     public function edit($input, $id){
-        $cek = $this->project->find($id);
+        $cek = $this->experience->find($id);
         if(!$cek){
             return[
                 'data' => [],
@@ -60,50 +53,46 @@ class Project_Service
             ];
         }
 
-        $input['logo_projek'] = $this->manageGambar($input['logo_projek'], $cek->logo_projek, 'project/'. $input['nama_projek']. '/logo');
-        $input['gambar_flyer'] = $this->manageGambar($input['gambar_flyer'], $cek->gambar_flyer, 'project/'. $input['nama_projek']. '/flyer');
-        $input['gambar'] = $this->manageGambarMultiple($input['gambar'], 'project/'. $input['nama_projek']. '/gambar');
+        $input['logo'] = $this->manageGambar($input['logo'], $cek->logo, 'experience/'. $input['perusahaan']. '/logo');
+        $input['flyer'] = $this->manageGambar($input['flyer'], $cek->flyer, 'experience/'. $input['perusahaan']. '/flyer');
+        $input['gambar'] = $this->manageGambarMultiple($input['gambar'], 'experience/'. $input['perusahaan']. '/gambar');
 
-        $input['gambar_flyer'] = $input['gambar_flyer'] ?? $cek->gambar_flyer;
-        $input['logo_projek'] = $input['logo_projek'] ?? $cek->logo_projek;
+        $input['flyer'] = $input['flyer'] ?? $cek->flyer;
+        $input['logo'] = $input['logo'] ?? $cek->logo;
         $input['gambar'] = $input['gambar'] ?? $cek->gambar;
-        $input['nama_projek'] = $input['nama_projek'] ?? $cek->nama_projek;
-        $input['deskripsi_projek'] = $input['deskripsi_projek'] ?? $cek->deskripsi_projek;
         $input['perusahaan'] = $input['perusahaan'] ?? $cek->perusahaan;
+        $input['deskripsi'] = $input['deskripsi'] ?? $cek->deskripsi;
         $input['tanggal_mulai'] = $input['tanggal_mulai'] ?? $cek->tanggal_mulai;
         $input['tanggal_akhir'] = $input['tanggal_akhir'] ?? $cek->tanggal_akhir;
         $input['posisi'] = $input['posisi'] ?? $cek->posisi;
-        $input['tipe_projek'] = $input['tipe_projek'] ?? $cek->tipe_projek;
-        $input['kategori'] = $input['kategori'] ?? $cek->kategori;
-        $input['alat'] = $input['alat'] ?? $cek->alat;
-        $input['fitur'] = $input['fitur'] ?? $cek->fitur;
-        $input['harga'] = $input['harga'] ?? $cek->harga;
+        $input['tipe_pekerjaan'] = $input['tipe_pekerjaan'] ?? $cek->tipe_pekerjaan;
+        $input['teknologi'] = $input['teknologi'] ?? $cek->teknologi;
+        $input['pencapaian'] = $input['pencapaian'] ?? $cek->pencapaian;
         $input['link_website'] = $input['link_website'] ?? $cek->link_website;
         $input['link_app'] = $input['link_app'] ?? $cek->link_app;
-        $input['link_github'] = $input['link_github'] ?? $cek->link_github;
-        $data = $this->project->edit($input, $id);
+        $data = $this->experience->edit($input, $id);
         return [
             'data'=>$data
         ];
     }
 
     public function delete($id){
-        $cek = $this->project->find($id);
+        $cek = $this->experience->find($id);
         if($cek){
-            $fullpath1 = $cek->logo_projek ? Storage::disk('public')->path($cek->logo_projek) : null;
+            $fullpath1 = $cek->logo ? Storage::disk('public')->path($cek->logo) : null;
             if($fullpath1 && file_exists($fullpath1)){
                 Storage::disk('public')->delete($fullpath1);
             }
-            $fullpath2 = $cek->gambar_flyer ? Storage::disk('public')->path($cek->gambar_flyer) : null;
+            $fullpath2 = $cek->flyer ? Storage::disk('public')->path($cek->flyer) : null;
             if($fullpath2 && file_exists($fullpath2)){
                 Storage::disk('public')->delete($fullpath2);
             }
-            $path = 'project/'. $cek->nama_projek;
+            $path = 'experience/'. $cek->perusahaan;
             if(Storage::disk('public')->exists($path)){
                 Storage::disk('public')->deleteDirectory($path);
             }
         }
-        $data = $this->project->delete($id);
+        $data = $this->experience->delete($id);
         if($data){
             return[
                 'data'=>$data,
@@ -130,7 +119,7 @@ class Project_Service
             if($fullpath1 && file_exists($fullpath1)){
                 unlink($fullpath1);
             }
-            $nama = 'project-'.time().$input->getClientOriginalName();
+            $nama = 'experience-'.time().$input->getClientOriginalName();
             $path_save = $input->storeAs($path, $nama, 'public');
             return $path_save;
         }
@@ -141,7 +130,7 @@ class Project_Service
             $path_save = [];
             foreach($input as $index => $file){
                 if(is_object($file)) {
-                    $nama = 'project-'.time().'-'.$index.'-'.$file->getClientOriginalName();
+                    $nama = 'experience-'.time().'-'.$index.'-'.$file->getClientOriginalName();
                     $path_save[] = $file->storeAs($path, $nama, 'public');
                 } else {
                     $path_save[] = $file;

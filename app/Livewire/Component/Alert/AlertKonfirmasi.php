@@ -16,8 +16,10 @@ class AlertKonfirmasi extends Component
     {
         if ($this->action === 'logout') {
             $this->dispatch('logout');
-        }elseif($this->action === 'delete'){
-            $this->dispatch('delete');
+        }elseif($this->action === 'delete-project'){
+            $this->dispatch('delete-project');
+        }elseif($this->action === 'delete-experience'){
+            $this->dispatch('delete-experience');
         }
     }
 
@@ -25,6 +27,13 @@ class AlertKonfirmasi extends Component
     {
         $this->dispatch('close-modal-delete');
     }
+
+    public function tutupModalDeleteExperience()
+    {
+        $this->dispatch('close-modal-delete-experience');
+    }
+
+
 
     public function render()
     {

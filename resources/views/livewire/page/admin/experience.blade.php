@@ -18,15 +18,33 @@
                     </span>
                     <select wire:model.live="filter" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer bg-gray-600">
                         <option value="">Semua kategori</option>
-                        <option value="Magang">Magang</option>
-                        <option value="Pekerja_Penuh">Pekerja penuh</option>
-                        <option value="Pekerja_Lepas">Pekerja lepas</option>
-                        <option value="Kontrak">Kontrak</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Full_Time">Full Time</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Contract">Contract</option>
+                        <option value="Part_Time">Part Time</option>
+                    </select>
+                </label>
+                {{-- Filter Posisi --}}
+                <label class="relative inline-flex items-center justify-center p-0.5 text-xs md:text-sm font-medium tracking-wide text-white transition duration-300 rounded-md shadow-lg bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 hover:from-purple-600 hover:to-blue-500 cursor-pointer w-full lg:w-auto">
+                    <span class="w-full text-center px-2 md:px-4 py-2.5 bg-[#0b0b14] rounded-md transition-all duration-150 ease-in-out group-hover:bg-transparent">
+                        Filter Posisi
+                    </span>
+                    <select wire:model.live="filterPosisi" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer bg-gray-600">
+                        <option value="">Semua posisi</option>
+                        <option value="Backend Developer">Backend Developer</option>
+                        <option value="Frontend Developer">Frontend Developer</option>
+                        <option value="Fullstack Developer">Fullstack Developer</option>
+                        <option value="Mobile Developer">Mobile Developer</option>
+                        <option value="UI/UX Designer">UI/UX Designer</option>
+                        <option value="System Analyst">System Analyst</option>
+                        <option value="DevOps Engineer">DevOps Engineer</option>
+                        <option value="Project Manager">Project Manager</option>
                     </select>
                 </label>
 
                 {{-- Add Button --}}
-                <button wire:click="openModalTambah" class="relative inline-flex items-center justify-center p-0.5 text-xs md:text-sm font-medium tracking-wide text-white transition duration-300 rounded-md shadow-lg bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 hover:from-purple-600 hover:to-blue-500 cursor-pointer w-full lg:w-auto">
+                <button wire:click="bukaModalTambah" class="relative inline-flex items-center justify-center p-0.5 text-xs md:text-sm font-medium tracking-wide text-white transition duration-300 rounded-md shadow-lg bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 hover:from-purple-600 hover:to-blue-500 cursor-pointer w-full lg:w-auto">
                     <span class="w-full text-center px-2 md:px-4 py-2.5 bg-[#0b0b14] rounded-md transition-all duration-150 ease-in-out group-hover:bg-transparent">
                         Tambah Data Pengalaman
                     </span>
@@ -34,38 +52,37 @@
             </div>
         </div>
 
-        {{--<livewire:component.table.project-table 
-            :project="$project" 
-            :actions="['edit' => 'bukaModalEdit', 'delete' => 'bukaModalDelete']"
-            editFungsi="bukaModalEdit"
-            deleteFungsi="bukaModalDelete"
-        />--}}
+        <livewire:component.table.table-experience
+            :experience="$experience"
+        />
+
 
         @if($showModalTambah)
             <livewire:component.modal.experience-modal 
+                closeEvent="closeModalTambah"
                 head="Tambah Projek" 
                 desk="Silahkan tambah data projek terbaru anda"
-                closeEvent = "closeModalTambah"
             />
         @endif
 
-        {{--@if($showModalDelete)
+        @if($showModalDelete)
             <livewire:component.alert.alert-konfirmasi 
-                :dataId="$projectId"
-                head="Delete Projek" 
+                :dataId="$experienceId"
+                head="Delete Pengalaman" 
                 desk="Apakah anda yakin ingin menghapus data ini?"
-                action="delete"
-                closeEvent="tutupModalDelete"
+                action="delete-experience"
+                closeEvent="closeModalEdit"
             />
         @endif
 
         @if($showModalEdit)
-            <livewire:component.modal.project-modal 
-                :dataId="$projectId"
-                head="Edit Projek" 
-                desk="Silahkan edit data projek lama ke data terbaru anda"
-                closeEvent="tutupModalEdit"
+            <livewire:component.modal.experience-modal 
+                :dataId="$experienceId"
+                closeEvent="closeModalEdit"
+                head="Edit Pengalaman" 
+                desk="Silahkan edit data pengalaman anda"
             />
-        @endif--}}
+        @endif
+
     </div>
 </div>

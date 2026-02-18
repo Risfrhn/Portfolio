@@ -12,8 +12,6 @@ class ProjectTable extends Component
     public $project;
     public $showModalEdit = false;
     public $showModalDelete = false;
-    public $editFungsi = '';
-    public $deleteFungsi = '';
 
     // modal edit
     public function bukaModalEdit($id = null){

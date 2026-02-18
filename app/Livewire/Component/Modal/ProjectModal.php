@@ -21,7 +21,6 @@ class ProjectModal extends Component
     public $dataId = null;
     public ?string $head = null;
     public ?string $desk = null;
-    public $closeEvent = '';
 
     // Options for SelectGroup
     public $tipeOptions = [

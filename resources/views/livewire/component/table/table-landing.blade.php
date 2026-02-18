@@ -13,7 +13,11 @@
                 <tr class="bg-[#1D1D29] border-b dark:border-gray-700">
                     <td class="py-4 px-6">{{$data->deskripsi_header}}</td>
                     <td class="py-4 px-6">{{$data->deskripsi_tentang}}</td>
-                    <td class="py-4 px-6">{{$data->skill_header}}</td>
+                    <td class="py-4 px-6 gap-2 flex flex-wrap">
+                        @foreach ($data->skill_header as $item)
+                            <x-component.icon.wrapper :nameTool="$item"/>
+                        @endforeach
+                    </td>
                     <td class="py-4 px-6">{{$data->CV}}</td>
                 </tr>
             </tbody>

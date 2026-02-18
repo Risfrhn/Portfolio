@@ -3,6 +3,7 @@
 namespace App\Livewire\Page\Admin;
 use App\Repository\Landing_Repository;
 use App\Service\Project_Service;
+use App\Repository\Project_Repository;
 use Livewire\Component;
 use Livewire\Attributes\On;
 
@@ -16,12 +17,12 @@ class Dashboard extends Component
     public $pengalaman;
     public $total_product;
 
-    public function mount(Landing_Repository $repo, Project_Service $service)
+    public function mount(Landing_Repository $repo, Project_Service $service, Project_Repository $project)
     {
         $this->data = $repo->getDataLanding();
 
-        $this->total_projek = $service->countDataByType('portfolio');
-        $this->total_product = $service->countDataByType('product');
+        $this->total_projek = $project->countByType('portfolio');
+        $this->total_product = $project->countByType('product');
     }
 
     public function openEdit($id){

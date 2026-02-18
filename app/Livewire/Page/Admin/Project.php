@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Page\Admin;
 use App\Service\Project_Service;
+use App\Repository\Project_Repository;
 use Livewire\Component;
 use Livewire\Attributes\On;
 
@@ -14,14 +15,16 @@ class Project extends Component
     public $projectId = null;
     public $search = '';
     
-    #[On('refresh-data')]
-    public function refreshData()
+    private Project_Service $service;
+    private Project_Repository $repo;
+
+    public function boot(Project_Service $service, Project_Repository $repo)
     {
-        // Just by being called, this triggers a re-render which refreshes the data.
+        $this->service = $service;
+        $this->repo = $repo;
     }
 
     // Modal create
-    #[On('open-modal')]
     public function bukaModal($id = null){
         $this->showModal = true;
     }
@@ -55,7 +58,7 @@ class Project extends Component
         $this->showModalDelete = false;
     }
 
-    #[On('delete')]
+    #[On('delete-project')]
     public function delete(Project_Service $project)
     {
         $project->delete($this->projectId);
@@ -64,9 +67,7 @@ class Project extends Component
 
     public function render()
     {
-        $service = app(Project_Service::class);
-
-        $projects = $service->getData($this->filter, $this->search)['data'] ?? [];
+        $projects = $this->service->getData($this->filter, $this->search)['data'] ?? [];
 
         return view('livewire.page.admin.project', [
             'project' => $projects,

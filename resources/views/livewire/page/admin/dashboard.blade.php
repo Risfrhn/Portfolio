@@ -16,7 +16,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <x-component.card.stat-card count="{{$total_product}}" text="Total product" icon="fas fa-laptop-code" />
-            <x-component.card.stat-card count="{{$total_projek}}" text="Total project" icon="fas fa-laptop-code" />
+            <x-component.card.stat-card count="{{$total_projek}}" text="Total portfolio" icon="fas fa-laptop-code" />
             <x-component.card.stat-card count="20" text="Total experience" icon="fas fa-laptop-code" />
             <x-component.card.stat-card count="20" text="Total sertifkat" icon="fas fa-laptop-code" />
         </div>

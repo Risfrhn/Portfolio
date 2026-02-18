@@ -6,16 +6,18 @@ use App\Models\project;
 class Project_Repository
 {
     public function getAllData($type = null, $keyword = null){
-        if ($type) {
-            return project::where('tipe_projek', $type)->get();
-        }
-        if ($keyword) {
-            return project::where('nama_projek', 'like', "%{$keyword}%")->get();
-        }
-        if($type != null && $keyword != null){
-            return project::where('tipe_projek', $type)->where('nama_projek', 'like', "%{$keyword}%")->get();
-        }
-        return project::all();
+        return project::query()
+        ->when($type, fn($q) => $q->where('tipe_projek', $type))
+        ->when($keyword, fn($q) => 
+            $q->where('nama_projek', 'like', "%{$keyword}%")
+        )
+        ->latest()
+        ->get();
+    }
+
+    public function countByType($type)
+    {
+        return project::where('tipe_projek', $type)->count();
     }
 
     public function create($data){
@@ -31,7 +33,7 @@ class Project_Repository
     }
     
     public function getDataByName($nama){
-        $cek = project::where('nama_projek', $nama)->get();
+        $cek = project::where('nama_projek', $nama)->exists();
         if($cek){
             return true;
         }else{

@@ -12,18 +12,18 @@
             </thead>
             <tbody>
                 @if($project->count() > 0)
-                @foreach($project as $item)
-                    <tr class="bg-[#1D1D29] border-b dark:border-gray-700">
-                        <td class="py-4 px-6">{{$item->nama_projek}}</td>
-                        <td class="py-4 px-6">{{$item->tipe_projek}}</td>
-                        <td class="py-4 px-6">{{$item->kategori}}</td>
-                        <td class="py-4 px-6">{{ "Rp " . number_format($item->harga, 0, ',', '.') }}</td>
-                        <td class="py-4 px-6">
-                            <button wire:click="{{ $editFungsi }}({{ $item->id }})" class="text-blue-500 hover:text-blue-600 transition-colors mx-1"><i class="fas fa-edit"></i></button>
-                            <button wire:click="{{ $deleteFungsi }}({{ $item->id }})" class="text-red-500 hover:text-red-600 transition-colors mx-1"><i class="fas fa-trash"></i></button>
-                        </td>
-                    </tr>
-                @endforeach
+                    @foreach($project as $item)
+                        <tr class="bg-[#1D1D29] border-b dark:border-gray-700">
+                            <td class="py-4 px-6">{{$item->nama_projek}}</td>
+                            <td class="py-4 px-6">{{$item->tipe_projek}}</td>
+                            <td class="py-4 px-6">{{$item->kategori}}</td>
+                            <td class="py-4 px-6">{{ "Rp " . number_format($item->harga, 0, ',', '.') }}</td>
+                            <td class="py-4 px-6">
+                                <button wire:click="{{ $editFungsi }}({{ $item->id }})" class="text-blue-500 hover:text-blue-600 transition-colors mx-1"><i class="fas fa-edit"></i></button>
+                                <button wire:click="{{ $deleteFungsi }}({{ $item->id }})" class="text-red-500 hover:text-red-600 transition-colors mx-1"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    @endforeach
                 @else
                     <tr class="bg-[#1D1D29] border-b dark:border-gray-700">
                         <td class="py-4 px-6" colspan="5">
