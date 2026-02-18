@@ -4,6 +4,7 @@ namespace App\Livewire\Component\Navbar;
 
 use Livewire\Component;
 use Livewire\Attributes\On;
+use App\Service\Auth_Service;
 
 class Sidebar extends Component
 {
@@ -23,6 +24,7 @@ class Sidebar extends Component
     #[On('logout')]
     public function logout(Auth_Service $auth){
         $auth->logout();
+        $this->showModalLogOut = false;
         return redirect()->route('landing-page');
     }
 

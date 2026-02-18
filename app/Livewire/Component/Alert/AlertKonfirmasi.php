@@ -40,6 +40,11 @@ class AlertKonfirmasi extends Component
         $this->dispatch('close-modal-delete-sertifikat');
     }
 
+    public function tutupModalLogout()
+    {
+        $this->dispatch('close-modal-logout');
+    }
+
 
     public function render()
     {

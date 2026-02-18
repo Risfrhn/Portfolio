@@ -47,7 +47,7 @@
                         </a>
                     </li>
                     <li class="mt-2">
-                        <a href="logout" wire:navigate class="pr-3.5 pl-2.5 py-1.5 text-lg text-[#424954] border-l-4 border-transparent hover:border-[#4C7BC3] hover:text-[#4C7BC3] transition-all duration-300">
+                        <a wire:click="openModalConfirm" class="pr-3.5 pl-2.5 py-1.5 text-lg text-[#424954] border-l-4 border-transparent hover:border-[#4C7BC3] hover:text-[#4C7BC3] transition-all duration-300">
                             <i class="fa-solid fa-right-from-bracket p-2 hover:bg-black hover:text-white hover:p-2 rounded-lg"></i>
                         </a>
                     </li>
@@ -55,4 +55,13 @@
             </div>
         </div>
     </aside>
+
+    @if($showModalLogOut)
+        <livewire:component.alert.alert-konfirmasi 
+            head="Konfirmasi Logout"
+            desk="Apakah anda yakin ingin logout?"
+            action="logout"
+            closeEvent="tutupModalLogout"
+        />
+    @endif
 </div>
