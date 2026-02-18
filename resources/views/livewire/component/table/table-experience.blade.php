@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if($experience->count() > 0)
+                @if(count($experience) > 0)
                     @foreach($experience as $item)
                         <tr class="bg-[#1D1D29] border-b dark:border-gray-700">
                             <td class="py-4 px-6">{{$item->perusahaan}}</td>

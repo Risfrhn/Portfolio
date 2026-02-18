@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if($sertifikat->count() > 0)
+                @if(count($sertifikat) > 0)
                     @foreach($sertifikat as $item)
                         <tr class="bg-[#1D1D29] border-b dark:border-gray-700">
                             <td class="py-4 px-6">{{$item->judul}}</td>

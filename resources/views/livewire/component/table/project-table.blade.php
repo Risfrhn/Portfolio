@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if($project->count() > 0)
+                @if(count($project) > 0)
                     @foreach($project as $item)
                         <tr class="bg-[#1D1D29] border-b dark:border-gray-700">
                             <td class="py-4 px-6">{{$item->nama_projek}}</td>

@@ -4,11 +4,13 @@ namespace App\Livewire\Page\Admin;
 
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
 use App\Service\Experience_Service;
 use App\Repository\Experience_Repository;
 
 class Experience extends Component
 {
+    use WithPagination;
     public $showModalTambah = false;
     public $showModalDelete = false;
     public $showModalEdit = false;
@@ -69,7 +71,7 @@ class Experience extends Component
 
     public function render()
     {
-        $experience = $this->service->getData($this->filter, $this->search, $this->filterPosisi)['data'] ?? [];
+        $experience = $this->service->getData($this->filter, $this->search, $this->filterPosisi, paginate: true, perPage: 5)['data'] ?? [];
         return view('livewire.page.admin.experience', [
             'experience' => $experience,
         ])->layout('layouts.admin');

@@ -5,14 +5,18 @@ use App\Models\project;
 
 class Project_Repository
 {
-    public function getAllData($type = null, $keyword = null){
-        return project::query()
+    public function getAllData($type = null, $keyword = null, $paginate = false, $perPage = 5){
+        $query = project::query()
         ->when($type, fn($q) => $q->where('tipe_projek', $type))
         ->when($keyword, fn($q) => 
             $q->where('nama_projek', 'like', "%{$keyword}%")
         )
-        ->latest()
-        ->get();
+        ->latest();
+
+        if($paginate){
+            return $query->paginate($perPage);
+        }
+        return $query->get();
     }
 
     public function countByType($type)

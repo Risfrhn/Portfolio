@@ -6,9 +6,11 @@ use Livewire\Component;
 use App\Repository\Sertifikat_Repository;
 use App\Service\Sertifikat_Service;
 use Livewire\Attributes\On; 
+use Livewire\WithPagination; 
 
 class Sertifikat extends Component
 {
+    use WithPagination;
 
     public $search = '';
     public $sertifikatId = null;
@@ -70,7 +72,7 @@ class Sertifikat extends Component
 
     public function render()
     {
-        $sertifikat = $this->service->getData($this->search)['data'] ?? [];
+        $sertifikat = $this->service->getData($this->search, paginate: true, perPage: 5)['data'] ?? [];
         return view('livewire.page.admin.sertifikat',[
             'sertifikat' => $sertifikat,
         ])->layout('layouts.admin');

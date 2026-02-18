@@ -12,9 +12,9 @@ class Experience_Service
         $this->experience = $experience; 
     }
     
-    public function getData($type = null, $keyword = null, $posisi = null)
+    public function getData($type = null, $keyword = null, $posisi = null, $paginate = false, $perPage = 5)
     {
-        $data = $this->experience->getAllData($type, $keyword, $posisi);
+        $data = $this->experience->getAllData($type, $keyword, $posisi, $paginate, $perPage);
         if($data){
             return[
                 'data'=>$data,

@@ -12,9 +12,9 @@ class Sertifikat_Service
         $this->sertifikat = $sertifikat; 
     }
     
-    public function getData($keyword = null)
+    public function getData($keyword = null, $paginate = false, $perPage = 5)
     {
-        $data = $this->sertifikat->getAllData($keyword);
+        $data = $this->sertifikat->getAllData($keyword, $paginate, $perPage);
         if($data){
             return[
                 'data'=>$data,

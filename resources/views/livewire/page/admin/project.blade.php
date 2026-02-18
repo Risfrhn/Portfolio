@@ -33,12 +33,14 @@
         </div>
 
         <livewire:component.table.project-table 
-            :project="$project" 
+            :project="method_exists($project, 'items') ? $project->items() : []" 
             :actions="['edit' => 'bukaModalEdit', 'delete' => 'bukaModalDelete']"
             editFungsi="bukaModalEdit"
             deleteFungsi="bukaModalDelete"
         />
-
+    <div class="mt-4 px-4">
+        {{ $project->onEachSide(1)->links('vendor.pagination.custom') }}
+    </div>
         @if($showModal)
             <livewire:component.modal.project-modal 
                 head="Tambah Projek" 

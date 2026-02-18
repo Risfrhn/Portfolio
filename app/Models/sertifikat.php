@@ -10,7 +10,7 @@ class sertifikat extends Model
     protected $fillable = [
         'nomor_sertifikat',
         'judul',
-        'nama_penerima',
+        'nama_institusi',
         'tanggal_terbit',
         'tanggal_berlaku',
         'gambar_sertifikat',

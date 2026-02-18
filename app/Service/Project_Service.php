@@ -12,9 +12,9 @@ class Project_Service
         $this->project = $project; 
     }
     
-    public function getData($type = null, $keyword = null)
+    public function getData($type = null, $keyword = null, $paginate = false, $perPage = 5)
     {
-        $data = $this->project->getAllData($type, $keyword);
+        $data = $this->project->getAllData($type, $keyword, $paginate, $perPage);
         if($data){
             return[
                 'data'=>$data,

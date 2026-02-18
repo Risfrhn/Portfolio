@@ -22,8 +22,11 @@
     </div>
 
     <livewire:component.table.sertifikat-table
-        :sertifikat="$sertifikat"
+        :sertifikat="method_exists($sertifikat, 'items') ? $sertifikat->items() : []"
     />
+    <div class="mt-4 px-4">
+        {{ $sertifikat->onEachSide(1)->links('vendor.pagination.custom') }}
+    </div>
 
     @if($showModalDelete)
         <livewire:component.alert.alert-konfirmasi

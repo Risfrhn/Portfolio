@@ -5,9 +5,11 @@ use App\Service\Project_Service;
 use App\Repository\Project_Repository;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
 
 class Project extends Component
 {
+    use WithPagination;
     public $filter = null;
     public $showModal = false;
     public $showModalEdit = false;
@@ -67,7 +69,7 @@ class Project extends Component
 
     public function render()
     {
-        $projects = $this->service->getData($this->filter, $this->search)['data'] ?? [];
+        $projects = $this->service->getData($this->filter, $this->search, paginate: true, perPage: 5)['data'] ?? [];
 
         return view('livewire.page.admin.project', [
             'project' => $projects,

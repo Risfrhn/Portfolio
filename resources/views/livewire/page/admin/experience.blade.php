@@ -53,8 +53,11 @@
         </div>
 
         <livewire:component.table.table-experience
-            :experience="$experience"
+            :experience="method_exists($experience, 'items') ? $experience->items() : []"
         />
+    <div class="mt-4 px-4">
+        {{ $experience->onEachSide(1)->links('vendor.pagination.custom') }}
+    </div>
 
 
         @if($showModalTambah)
