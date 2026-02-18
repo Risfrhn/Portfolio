@@ -27,10 +27,6 @@ class TableExperience extends Component
         $this->showModalEdit = false;
     }
 
-    // Listener removed
-    public function delete($id){
-        $this->dispatch('close-modal-delete');
-    }
     public function render()
     {
         return view('livewire.component.table.table-experience');

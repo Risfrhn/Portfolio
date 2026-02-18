@@ -71,7 +71,7 @@
                 head="Delete Pengalaman" 
                 desk="Apakah anda yakin ingin menghapus data ini?"
                 action="delete-experience"
-                closeEvent="closeModalEdit"
+                closeEvent="tutupModalDeleteExperience"
             />
         @endif
 

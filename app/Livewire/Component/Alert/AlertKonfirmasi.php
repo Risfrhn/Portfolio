@@ -20,6 +20,8 @@ class AlertKonfirmasi extends Component
             $this->dispatch('delete-project');
         }elseif($this->action === 'delete-experience'){
             $this->dispatch('delete-experience');
+        }elseif($this->action === 'delete-sertifikat'){
+            $this->dispatch('delete-sertifikat');
         }
     }
 
@@ -33,6 +35,10 @@ class AlertKonfirmasi extends Component
         $this->dispatch('close-modal-delete-experience');
     }
 
+    public function tutupModalDeleteSertifikat()
+    {
+        $this->dispatch('close-modal-delete-sertifikat');
+    }
 
 
     public function render()
