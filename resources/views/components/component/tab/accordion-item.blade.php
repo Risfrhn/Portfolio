@@ -1,28 +1,32 @@
-<div id="accordion-{{ $id }}" x-data="{ isOpen: false }" class="mb-3">
+<div id="accordion-{{ $id }}" x-data="{ isOpen: false }" class="mb-4">
     <h2 id="accordion-card-heading-{{ $id }}">
         <button 
             type="button" 
             @click="isOpen = !isOpen"
-            class="mx-auto w-full bg-[#a78bfa]/10 py-5 px-5 transition-shadow duration-300"
-            :class="isOpen ? 'rounded-t-lg rounded-b-0 shadow-lg' : 'rounded-lg'"
+            class="w-full relative overflow-hidden rounded-xl border border-white/5 bg-[#150b2e] p-1 transition-all duration-300 hover:border-purple-500/30 hover:shadow-[0_0_20px_rgba(139,92,246,0.15)] group"
+            :class="isOpen ? 'border-purple-500/50 shadow-[0_0_20px_rgba(139,92,246,0.2)]' : ''"
         >
-            <div class="flex flex-nowrap gap-5">
+            <!-- Hover Glow -->
+            <div class="absolute -right-10 -top-10 w-20 h-20 bg-purple-600/20 blur-[30px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+            <div class="relative flex items-center p-4 gap-4 z-10">
                 <!-- ICON -->
-                <div class="py-1 px-3 md:py-3 md:px-3 rounded-xl bg-transparent border-2 border-[#a78bfa] inline-flex items-center justify-center hover:shadow-[0_0_20px_rgba(130,90,250,0.4)] transition-shadow duration-300">
-                    <i class="{{ $icon }} text-[#a78bfa] text-xl"></i>
+                <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-purple-900/20 border border-purple-500/20 flex items-center justify-center text-[#a78bfa] group-hover:text-white group-hover:bg-purple-600 group-hover:border-purple-400 transition-all duration-300"
+                     :class="isOpen ? 'bg-purple-600 text-white border-purple-400' : ''">
+                    <i class="{{ $icon }} text-xl"></i>
                 </div>
 
                 <!-- TITLE & DESC -->
-                <div class="grid grid-cols-12 text-left">
-                    <div class="col-span-12">
-                        <p class="text-xl md:text-sm xl:text-xl font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent"
-                           style="filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.9));">
-                           {{ $title }}
-                        </p>
-                    </div>
-                    <div class="col-span-12">
-                        <p class="text-gray-500 text-sm md:text-[11px] lg:text-md">{{ $desc }}</p>
-                    </div>
+                <div class="flex-1 text-left">
+                    <p class="text-lg font-bold text-white group-hover:text-purple-300 transition-colors" :class="isOpen ? 'text-purple-300' : ''">
+                        {{ $title }}
+                    </p>
+                    <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 transition-colors">{{ $desc }}</p>
+                </div>
+
+                <!-- Arrow Indicator -->
+                <div class="text-gray-500 transition-transform duration-300" :class="isOpen ? 'rotate-180 text-purple-400' : ''">
+                    <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
         </button>
@@ -30,17 +34,20 @@
 
     <!-- ACCORDION BODY -->
     <div 
-        class="mx-auto w-full bg-[#a78bfa]/10 px-5 flex flex-wrap items-start gap-x-3 gap-y-1 overflow-hidden transition-all duration-300"
-        :style="isOpen ? 'max-height: 24rem; opacity: 1; padding-top: 1rem; padding-bottom: 1rem;' : 'max-height: 0; opacity: 0; padding-top: 0; padding-bottom: 0;'"
+        class="w-full overflow-hidden transition-all duration-500 ease-in-out"
+        x-ref="container"
+        x-bind:style="isOpen ? 'max-height: ' + $refs.container.scrollHeight + 'px; opacity: 1; margin-top: 0.5rem;' : 'max-height: 0; opacity: 0; margin-top: 0;'"
     >
-        @foreach($children as $child)
-            <div class="col-span-6 md:col-span-4 lg:col-span-3">
-                <x-component.icon.skill-badge 
-                image="{{$child['image']}}" 
-                nameTool="{{$child['nameTool']}}" 
-                levels="{{$child['levels']}}" 
-                />
-            </div>
-        @endforeach
+        <div class="p-4 rounded-xl bg-[#150b2e]/50 border border-white/5 flex flex-wrap gap-4">
+            @foreach($children as $child)
+                <div class="flex-auto md:flex-initial">
+                    <x-component.icon.skill-badge 
+                    image="{{$child['image']}}" 
+                    nameTool="{{$child['nameTool']}}" 
+                    levels="{{$child['levels']}}" 
+                    />
+                </div>
+            @endforeach
+        </div>
     </div>
 </div>

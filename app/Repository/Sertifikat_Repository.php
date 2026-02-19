@@ -7,10 +7,7 @@ class Sertifikat_Repository
 {
     public function getAllData($keyword = null, $paginate = false, $perPage = 5){
         $query = sertifikat::query()
-        ->when($keyword, fn($q) => $q
-            ->where('judul', 'like', "%{$keyword}%")
-            ->orWhere('nama_institusi', 'like', "%{$keyword}%")
-        )
+        ->when($keyword, fn($q) => $q->where('judul', 'like', "%{$keyword}%"))
         ->latest();
 
         if($paginate){
@@ -19,20 +16,23 @@ class Sertifikat_Repository
         return $query->get();
     }
 
-
-    public function create($data){
-        return sertifikat::create($data);
+    public function create($input){
+        return sertifikat::create($input);
     }
 
-    public function edit($data, $id){
-        return sertifikat::where('id', $id)->update($data);
+    public function edit($input, $id){
+        return sertifikat::find($id)->update($input);
     }
 
     public function find($id){
         return sertifikat::find($id);
     }
 
+    public function findBySlug($slug){
+        return sertifikat::where('slug', $slug)->first();
+    }
+
     public function delete($id){
-        return sertifikat::where('id', $id)->delete();
+        return sertifikat::find($id)->delete();
     }
 }

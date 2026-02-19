@@ -25,7 +25,7 @@ class SkillBadge extends Component
 
     public function getLabelLevel($levels) : string
     {
-        return match($levels){
+        return match((int)$levels){
             1 => 'beginner',
             2 => 'intermediate',
             3 => 'advanced',

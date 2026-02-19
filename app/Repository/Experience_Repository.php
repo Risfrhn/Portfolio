@@ -8,18 +8,19 @@ class Experience_Repository
     public function getAllData($type = null, $keyword = null, $posisi = null, $paginate = false, $perPage = 5){
         $query = experience::query()
         ->when($type, fn($q) => $q->where('tipe_pekerjaan', $type))
-        ->when($posisi, fn($q) => $q->where('posisi',$posisi))
-        ->when($keyword, fn($q) => $q->where('perusahaan','like',"%$keyword%"));
+        ->when($posisi, fn($q) => $q->where('posisi', $posisi))
+        ->when($keyword, fn($q) => 
+            $q->where(function($query) use ($keyword){
+                $query->where('posisi', 'like', "%{$keyword}%")
+                      ->orWhere('perusahaan', 'like', "%{$keyword}%");
+            })
+        )
+        ->latest();
 
         if($paginate){
             return $query->paginate($perPage);
         }
         return $query->get();
-    }
-
-    public function countExperience()
-    {
-        return experience::where('id')->count();
     }
 
     public function create($data){
@@ -34,6 +35,9 @@ class Experience_Repository
         return experience::find($id);
     }
 
+    public function findBySlug($slug){
+        return experience::where('slug', $slug)->first();
+    }
 
     public function delete($id){
         return experience::where('id', $id)->delete();

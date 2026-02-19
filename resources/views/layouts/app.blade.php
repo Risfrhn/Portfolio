@@ -20,7 +20,7 @@
     <style>
         body{    
             font-family: 'Poppins', sans-serif;
-            background-color: #0b0b14;
+            background-color: #12121E;
         }
     </style>
 </head>
@@ -29,12 +29,16 @@
         <livewire:component.navbar.top-nav/>     
         
         <!-- Konten halaman -->
-        <main class="bg-[#12121E]">
+        <main >
             {{ $slot }}
             @livewireScripts
         </main>
         
-    </div>  
+    </div>
+    <footer class="bg-[#a78bfa]/10 py-5 w-full text-center bottom-0">
+        <span class="text-md bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent text-center">© 2025 <a href="">Risfrhn™</a>. All Rights Reserved.
+        </span>        
+    </footer>  
     
 </body>
 </html>
@@ -42,3 +46,88 @@
 
 
     
+    <!-- TS Particles Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            await tsParticles.load("tsparticles", {
+                fpsLimit: 60,
+                fullScreen: { enable: false }, // Let container handle size
+                particles: {
+                    number: {
+                        value: 50,
+                        density: {
+                            enable: true,
+                            area: 800
+                        }
+                    },
+                    color: {
+                        value: ["#ffffff", "#a855f7", "#3b82f6"] // White, Purple, Blue
+                    },
+                    shape: {
+                        type: "circle"
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 2,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    move: {
+                        enable: true,
+                        speed: 0.5,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        outModes: {
+                            default: "out"
+                        },
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
+                    }
+                },
+                interactivity: {
+                    detectsOn: "canvas",
+                    events: {
+                        onHover: {
+                            enable: true,
+                            mode: "bubble"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        bubble: {
+                            distance: 200,
+                            size: 4,
+                            duration: 2,
+                            opacity: 0.8,
+                            speed: 3
+                        }
+                    }
+                },
+                detectRetina: true,
+                background: {
+                    color: "transparent"
+                }
+            });
+        });
+    </script>
+</body>
+</html>

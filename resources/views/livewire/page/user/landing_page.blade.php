@@ -1,223 +1,388 @@
-
 <div class="container mx-auto max-w-screen-xl px-5 xl:px-0">
     <div class="absolute z-1 w-[300px] h-[300px] md:w-[400px] md:h-[400px]  rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 animate-flare blur-[120px] top-[50px] left-[-100px]"></div>
     <div class="hidden  md:block absolute w-[300px] h-[300px] rounded-full bg-gradient-to-r from-pink-400 via-yellow-400 to-red-400 opacity-30 animate-flare-slow blur-[150px] bottom-[800px] xl:bottom-[40px] right-[0px]"></div>
 
 
+    <!-- DYNAMIC BACKGROUND (TS Particles Plugin) -->
+    <div id="tsparticles" class="fixed inset-0 z-[-1] pointer-events-none"></div>
+    
     <!-- HERO SECTION -->
-    <div id="HeroSection" class="flex flex-wrap p-4 place-content-center pt-20 md:pt-24 lg:pt-40">
-        <div class="w-[100%] md:w-[50%]">
-            <p class="text-white my-2">Hello, Im</p>
-            <p class="text-white my-2 text-4xl lg:text-5xl font-semibold">Risky Farhan</p>
-            <p class="typed-text text-3xl md:text-4xl lg:text-5xl my-2 font-semibold min-h-[50px] bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent" data-strings='@json(["Laravel Developer", "System Analyst", "Freelancer"])'></p>
-            <p class="text-white text-xs lg:text-[15px] my-2 font-thin">Welcome to my portfolio. This platform presents an overview of my background, the products I professionally offer for sale, my professional experiences, and the projects I have completed. I hope this collection provides a clear understanding of my capabilities and the quality of work I strive to deliver.</p>
+    <div id="HeroSection" class="relative flex flex-col items-center justify-center min-h-[90vh] p-4 pt-32 container mx-auto px-5 xl:px-0 overflow-hidden">
+        
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] animate-pulse pointer-events-none"></div>
 
-            <div class="flex flex-wrap my-5 gap-36 lg:gap-40">
-                <div class="w-[0%]">
-                    <x-component.button.primary label="Download CV" action="#"/>
-                </div>
-                <div class="w-[0%]">
-                    <x-component.button.primary label="Pengalaman saya" href="#"/>
+        <!-- Floating Icons (Symmetrical Orbit)-->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Left Side -->
+            <div class="absolute top-[20%] left-[10%] lg:left-[15%] animate-bounce delay-700">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(139,92,246,0.2)]">
+                    <img src="/Laravel.png" alt="Laravel" class="w-8 h-8 lg:w-10 lg:h-10 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
-            <div class="flex flex-nowrap gap-8">
-                <x-component.icon.simple-button link="www.linkedin.com/in/muhammad-risky-farhan-596783309" icon="fab fa-linkedin"/>
-                <x-component.icon.simple-button link="https://github.com/Risfrhn/" icon="fab fa-github"/>
-                <x-component.icon.simple-button link="https://www.instagram.com/risfrhn_/" icon="fab fa-instagram"/>
-                <x-component.icon.simple-button link="https://steamcommunity.com/id/Zoow1/" icon="fab fa-steam"/>
+            <div class="absolute top-[50%] left-[5%] lg:left-[10%] animate-bounce delay-1000">
+                <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(56,189,248,0.2)]">
+                    <img src="/Tailwind.png" alt="Tailwind" class="w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+            <div class="absolute bottom-[20%] left-[12%] lg:left-[18%] animate-bounce delay-500">
+                <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.2)]">
+                    <img src="/CI3.png" alt="CodeIgniter" class=" rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+            
+            <!-- Right Side -->
+            <div class="absolute top-[20%] right-[10%] lg:right-[15%] animate-bounce delay-300">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(97,218,251,0.2)]">
+                    <img src="/vue.png" alt="vue" class="rounded-lg w-8 h-8 lg:w-10 lg:h-10 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+            <div class="absolute top-[50%] right-[5%] lg:right-[10%] animate-bounce delay-1200">
+                <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                    <img src="/Wordpress.png" alt="wordpress" class="rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+            <div class="absolute bottom-[20%] right-[12%] lg:right-[18%] animate-bounce delay-200">
+                <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+                    <img src="/firebase.png" alt="Firebase" class="rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
             </div>
         </div>
 
-        <div class="w-[100%] md:w-[50%] py-14 flex justify-center hidden md:flex">
+        <!-- Main Content (Centered) -->
+        <div class="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
+            <!-- Badge -->
+            <div class="invoke-badge inline-block px-4 py-1.5 mb-8 rounded-full border border-purple-500/30 bg-purple-900/10 backdrop-blur-md">
+                <span class="text-purple-300 font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">Portofolio digital</span>
+            </div>
             
-            <img src="/Boostrap.png" alt="" class="animate-icon-1 absolute w-10 h-10 translate-x-[300px] hidden xl:block">
-            <img src="/Canva.png" alt="" class="animate-icon-1 absolute w-10 h-10 -translate-x-[150px] -translate-y-[100px]">
-        
-        
-            <img src="/CI3.png" alt="" class="animate-icon-2 absolute w-10 h-10  -translate-x-[130px] -translate-y-[30px]">
-            <img src="/Word.png" alt="" class="animate-icon-2 absolute w-10 h-10 translate-x-[150px]  xl:translate-x-[200px] -translate-y-[100px]">
-        
-        
-            <img src="/Excel.png" alt="" class="animate-icon-3 absolute w-10 h-10 -translate-x-[170px] translate-y-[200px]">
-            <img src="/Laravel.png" alt="" class="animate-icon-3 absolute w-10 h-10 -translate-x-[100px] translate-y-[250px]">
-            <img src="/Tailwind.png" alt="" class="animate-icon-3 absolute w-10 h-10 translate-x-[150px] xl:translate-x-[250px] translate-y-[250px]">
+            <h1 class="text-white text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight tracking-tight">
+                Halo, Saya <br> 
+                <span class="bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent uppercase">Risky Farhan</span>
+            </h1>
             
-            <div class="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] xl:w-[300px] xl:h-[300px] rounded-xl shadow-lg rotate-[10deg] border-4 border-[#a78bfa] animate-glow translate-x-6 lg:translate-x-14  -translate-y-4 lg:-translate-y-14" style="background: linear-gradient(#0b0b14, #0b0b14) padding-box, linear-gradient(to right, #a855f7, #3b82f6, #6366f1) border-box;">
-                <img src="/HeaderHero.png" alt="" class="w-60 h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-cover rotate-[-10deg] lg:translate-x-10 xl:translate-x-14 translate-x-11 translate-y-7">
+            <div class="h-[40px] md:h-[50px] flex items-center justify-center mb-8">
+                <p class="uppercase typed-text text-xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(168,85,247,0.4)]" data-strings='@json($dataLanding->skill_header)'></p>
+            </div>
+            
+            <p class="text-gray-400 text-xs md:text-sm lg:text-base font-light leading-relaxed max-w-3xl mb-12">
+                {{ $dataLanding->deskripsi_header }}
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-wrap justify-center gap-6 items-center mb-16">
+                <x-component.button.primary label="Unduh CV" href="{{ $dataLanding->CV ? asset('storage/' . $dataLanding->CV) : '#' }}" :solid="true" target="_blank"/>
+                <x-component.button.primary label="Pengalaman Saya" href="{{ route('user.experience') }}"/>
+            </div>
+            
+            <!-- Socials -->
+            <div class="flex items-center gap-6 p-4 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm hover:border-purple-500/20 transition-all duration-300">
+                <a href="https://www.linkedin.com/in/muhammad-risky-farhan-596783309" target="_blank" class="transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-purple-600 group-hover:border-purple-400 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all">
+                        <i class="fab fa-linkedin text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <span class="absolute -top-10 left-1/2 -translate-x-1/2 text-xs text-white bg-black/80 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">LinkedIn</span>
+                </a>
+                <a href="https://github.com/Risfrhn/" target="_blank" class="transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-gray-700 group-hover:border-gray-500 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all">
+                        <i class="fab fa-github text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
+                    </div>
+                     <span class="absolute -top-10 left-1/2 -translate-x-1/2 text-xs text-white bg-black/80 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">GitHub</span>
+                </a>
+                 <a href="https://www.instagram.com/risfrhn_/" target="_blank" class="transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-pink-600 group-hover:border-pink-400 group-hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all">
+                        <i class="fab fa-instagram text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
+                    </div>
+                     <span class="absolute -top-10 left-1/2 -translate-x-1/2 text-xs text-white bg-black/80 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Instagram</span>
+                </a>
+                 <a href="https://steamcommunity.com/id/Zoow1/" target="_blank" class="transition-all duration-300 relative group">
+                    <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-400 group-hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all">
+                        <i class="fab fa-steam text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
+                    </div>
+                     <span class="absolute -top-10 left-1/2 -translate-x-1/2 text-xs text-white bg-black/80 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Steam</span>
+                </a>
             </div>
         </div>
     </div>
 
 
     <!-- ABOUT SECTION -->
-    <div id="AboutSection" class="relative mt-20 md:mt-32 mb-24 md:mb-52 px-3">
-        <div class="grid grid-cols-12">
-            <div class="col-span-12 lg:col-span-4 hidden lg:block">
-                <div class="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] xl:w-[300px] xl:h-[300px] rounded-xl shadow-lg rotate-[10deg] border-4 border-[#a78bfa] animate-glow translate-x-6 lg:translate-x-14  translate-y-11 lg:translate-y-10 xl:translate-y-1" style="background: linear-gradient(#0b0b14, #0b0b14) padding-box, linear-gradient(to right, #a855f7, #3b82f6, #6366f1) border-box;">
-                    <img src="/HeaderHero.png" alt="" class="w-60 h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-cover rotate-[-10deg] lg:translate-x-11 xl:translate-x-14 translate-x-11 translate-y-7">
-                    <i class="absolute z-0 top-[10px] left-[250px] fas fa-code text-[#a78bfa] text-[20px] opacity-20 rotate-[-10deg]"></i>
-                    <i class="absolute z-0 top-[30px] left-[180px] fas fa-code text-[#a78bfa] text-[15px] opacity-20 rotate-[-10deg]"></i>
-                    <i class="absolute z-0 top-[-20px] left-[180px] fas fa-code text-[#a78bfa] text-[25px] opacity-20 rotate-[-10deg]"></i>
-                    <i class="absolute z-0 top-[0px] left-[210px] fas fa-code text-[#a78bfa] text-[20px] opacity-20 rotate-[-10deg]"></i>
-                    <i class="absolute z-0 top-[30px] left-[210px] fas fa-code text-[#a78bfa] text-[30px] opacity-20 rotate-[-10deg]"></i>
-                    <i class="absolute z-0 top-[100px] left-[190px] fas fa-code text-[#a78bfa] text-[20px] opacity-20 rotate-[-10deg]"></i>
-                    <i class="absolute z-0 top-[70px] left-[240px] fas fa-code text-[#a78bfa] text-[20px] opacity-20 rotate-[-10deg]"></i>
-                    <i class="absolute z-0 top-[70px] left-[200px] fas fa-code text-[#a78bfa] text-[16px] opacity-20 rotate-[-10deg]"></i>
-                </div>
-            </div>
-            <div class="col-span-12 lg:col-span-8 lg:ps-20">
-                <p class="text-white text-xs font-bold">About me</p>
-                <p class="text-3xl lg:text-5xl lg:my-2 font-semibold min-h-[50px] bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent" style="filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.9));">Get to know me better</p>
-                <p class="text-white text-[10px] lg:text-xs xl:text-sm font-thin leading-loose xl:leading-[25px] pb-5">I am a Software Engineer passionate about problem-solving and building reliable, user-focused web applications. I hold a degree in Software Engineering from Telkom University and have one year of professional experience. I specialize in web development with PHP and the CodeIgniter framework, skilled in MySQL database management and REST API development. I prioritize writing clear, well-structured technical documentation and effective communication to support maintainable software and productive team collaboration.</p>
-                <div class="grid grid-cols-12 gap-3">
-                    <div class="col-span-12 md:col-span-6">
-                        <x-component.tab.accordion-item id="1" icon="fas fa-desktop" title="Website development" desc="responsive and user-friendly" 
-                            :children="[
-                                ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png'],
-                                ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png'],
-                                ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png'],
-                                ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png']
-                            ]"
-                        />
+    <div id="AboutSection" class="relative mt-20 md:mt-32 mb-24 md:mb-52 container mx-auto px-5 lg:px-0">
+        <div class="grid grid-cols-12 gap-12 items-center">
+            <!-- Image/Decoration Column -->
+            <div class="col-span-12 lg:col-span-5 hidden lg:block relative">
+                 <div class="relative w-[300px] h-[300px] xl:w-[400px] xl:h-[400px] mx-auto">
+                    <!-- Rotating Border -->
+                    <div class="absolute inset-0 rounded-full border-2 border-dashed border-purple-500/30 animate-[spin_10s_linear_infinite]"></div>
+                    <!-- Inner Glow -->
+                    <div class="absolute inset-4 rounded-full bg-purple-900/20 blur-2xl"></div>
+                    
+                    <!-- Main Image container -->
+                    <div class="absolute inset-0 flex items-center justify-center transform hover:scale-105 transition-transform duration-500">
+                        <div class="w-[250px] h-[250px] xl:w-[320px] xl:h-[320px] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(139,92,246,0.3)] border border-white/10 rotate-[-5deg] hover:rotate-0 transition-all duration-500 bg-[#150b2e]">
+                            <img src="/HeaderHero.png" alt="Profile" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+                        </div>
                     </div>
-                    <div class="col-span-12 md:col-span-6">
-                        <x-component.tab.accordion-item id="2" icon="fas fa-mobile" title="Mobile development" desc="responsive and user-friendly"
-                            :children="[
-                                ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png'],
-                                ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png'],
-                                ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png'],
-                                ['levels' => 3, 'nameTool' => 'laravel', 'image' => '/Laravel.png']
-                            ]"
-                        />
+
+                    <!-- Floating Icons (Grayscale + Theme Glow) -->
+                    <div class="absolute -top-5 -right-5 animate-bounce delay-100">
+                        <div class="w-14 h-14 rounded-2xl bg-[#150b2e]/80 border border-purple-500/30 backdrop-blur-md flex items-center justify-center shadow-lg shadow-purple-500/20">
+                            <i class="fas fa-code text-[#a78bfa] text-3xl drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]"></i>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-5 -left-5 animate-bounce delay-700">
+                        <div class="w-14 h-14 rounded-2xl bg-[#150b2e]/80 border border-purple-500/30 backdrop-blur-md flex items-center justify-center shadow-lg shadow-purple-500/20">
+                            <i class="fas fa-layer-group text-[#a78bfa] text-3xl drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <i class="absolute z-0 top-[-60px] right-[50px] fas fa-code text-[#a78bfa] text-[50px] md:text-[100px] lg:text-[100px] opacity-20 rotate-[-10deg]"></i>
-    </div>
 
-
-    <!-- Service -->
-    <div class="w-full h-[2px] mt-[40px] md:mt-[100px] bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.8));"></div>
-    <div class="relative my-24">
-        <div class="grid grid-cols-12 gap-4 z-10 px-5">
-            <div class="col-span-12">
-                <p class="text-3xl text-center lg:text-5xl lg:my-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent" style="filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.9));">How I can help</p>
-            </div>
-            <div class="col-span-12">
-                <p class="text-gray-500 text-center mt-1 mb-10">Transforming ideas into impactful digital experiences</p>
-            </div>
-            <div class="col-span-12 mt-0 md:mt-14 mb-14 z-10">
-                <div class="flex flex-wrap gap-3 place-content-center">
-                    <x-component.card.stat-icon icon="fas fa-laptop-code" name="Web & App Development" desc="Pembangunan website, aplikasi web, atau mobile, termasuk sistem manajemen dan portal."/>
-                    <x-component.card.stat-icon icon="fas fa-file" name="Pengelolaan Dokumen & Office" desc="Pengelolaan template, spreadsheet, laporan."/>
-                    <x-component.card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten Digital" desc="UI/UX dasar, pembuatan konten untuk web atau portal internal"/>
-                </div>
-            </div>
-        </div>
-        <div class="hidden sm:block absolute z-0 md:top-[400px] xl:top-[300px] left-1/2 w-[300px] h-[300px] md:w-[700px] md:h-[600px] xl:w-[900px] xl:h-[200px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
-        <i class="absolute z-0 top-[-60px] left-[50px] md:top-[-50px] md:left-[50px] fas fa-laptop-code text-[#a78bfa] text-[50px] md:text-[100px] lg:text-[150px] opacity-20 rotate-[-10deg]"></i>
-        <i class="absolute z-0 top-[-60px] right-[50px] fas fa-code text-[#a78bfa] text-[50px] md:text-[100px] lg:text-[150px] opacity-20 rotate-[-10deg]"></i>
-    </div>
-
-
-    <!-- Project -->
-    <div class="w-full h-[2px] mt-[40px] md:mt-[100px] bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.8));"></div>
-    <div class="relative my-24">
-        <img src="/Boostrap.png" alt="" class="animate-icon-1 z-10 absolute w-5 h-5 xl:w-10 xl:h-10 left-[50px] top-[70px] md:left-[230px] md:top-[70px] xl:top-[90px] xl:left-[300px]">
-        <img src="/Canva.png" alt="" class="animate-icon-1 z-10 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[130px] left-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:left-[150px]">
-        <img src="/Excel.png" alt="" class="animate-icon-3 z-10 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[200px] left-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:left-[400px]">
-    
-        <img src="/CI3.png" alt="" class="animate-icon-2 z-10 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[230px] right-[50px] top-[70px] md:top-[70px] xl:top-[90px] xl:right-[300px]">
-        <img src="/Word.png" alt="" class="animate-icon-2 z-10 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[130px] right-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:right-[150px]">
-        <img src="/Laravel.png" alt="" class="animate-icon-3 z-10 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[200px] right-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:right-[400px]">
-
-        <div class="relative mt-36 mb-24 z-10">
-            <div class="grid grid-cols-12 my-24 gap-4 z-10">
-                <div class="col-span-12">
-                    <p class="text-3xl text-center lg:text-5xl lg:my-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent" style="filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.9));">What I’ve Done</p>
-                </div>
-                <div class="col-span-12">
-                    <p class="text-gray-500 text-center mt-1 mb-5">Some of my recent projects</p>
-                </div>
-                <div class="col-span-12 mt-5">
-                    <div class="flex flex-wrap gap-3 justify-center">
-                        <x-component.card.project-thumbnail link="#" image="#" name="Test" type="Test" desc="Test" />
-                        <x-component.card.project-thumbnail link="#" image="#" name="Test" type="Test" desc="Test" />
-                        <x-component.card.project-thumbnail link="#" image="#" name="Test" type="Test" desc="Test" />
+            <!-- Content Column -->
+            <div class="col-span-12 lg:col-span-7">
+                <div class="mb-8">
+                     <!-- Badge -->
+                    <div class="inline-block px-4 py-1.5 mb-4 rounded-full border border-purple-500/30 bg-purple-900/20 backdrop-blur-md">
+                        <span class="text-purple-400 font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">Tentang Saya</span>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="hidden sm:block absolute z-[0] md:top-[500px] left-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[700px]  lg:w-[900px] lg:h-[500px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 blur-[120px] transform -translate-x-1/2 -translate-y-1/2"></div>
-    </div>
-
-
-    <!-- Product -->
-    <div class="w-full h-[2px] mt-[40px] md:mt-[100px] bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.8));"></div>
-    <div class="relative my-24">
-        <div class="relative mt-36 mb-14 z-10">
-            <div class="grid grid-cols-12 my-14 gap-4 z-10">
-                <div class="col-span-12">
-                    <p class="text-3xl text-center lg:text-5xl lg:my-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-                        What I’ve Done
+                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                        Menciptakan <span class="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">Pengalaman Digital</span>
+                    </h2>
+                    <p class="text-gray-400 text-base lg:text-lg font-light leading-relaxed mb-8 border-l-2 border-purple-500/30 pl-6">
+                        {{ $dataLanding->deskripsi_tentang }}
                     </p>
                 </div>
 
-                <div class="col-span-12">
-                    <p class="text-gray-500 text-center mt-1 mb-5">Some of my recent projects</p>
-                </div>
-
-                <div class="col-span-12 z-10">
-                    <div class="grid grid-cols-12 place-content-center gap-3">
-                        <x-component.card.horizontal-list-item link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
-                        <x-component.card.horizontal-list-item link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
-                        <x-component.card.horizontal-list-item link="#" func="#" image="#" name="Test" type="Test" desc="Test" />
-                    </div>
-                </div>
+                <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                </div> -->
             </div>
         </div>
-        <div class="hidden sm:block absolute z-0 md:top-[300px] left-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[700px]  lg:w-[900px] lg:h-[300px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-40 blur-[120px] transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+            <x-component.tab.accordion-item
+                id="1"
+                icon="fas fa-desktop"
+                title="Pengembangan Website"
+                desc="Solusi web yang responsif, cepat, dan skalabel"
+                :children="[
+                    ['levels'=>3,'nameTool'=>'Laravel','image'=>'/Laravel.png'],
+                    ['levels'=>3,'nameTool'=>'Tailwind','image'=>'/Tailwind.png'],
+                    ['levels'=>3,'nameTool'=>'Livewire','image'=>'/Livewire.png'],
+                    ['levels'=>3,'nameTool'=>'MySQL','image'=>'/Mysql.png']
+                ]"
+            />
+
+            <x-component.tab.accordion-item
+                id="2"
+                icon="fas fa-mobile-alt"
+                title="Pengembangan Mobile"
+                desc="Aplikasi mobile native dan lintas platform"
+                :children="[
+                    ['levels'=>4,'nameTool'=>'Flutter','image'=>'/Flutter.png'],
+                    ['levels'=>3,'nameTool'=>'React Native','image'=>'/React.png'],
+                    ['levels'=>2,'nameTool'=>'Firebase','image'=>'/Firebase.png'],
+                    ['levels'=>1,'nameTool'=>'Dart','image'=>'/Dart.png']
+                ]"
+            />
+
+        </div>
+    </div>
+
+
+    <!-- Service Section -->
+    <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-purple-900/50 to-transparent"></div>
+    
+    <div class="relative py-32 container mx-auto px-5 lg:px-0">
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[400px] bg-gradient-to-r from-purple-900/20 via-blue-900/20 to-purple-900/20 blur-[100px] pointer-events-none"></div>
+
+        <div class="relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                 <!-- Badge -->
+                <div class="inline-block px-4 py-1.5 mb-4 rounded-full border border-purple-500/30 bg-purple-900/20 backdrop-blur-md">
+                    <span class="text-blue-400 font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">Layanan Saya</span>
+                </div>
+
+                <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">
+                    Bagaimana Saya Bisa <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">Membantu Anda</span>
+                </h2>
+                <p class="text-gray-400 text-lg font-light">
+                    Mengubah masalah kompleks menjadi solusi digital yang elegan.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
+                <x-component.card.stat-icon icon="fas fa-laptop-code" name="Pengembangan Web & App" desc="Pengembangan full-stack untuk website, aplikasi web, dan sistem internal."/>
+                <x-component.card.stat-icon icon="fas fa-file-alt" name="Manajemen Dokumen" desc="Memperlancar alur kerja dengan template otomatis, spreadsheet, dan pelaporan."/>
+                <x-component.card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten" desc="Membuat desain UI/UX yang intuitif dan aset konten digital yang menarik."/>
+                <x-component.card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten" desc="Membuat desain UI/UX yang intuitif dan aset konten digital yang menarik."/>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Portfolio & Products Section -->
+    <div class="w-full h-[2px] mt-[40px] md:mt-[100px] bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.5));"></div>
+    <div class="relative my-24 container mx-auto px-5 lg:px-0">
+        <!-- Background Assets (Grayscale + Theme) -->
+        <img src="/Boostrap.png" alt="" class="animate-icon-1 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 left-[50px] top-[70px] md:left-[230px] md:top-[70px] xl:top-[90px] xl:left-[300px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="/Canva.png" alt="" class="animate-icon-1 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[130px] left-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:left-[150px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="/Excel.png" alt="" class="animate-icon-3 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[200px] left-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:left-[400px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="/CI3.png" alt="" class="animate-icon-2 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[230px] right-[50px] top-[70px] md:top-[70px] xl:top-[90px] xl:right-[300px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="/Word.png" alt="" class="animate-icon-2 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[130px] right-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:right-[150px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="/Laravel.png" alt="" class="animate-icon-3 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[200px] right-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:right-[400px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        
+        <div class="hidden sm:block absolute z-0 top-1/2 left-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] lg:w-[900px] lg:h-[900px] rounded-full bg-gradient-to-r from-purple-900/20 via-blue-900/20 to-purple-900/20 blur-[150px] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+
+        <div class="relative z-10 w-full max-w-7xl mx-auto">
+            <!-- Main Header -->
+            <div class="text-center mb-16">
+                 <!-- Badge -->
+                <div class="invoke-badge inline-block px-4 py-1.5 mb-4 rounded-full border border-purple-500/30 bg-purple-900/20 backdrop-blur-md">
+                    <span class="text-purple-300 font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">Portofolio</span>
+                </div>
+
+                <p class="text-3xl lg:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
+                    Karya Pilihan
+                </p>
+                <p class="text-gray-400 mt-3 text-sm lg:text-base font-light tracking-wide">
+                    Koleksi proyek dan produk digital yang telah saya buat
+                </p>
+            </div>
+
+            <!-- 1. Featured Projects (Vertical Cards) -->
+            <div class="mb-20">
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
+                    <h3 class="text-lg font-bold text-white uppercase tracking-widest px-4 py-1 border border-purple-500/30 rounded-full bg-purple-900/20 backdrop-blur-sm">
+                        Proyek Unggulan
+                    </h3>
+                    <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
+                </div>
+
+                <div class="flex flex-wrap gap-6 justify-center">
+                    @if($dataPortfolio->count() > 0)
+                        @foreach($dataPortfolio->take(4) as $item)
+                            <x-component.card.project-thumbnail link="{{ route('user.project.detail', $item->id) }}" image="{{ $item->gambar_flyer ? asset('storage/'.$item->gambar_flyer) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
+                        @endforeach
+                    @else
+                        <x-component.state.empty-state 
+                            class="w-full"
+                            title="Belum Ada Proyek Unggulan" 
+                            description="Proyek-proyek menarik akan segera ditampilkan di sini." 
+                        />
+                    @endif
+                </div>
+            </div>
+
+            <!-- 2. Digital Products (Horizontal Cards) -->
+            <div>
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+                    <h3 class="text-lg font-bold text-white uppercase tracking-widest px-4 py-1 border border-blue-500/30 rounded-full bg-blue-900/20 backdrop-blur-sm">
+                        Produk Digital
+                    </h3>
+                    <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+                </div>
+
+                <div class="grid grid-cols-12 gap-6 place-content-center">
+                     @if($dataProduct->count() > 0)
+                        @foreach($dataProduct->take(4) as $item)
+                            <x-component.card.horizontal-list-item link="{{ route('user.project.detail', $item->id) }}" func="#" image="{{ $item->logo_projek ? asset('storage/'.$item->logo_projek) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
+                        @endforeach
+                    @else
+                         <x-component.state.empty-state 
+                            class="col-span-full"
+                            icon="fas fa-box-open"
+                            title="Belum Ada Produk" 
+                            description="Nantikan produk digital berkualitas yang sedang saya kembangkan." 
+                        />
+                    @endif
+                </div>
+            </div>
+            
+             <!-- See More Button (Optional) -->
+            <div class="mt-16 text-center">
+                <a href="{{ route('user.project') }}" wire:navigate class="inline-flex items-center gap-2 px-8 py-3 text-sm font-bold text-white uppercase tracking-wider bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 group">
+                    <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent group-hover:text-white transition-colors">Lihat Semua Proyek</span>
+                    <i class="fas fa-arrow-right text-purple-400 group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-1"></i>
+                </a>
+            </div>
+        </div>
     </div>
 
 
     <!-- Kontak -->
-    <div class="w-full h-[2px] mt-[40px] md:mt-[100px] bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.8));"></div>
-    <div id="ContactSection" class="relative mt-24 mb-40 mx-3">
-        <div class="grid grid-cols-12 my-24 gap-4 z-10">
-            <div class="col-span-12">
-                <p class="text-3xl text-center lg:text-5xl lg:my-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent" style="filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.9));">Get in touch</p>
+    <div class="w-full h-[2px] mt-[40px] md:mt-[100px] bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.5));"></div>
+    <div id="ContactSection" class="relative mt-24 mb-40 mx-3 container mx-auto px-5 lg:px-0">
+        <div class="grid grid-cols-12 my-24 gap-6 z-10">
+            <div class="col-span-12 mb-10 text-center">
+                 <!-- Badge -->
+                <div class="invoke-badge inline-block px-4 py-1.5 mb-4 rounded-full border border-purple-500/30 bg-purple-900/20 backdrop-blur-md">
+                    <span class="text-purple-300 font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">Hubungi Saya</span>
+                </div>
+
+                <h2 class="text-3xl lg:text-5xl font-bold bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]">Mari Terhubung</h2>
+                <p class="text-gray-400 mt-4 max-w-xl mx-auto">Ingin berkolaborasi atau membangun software khusus? Mari wujudkan ide Anda menjadi kenyataan.</p>
             </div>
-            <div class="col-span-12">
-                <p class="text-gray-500 text-center mt-1">Want to collaborate or build custom software? Get in touch!</p>
+
+            <!-- Send Message Card -->
+            <div class="col-span-12 md:col-span-6 h-full bg-[#150b2e] border border-white/5 rounded-3xl p-8 hover:border-purple-500/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.2)] transition-all duration-500 group relative overflow-hidden">
+                <!-- Hover Glow -->
+                <div class="absolute -right-20 -top-20 w-40 h-40 bg-purple-600/20 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                
+                <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">Kirim Pesan</h3>
+                <p class="text-gray-400 mb-8 text-sm">Isi formulir di bawah ini dan saya akan segera membalasnya.</p>
+                
+                <livewire:component.contact-form />
             </div>
-            <div class="col-span-12">
-                <div class="grid grid-cols-12 my-10 h-full gap-4 z-10">
-                    <div class="col-span-12 md:col-span-6 h-full bg-[#a78bfa]/10 rounded-xl pt-10 px-5">
-                        <div class="col-span-12">
-                            <p class="text-3xl text-center lg:text-5xl lg:my-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent" style="filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.9));">Send message</p>
+
+            <!-- Social Links Card -->
+            <div class="col-span-12 md:col-span-6 h-full bg-[#150b2e] border border-white/5 rounded-3xl p-8 hover:border-purple-500/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.2)] transition-all duration-500 group relative overflow-hidden flex flex-col justify-between">
+                 <!-- Hover Glow -->
+                <div class="absolute -left-20 -bottom-20 w-40 h-40 bg-blue-600/20 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">Informasi Kontak</h3>
+                    <p class="text-gray-400 mb-8 text-sm">Jangan ragu untuk menghubungi saya melalui platform di bawah ini.</p>
+
+                    <!-- Info Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <!-- Status -->
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 group/item hover:bg-white/10 transition-colors">
+                            <div class="relative w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center text-green-400 group-hover/item:text-green-300 transition-colors">
+                                <span class="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full animate-pulse border-2 border-[#150b2e]"></span>
+                                <i class="fas fa-briefcase text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Status</h4>
+                                <p class="text-gray-400 text-xs mt-1">Open to Work</p>
+                            </div>
                         </div>
-                        <div class="col-span-12">
-                            <p class="text-gray-500 text-center mt-1">Want to collaborate or build custom software? Get in touch!</p>
+
+                        <!-- Location -->
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 group/item hover:bg-white/10 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400 group-hover/item:text-purple-300 transition-colors">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Lokasi</h4>
+                                <p class="text-gray-400 text-xs mt-1">Indonesia (Remote)</p>
+                            </div>
                         </div>
-                        <livewire:component.contact-form />
                     </div>
-                    <div class="col-span-12 md:col-span-6 h-full bg-[#a78bfa]/10  rounded-xl pt-10 px-5">
-                        <div class="col-span-12">
-                            <p class="text-3xl text-center lg:text-5xl lg:my-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent" style="filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.9));">Join Me Online</p>
-                        </div>
-                        <div class="col-span-12 mb-10">
-                            <p class="text-gray-500 text-center mt-1">Stay in the loop with my projects and posts by following me.</p>
-                        </div>
-                        <div class="flex flex-wrap gap-3 place-content-center">
-                            <x-component.contact.social-link name="LinkedIn/Muhammad Risky Farhan" icon="fab fa-linkedin" link="www.linkedin.com/in/muhammad-risky-farhan-596783309" bgColor="#0077B5"/>
-                            <x-component.contact.social-link name="Github/Risfrhn" icon="fab fa-github" link="https://github.com/Risfrhn/" bgColor="#4141aa"/>
-                            <x-component.contact.social-link name="Instagram/risfrhn_" icon="fab fa-instagram" link="https://www.instagram.com/risfrhn_/" bgColor="#8900df"/>
-                            <x-component.contact.social-link name="Email/rskyfrhn801@gmail.com" icon="fa-solid fa-envelope" link="" bgColor="#D44638"/>
-                            <x-component.contact.social-link name="Steam/FarhanKebab" icon="fab fa-steam" link="https://steamcommunity.com/id/Zoow1/" bgColor="#012f9a"/>
-                            <x-component.contact.social-link name="Whatsapp/+6281345765427" icon="fab fa-phone" link="wa.me/081345765427" bgColor="#25D366"/>
-                        </div>
+                </div>
+                
+                <div>
+                     <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider opacity-60">Social Media</p>
+                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 place-content-center">
+                        <x-component.contact.social-link name="LinkedIn" icon="fab fa-linkedin" link="www.linkedin.com/in/muhammad-risky-farhan-596783309" bgColor="#0077B5"/>
+                        <x-component.contact.social-link name="Github" icon="fab fa-github" link="https://github.com/Risfrhn/" bgColor="#4141aa"/>
+                        <x-component.contact.social-link name="Instagram" icon="fab fa-instagram" link="https://www.instagram.com/risfrhn_/" bgColor="#8900df"/>
+                        <x-component.contact.social-link name="Email" icon="fa-solid fa-envelope" link="" bgColor="#D44638"/>
+                        <x-component.contact.social-link name="Steam" icon="fab fa-steam" link="https://steamcommunity.com/id/Zoow1/" bgColor="#012f9a"/>
+                        <x-component.contact.social-link name="Whatsapp" icon="fab fa-phone" link="wa.me/081345765427" bgColor="#25D366"/>
                     </div>
                 </div>
             </div>

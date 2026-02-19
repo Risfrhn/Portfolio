@@ -42,7 +42,7 @@
                         <p class="text-xs text-gray-500 font-semibold">Other</p>
                     </li>
                     <li class="my-2">
-                        <a href="setting" wire:navigate class="pr-3.5 pl-2.5 py-1.5 text-lg text-[#424954] border-l-4 border-transparent hover:border-[#4C7BC3] hover:text-[#4C7BC3] transition-all duration-300">
+                        <a href="/setting-admin" wire:navigate class="pr-3.5 pl-2.5 py-1.5 text-lg text-[#424954] border-l-4 border-transparent hover:border-[#4C7BC3] hover:text-[#4C7BC3] transition-all duration-300">
                             <i class="fa-solid fa-gear p-2 hover:bg-black hover:text-white hover:p-2 rounded-lg"></i>
                         </a>
                     </li>

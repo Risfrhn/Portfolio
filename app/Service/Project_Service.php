@@ -3,6 +3,7 @@
 namespace App\Service;
 use App\Repository\Project_Repository;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Project_Service
 {
@@ -12,9 +13,9 @@ class Project_Service
         $this->project = $project; 
     }
     
-    public function getData($type = null, $keyword = null, $paginate = false, $perPage = 5)
+    public function getData($type = null, $keyword = null, $kategori = null, $posisi = null, $paginate = false, $perPage = 5)
     {
-        $data = $this->project->getAllData($type, $keyword, $paginate, $perPage);
+        $data = $this->project->getAllData($type, $keyword, $kategori, $posisi, $paginate, $perPage);
         if($data){
             return[
                 'data'=>$data,
@@ -23,10 +24,14 @@ class Project_Service
             ];
         }
         return[
-            'data'=> [],
             'message'=>'Data tidak tersedia',
             'status'=> false
         ];
+    }
+
+    public function find($id)
+    {
+        return $this->project->find($id);
     }
     
     public function create($input){
@@ -40,6 +45,8 @@ class Project_Service
                 'message' => "Data sudah ada"
             ];
         }else{
+            $input['slug'] = Str::slug($input['nama_projek'] . '-' . time());
+
             $input['logo_projek'] = $this->manageGambar($input['logo_projek'], null, 'project/'. $input['nama_projek']. '/logo');
             $input['gambar_flyer'] = $this->manageGambar($input['gambar_flyer'], null, 'project/'. $input['nama_projek']. '/flyer');
             $input['gambar'] = $this->manageGambarMultiple($input['gambar'], null, 'project/'. $input['nama_projek']. '/gambar');
@@ -58,6 +65,10 @@ class Project_Service
                 'status' => $cek,
                 'message' => "Data tidak ditemukan"
             ];
+        }
+
+        if($cek->nama_projek != $input['nama_projek']){
+            $input['slug'] = Str::slug($input['nama_projek'] . '-' . $id);
         }
 
         if($cek->nama_projek != $input['nama_projek']){

@@ -3,6 +3,7 @@
 namespace App\Service;
 use App\Repository\Sertifikat_Repository;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Sertifikat_Service
 {
@@ -23,14 +24,25 @@ class Sertifikat_Service
             ];
         }
         return[
-            'data'=> [],
             'message'=>'Data tidak tersedia',
             'status'=> false
         ];
     }
+    
+    public function findBySlug($slug)
+    {
+        return $this->sertifikat->findBySlug($slug);
+    }
+
+    public function find($id)
+    {
+        return $this->sertifikat->find($id);
+    }
 
 
     public function create($input){
+        $input['slug'] = Str::slug($input['judul'] . '-' . time());
+        
         $input['gambar_sertifikat'] = $this->manageGambar($input['gambar_sertifikat'], null, 'sertifikat/'. $input['judul']. '/gambar');
         $input['file_sertifikat'] = $this->manageGambar($input['file_sertifikat'], null, 'sertifikat/'. $input['judul']. '/file');
         $data = $this->sertifikat->create($input);
@@ -80,6 +92,10 @@ class Sertifikat_Service
                 'status' => $cek,
                 'message' => "Data tidak ditemukan"
             ];
+        }
+
+        if($cek->judul != $input['judul']){
+            $input['slug'] = Str::slug($input['judul'] . '-' . $id);
         }
 
         if($cek->judul != $input['judul']){

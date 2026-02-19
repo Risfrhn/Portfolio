@@ -21,7 +21,7 @@ class project extends Model
         'kategori', 
         'alat',
         'fitur',
-        'harga', 15, 2,
+        'harga',
         'link_website',
         'link_app',
         'link_github',

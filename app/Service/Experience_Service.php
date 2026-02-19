@@ -3,6 +3,7 @@
 namespace App\Service;
 use App\Repository\Experience_Repository;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Experience_Service
 {
@@ -23,15 +24,27 @@ class Experience_Service
             ];
         }
         return[
-            'data'=> [],
             'message'=>'Data tidak tersedia',
             'status'=> false
         ];
     }
     
+    public function findBySlug($slug)
+    {
+        return $this->experience->findBySlug($slug);
+    }
+
+    public function find($id)
+    {
+        return $this->experience->find($id);
+    }
+    
     public function create($input){
         $path1 = null;
         $path2 = null;
+        
+        $input['slug'] = Str::slug($input['posisi'] . '-' . $input['perusahaan'] . '-' . time());
+
         $input['logo'] = $this->manageGambar($input['logo'], null, 'experience/'. $input['perusahaan']. '/logo');
         $input['flyer'] = $this->manageGambar($input['flyer'], null, 'experience/'. $input['perusahaan']. '/flyer');
         $input['gambar'] = $this->manageGambarMultiple($input['gambar'], 'experience/'. $input['perusahaan']. '/gambar');
@@ -51,6 +64,10 @@ class Experience_Service
                 'status' => $cek,
                 'message' => "Data tidak ditemukan"
             ];
+        }
+
+        if($cek->perusahaan != $input['perusahaan'] || $cek->posisi != $input['posisi']){
+            $input['slug'] = Str::slug($input['posisi'] . '-' . $input['perusahaan'] . '-' . $id);
         }
 
         if($cek->perusahaan != $input['perusahaan']){

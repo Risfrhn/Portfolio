@@ -13,6 +13,11 @@ class Landing_Service
         $this->data = $data;
     }
 
+    public function getDataLanding(){
+        $data = $this->data->getDataLanding();
+        return $data;
+    }
+
     public function updateLanding($request){
         $getData = $this->data->getDataLanding();
         $getData->deskripsi_header = $request['header'] ?? $getData->deskripsi_header;
