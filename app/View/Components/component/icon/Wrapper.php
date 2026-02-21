@@ -15,6 +15,6 @@ class Wrapper extends Component
 
     public function render()
     {
-        return view('components.component.icon.wrapper');
+        return view('components.Component.Icon.wrapper');
     }
 }

@@ -41,10 +41,10 @@
         <div class="p-4 rounded-xl bg-[#150b2e]/50 border border-white/5 flex flex-wrap gap-4">
             @foreach($children as $child)
                 <div class="flex-auto md:flex-initial">
-                    <x-component.icon.skill-badge 
-                    image="{{$child['image']}}" 
-                    nameTool="{{$child['nameTool']}}" 
-                    levels="{{$child['levels']}}" 
+                    <x-Component.Icon.skill-badge 
+                    :image="$child['image']" 
+                    :nameTool="$child['nameTool']" 
+                    :levels="$child['levels']" 
                     />
                 </div>
             @endforeach

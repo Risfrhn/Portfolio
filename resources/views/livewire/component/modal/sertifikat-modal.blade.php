@@ -13,18 +13,18 @@
                 </div>
 
                 <div class="col-span-12 space-y-4">
-                    <x-component.input.form-group label="Nomor Sertifikat" type="text" model="nomor_sertifikat" placeholder="Masukkan Nomor Sertifikat"/>
+                    <x-Component.Input.form-group label="Nomor Sertifikat" type="text" model="nomor_sertifikat" placeholder="Masukkan Nomor Sertifikat"/>
                     
-                    <x-component.input.form-group label="Judul Sertifikat" type="text" model="judul" placeholder="Masukkan Judul Sertifikat"/>
+                    <x-Component.Input.form-group label="Judul Sertifikat" type="text" model="judul" placeholder="Masukkan Judul Sertifikat"/>
                     
-                    <x-component.input.form-group label="Nama Institusi" type="text" model="nama_institusi" placeholder="Masukkan Nama Institusi"/>
+                    <x-Component.Input.form-group label="Nama Institusi" type="text" model="nama_institusi" placeholder="Masukkan Nama Institusi"/>
 
                     <div class="grid grid-cols-2 gap-5">
-                        <x-component.input.form-group label="Tanggal Terbit" type="date" model="tanggal_terbit" placeholder="Tanggal Terbit"/>
-                        <x-component.input.form-group label="Tanggal Berlaku" type="date" model="tanggal_berlaku" placeholder="Tanggal Berlaku"/>
+                        <x-Component.Input.form-group label="Tanggal Terbit" type="date" model="tanggal_terbit" placeholder="Tanggal Terbit"/>
+                        <x-Component.Input.form-group label="Tanggal Berlaku" type="date" model="tanggal_berlaku" placeholder="Tanggal Berlaku"/>
                     </div>
 
-                    <x-component.input.gambar-group model="gambar_sertifikat" label="Upload Gambar Sertifikat">
+                    <x-Component.Input.gambar-group model="gambar_sertifikat" label="Upload Gambar Sertifikat">
                         <x-slot name="slot">
                             @if($gambar_sertifikat)
                                 <img src="{{ $gambar_sertifikat->temporaryUrl() }}" width="150" class="mt-2 rounded">
@@ -32,7 +32,7 @@
                                 <img src="{{ asset('storage/'.$gambar_sertifikat_db) }}" width="150" class="mt-2 rounded">
                             @endif
                         </x-slot>
-                    </x-component.input.gambar-group>
+                    </x-component.Input.gambar-group>
 
                     <div class="flex flex-col">
                         <label class="mb-2 text-sm font-medium text-gray-400">File Sertifikat (PDF)</label>
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="col-span-12 grid grid-cols-1 gap-5 my-8">
-                    <x-component.button.primary label="{{ $dataId ? 'Simpan Perubahan' : 'Simpan Data' }}" wire:click="save" class="w-full flex"/>
+                    <x-Component.button.primary label="{{ $dataId ? 'Simpan Perubahan' : 'Simpan Data' }}" wire:click="save" class="w-full flex"/>
                     <button wire:click="{{$closeEvent}}" class="text-sm font-medium mx-2 md:mx-0 py-[8px] px-10 text-white text-red-600 rounded-full shadow-lg border-2 border-red-600 hover:bg-red-600 hover:text-white hover:shadow-[0_0_20px_rgba(130,90,250,0.4)] w-full flex items-center justify-center transition-all duration-300">
                         Batal
                     </button> 

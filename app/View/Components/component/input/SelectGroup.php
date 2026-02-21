@@ -19,6 +19,6 @@ class SelectGroup extends Component
 
     public function render()
     {
-        return view('components.component.input.select-group');
+        return view('components.Component.Input.select-group');
     }
 }

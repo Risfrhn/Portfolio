@@ -23,6 +23,6 @@ class ProjectThumbnail extends Component
 
     public function render()
     {
-        return view('components.component.card.project-thumbnail');
+        return view('components.Component.Card.project-thumbnail');
     }
 }

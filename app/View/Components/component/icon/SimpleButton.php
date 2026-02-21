@@ -17,6 +17,6 @@ class SimpleButton extends Component
 
     public function render()
     {
-        return view('components.component.icon.simple-button');
+        return view('components.Component.Icon.simple-button');
     }
 }

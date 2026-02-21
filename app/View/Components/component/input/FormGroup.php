@@ -25,6 +25,6 @@ class FormGroup extends Component
 
     public function render()
     {
-        return view('components.component.input.form-group');
+        return view('components.Component.Input.form-group');
     }
 }

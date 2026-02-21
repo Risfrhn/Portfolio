@@ -7,14 +7,14 @@
             <p class="text-xs text-center text-gray-500 mb-5">We are happy to see you again</p>
             <form wire:submit.prevent="login">
                 <div class="mb-5 relative">
-                    <x-component.input.form-group label="Email" type="email" model="email" placeholder="Masukkan email"/>
+                    <x-Component.Input.form-group label="Email" type="email" model="email" placeholder="Masukkan email"/>
                     <span class="absolute inset-y-0 right-2 flex items-center px-3 text-gray-400 pointer-events-none">
                         <i class="fa-regular fa-envelope"></i>
                     </span>
                 </div>
 
                 <div class="relative">
-                    <x-component.input.form-group label="Password" type="password" model="password" placeholder="Masukkan password"/>
+                    <x-Component.Input.form-group label="Password" type="password" model="password" placeholder="Masukkan password"/>
                 </div>
                 <div class="flex mt-2">
                     <a href="" class="ml-auto font-semibold text-sm bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">Forgot password</a>

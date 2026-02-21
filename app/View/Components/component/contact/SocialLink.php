@@ -21,6 +21,6 @@ class SocialLink extends Component
 
     public function render()
     {
-        return view('components.component.contact.social-link');
+        return view('components.Component.Contact.social-link');
     }
 }

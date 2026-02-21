@@ -36,6 +36,6 @@ class SkillBadge extends Component
 
     public function render()
     {
-        return view('components.component.icon.skill-badge');
+        return view('components.Component.Icon.skill-badge');
     }
 }

@@ -15,7 +15,7 @@
                     <td class="py-4 px-6">{{$data->deskripsi_tentang}}</td>
                     <td class="py-4 px-6 gap-2 flex flex-wrap">
                         @foreach ($data->skill_header ?? [] as $item)
-                            <x-component.icon.wrapper :nameTool="$item"/>
+                            <x-Component.Icon.wrapper :nameTool="$item"/>
                         @endforeach
                     </td>
                     <td class="py-4 px-6">{{$data->CV}}</td>

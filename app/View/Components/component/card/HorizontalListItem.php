@@ -25,6 +25,6 @@ class HorizontalListItem extends Component
 
     public function render()
     {
-        return view('components.component.card.horizontal-list-item');
+        return view('components.Component.Card.horizontal-list-item');
     }
 }

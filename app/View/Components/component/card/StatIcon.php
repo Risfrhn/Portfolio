@@ -19,6 +19,6 @@ class StatIcon extends Component
 
     public function render()
     {
-        return view('components.component.card.stat-icon');
+        return view('components.Component.Card.stat-icon');
     }
 }

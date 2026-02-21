@@ -21,6 +21,6 @@ class gambarGroup extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.component.input.gambar-group');
+        return view('components.Component.Input.gambar-group');
     }
 }

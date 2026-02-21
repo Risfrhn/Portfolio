@@ -67,8 +67,8 @@
 
             <!-- Buttons -->
             <div class="flex flex-wrap justify-center gap-6 items-center mb-16">
-                <x-component.button.primary label="Unduh CV" href="{{ $dataLanding->CV ? asset('storage/' . $dataLanding->CV) : '#' }}" :solid="true" target="_blank"/>
-                <x-component.button.primary label="Pengalaman Saya" href="{{ route('user.experience') }}"/>
+                <x-Component.button.primary label="Unduh CV" href="{{ $dataLanding->CV ? asset('storage/' . $dataLanding->CV) : '#' }}" :solid="true" target="_blank"/>
+                <x-Component.button.primary label="Pengalaman Saya" href="{{ route('user.experience') }}"/>
             </div>
             
             <!-- Socials -->
@@ -156,7 +156,7 @@
             </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-            <x-component.tab.accordion-item
+            <x-Component.Tab.accordion-item
                 id="1"
                 icon="fas fa-desktop"
                 title="Pengembangan Website"
@@ -169,7 +169,7 @@
                 ]"
             />
 
-            <x-component.tab.accordion-item
+            <x-Component.Tab.accordion-item
                 id="2"
                 icon="fas fa-mobile-alt"
                 title="Pengembangan Mobile"
@@ -209,10 +209,10 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
-                <x-component.card.stat-icon icon="fas fa-laptop-code" name="Pengembangan Web & App" desc="Pengembangan full-stack untuk website, aplikasi web, dan sistem internal."/>
-                <x-component.card.stat-icon icon="fas fa-file-alt" name="Manajemen Dokumen" desc="Memperlancar alur kerja dengan template otomatis, spreadsheet, dan pelaporan."/>
-                <x-component.card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten" desc="Membuat desain UI/UX yang intuitif dan aset konten digital yang menarik."/>
-                <x-component.card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten" desc="Membuat desain UI/UX yang intuitif dan aset konten digital yang menarik."/>
+                <x-Component.Card.stat-icon icon="fas fa-laptop-code" name="Pengembangan Web & App" desc="Pengembangan full-stack untuk website, aplikasi web, dan sistem internal."/>
+                <x-Component.Card.stat-icon icon="fas fa-file-alt" name="Manajemen Dokumen" desc="Memperlancar alur kerja dengan template otomatis, spreadsheet, dan pelaporan."/>
+                <x-Component.Card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten" desc="Membuat desain UI/UX yang intuitif dan aset konten digital yang menarik."/>
+                <x-Component.Card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten" desc="Membuat desain UI/UX yang intuitif dan aset konten digital yang menarik."/>
             </div>
         </div>
     </div>
@@ -260,10 +260,10 @@
                 <div class="flex flex-wrap gap-6 justify-center">
                     @if($dataPortfolio->count() > 0)
                         @foreach($dataPortfolio->take(4) as $item)
-                            <x-component.card.project-thumbnail link="{{ route('user.project.detail', $item->id) }}" image="{{ $item->gambar_flyer ? asset('storage/'.$item->gambar_flyer) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
+                            <x-Component.Card.project-thumbnail link="{{ route('user.project.detail', $item->id) }}" image="{{ $item->gambar_flyer ? asset('storage/'.$item->gambar_flyer) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
                         @endforeach
                     @else
-                        <x-component.state.empty-state 
+                        <x-Component.state.empty-state 
                             class="w-full"
                             title="Belum Ada Proyek Unggulan" 
                             description="Proyek-proyek menarik akan segera ditampilkan di sini." 
@@ -285,10 +285,10 @@
                 <div class="grid grid-cols-12 gap-6 place-content-center">
                      @if($dataProduct->count() > 0)
                         @foreach($dataProduct->take(4) as $item)
-                            <x-component.card.horizontal-list-item link="{{ route('user.project.detail', $item->id) }}" func="#" image="{{ $item->logo_projek ? asset('storage/'.$item->logo_projek) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
+                            <x-Component.Card.horizontal-list-item link="{{ route('user.project.detail', $item->id) }}" func="#" image="{{ $item->logo_projek ? asset('storage/'.$item->logo_projek) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
                         @endforeach
                     @else
-                         <x-component.state.empty-state 
+                         <x-Component.state.empty-state 
                             class="col-span-full"
                             icon="fas fa-box-open"
                             title="Belum Ada Produk" 
@@ -373,12 +373,12 @@
                 <div>
                      <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider opacity-60">Social Media</p>
                      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 place-content-center">
-                        <x-component.contact.social-link name="LinkedIn" icon="fab fa-linkedin" link="www.linkedin.com/in/muhammad-risky-farhan-596783309" bgColor="#0077B5"/>
-                        <x-component.contact.social-link name="Github" icon="fab fa-github" link="https://github.com/Risfrhn/" bgColor="#4141aa"/>
-                        <x-component.contact.social-link name="Instagram" icon="fab fa-instagram" link="https://www.instagram.com/risfrhn_/" bgColor="#8900df"/>
-                        <x-component.contact.social-link name="Email" icon="fa-solid fa-envelope" link="" bgColor="#D44638"/>
-                        <x-component.contact.social-link name="Steam" icon="fab fa-steam" link="https://steamcommunity.com/id/Zoow1/" bgColor="#012f9a"/>
-                        <x-component.contact.social-link name="Whatsapp" icon="fab fa-phone" link="wa.me/081345765427" bgColor="#25D366"/>
+                        <x-Component.Contact.social-link name="LinkedIn" icon="fab fa-linkedin" link="www.linkedin.com/in/muhammad-risky-farhan-596783309" bgColor="#0077B5"/>
+                        <x-Component.Contact.social-link name="Github" icon="fab fa-github" link="https://github.com/Risfrhn/" bgColor="#4141aa"/>
+                        <x-Component.Contact.social-link name="Instagram" icon="fab fa-instagram" link="https://www.instagram.com/risfrhn_/" bgColor="#8900df"/>
+                        <x-Component.Contact.social-link name="Email" icon="fa-solid fa-envelope" link="" bgColor="#D44638"/>
+                        <x-Component.Contact.social-link name="Steam" icon="fab fa-steam" link="https://steamcommunity.com/id/Zoow1/" bgColor="#012f9a"/>
+                        <x-Component.Contact.social-link name="Whatsapp" icon="fab fa-phone" link="wa.me/081345765427" bgColor="#25D366"/>
                     </div>
                 </div>
             </div>

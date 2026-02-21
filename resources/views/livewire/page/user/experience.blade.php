@@ -64,7 +64,7 @@
         @if($dataExperience->count() > 0)
             @foreach($dataExperience as $item)
                 {{-- Using Project Thumbnail Component with mapped data --}}
-                <x-component.card.project-thumbnail 
+                <x-Component.Card.project-thumbnail 
                     link="{{ route('user.experience.detail', $item->id) }}" 
                     image="{{ $item->logo ? asset('storage/'.$item->logo) : asset('Image.png') }}" 
                     name="{{ $item->posisi }}" 
@@ -73,7 +73,7 @@
                 />
             @endforeach
         @else
-            <x-component.state.empty-state 
+            <x-Component.state.empty-state 
                 title="Tidak ada data ditemukan" 
                 description="Coba ubah kata kunci pencarian atau filter Anda." 
                 actionLabel="Reset Pencarian"

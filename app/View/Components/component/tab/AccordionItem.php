@@ -23,6 +23,6 @@ class AccordionItem extends Component
 
     public function render()
     {
-        return view('components.component.tab.accordion-item');
+        return view('components.Component.Tab.accordion-item');
     }
 }

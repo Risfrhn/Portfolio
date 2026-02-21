@@ -16,6 +16,6 @@ class Quote extends Component
 
     public function render()
     {
-        return view('components.component.contact.quote');
+        return view('components.Component.Contact.quote');
     }
 }

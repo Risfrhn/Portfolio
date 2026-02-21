@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-span-12 grid grid-cols-12 gap-5 mb-5">
                     <div class="col-span-6">
-                        <x-component.button.primary label="Tidak" wire:click="{{$closeEvent}}" class="w-full"/>
+                        <x-Component.button.primary label="Tidak" wire:click="{{$closeEvent}}" class="w-full"/>
                     </div>
                     <div class="col-span-6">
                         <button wire:click="confirm" class=" w-full text-sm font-medium mx-2 md:mx-0 py-[8px] px-10 text-white text-red-600  rounded-full shadow-lg border-2 border-red-600 hover:bg-red-600  hover:text-white hover:shadow-[0_0_20px_rgba(130,90,250,0.4)]">

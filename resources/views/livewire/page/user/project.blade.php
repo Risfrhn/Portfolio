@@ -63,7 +63,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         @if($dataProject->count() > 0)
             @foreach($dataProject as $item)
-                <x-component.card.project-thumbnail 
+                <x-Component.Card.project-thumbnail 
                     link="{{ route('user.project.detail', $item->id) }}" 
                     image="{{ $item->logo_projek ? asset('storage/'.$item->logo_projek) : asset('Image.png') }}" 
                     name="{{ $item->nama_projek }}" 
@@ -72,7 +72,7 @@
                 />
             @endforeach
         @else
-            <x-component.state.empty-state 
+            <x-Component.state.empty-state 
                 title="Tidak ada data ditemukan" 
                 description="Coba ubah kata kunci pencarian atau filter Anda." 
                 actionLabel="Reset Pencarian"
