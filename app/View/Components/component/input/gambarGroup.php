@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\component\input;
+namespace App\View\Components\Component\Input;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class gambarGroup extends Component
+class GambarGroup extends Component
 {
     public $model;
     public $label;
