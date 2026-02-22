@@ -162,10 +162,14 @@
                 title="Pengembangan Website"
                 desc="Solusi web yang responsif, cepat, dan skalabel"
                 :children="[
-                    ['levels'=>3,'nameTool'=>'Laravel','image'=>asset('Laravel.png')],
-                    ['levels'=>3,'nameTool'=>'Tailwind','image'=>asset('Tailwind.png')],
-                    ['levels'=>3,'nameTool'=>'Livewire','image'=>asset('Livewire.png')],
-                    ['levels'=>3,'nameTool'=>'MySQL','image'=>asset('Mysql.png')]
+                    ['levels'=>4,'nameTool'=>'Laravel','image'=>asset('Laravel.png')],
+                    ['levels'=>4,'nameTool'=>'Tailwind','image'=>asset('Tailwind.png')],
+                    ['levels'=>3,'nameTool'=>'Livewire','image'=>asset('livewire.png')],
+                    ['levels'=>3,'nameTool'=>'MySQL','image'=>asset('mysql.png')],
+                    ['levels'=>3,'nameTool'=>'Codeigniter 3','image'=>asset('CI3.png')],
+                    ['levels'=>2,'nameTool'=>'Node JS','image'=>asset('node.png')],
+                    ['levels'=>2,'nameTool'=>'Express JS','image'=>asset('express.png')],
+                    ['levels'=>4,'nameTool'=>'PHP','image'=>asset('php.png')]
                 ]"
             />
 
@@ -175,10 +179,9 @@
                 title="Pengembangan Mobile"
                 desc="Aplikasi mobile native dan lintas platform"
                 :children="[
-                    ['levels'=>4,'nameTool'=>'Flutter','image'=>asset('Flutter.png')],
-                    ['levels'=>3,'nameTool'=>'React Native','image'=>asset('React.png')],
-                    ['levels'=>2,'nameTool'=>'Firebase','image'=>asset('Firebase.png')],
-                    ['levels'=>1,'nameTool'=>'Dart','image'=>asset('Dart.png')]
+                    ['levels'=>2,'nameTool'=>'Flutter','image'=>asset('flutter.png')],
+                    ['levels'=>2,'nameTool'=>'React Native','image'=>asset('react.png')],
+                    ['levels'=>2,'nameTool'=>'Firebase','image'=>asset('firebase.png')],
                 ]"
             />
 
@@ -211,7 +214,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
                 <x-Component.Card.stat-icon icon="fas fa-laptop-code" name="Pengembangan Web & App" desc="Pengembangan full-stack untuk website, aplikasi web, dan sistem internal."/>
                 <x-Component.Card.stat-icon icon="fas fa-file-alt" name="Manajemen Dokumen" desc="Memperlancar alur kerja dengan template otomatis, spreadsheet, dan pelaporan."/>
-                <x-Component.Card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten" desc="Membuat desain UI/UX yang intuitif dan aset konten digital yang menarik."/>
+               <x-Component.Card.stat-icon icon="fas fa-pencil-ruler" name="UI/UX Design" desc="Merancang antarmuka yang intuitif dan pengalaman pengguna yang nyaman serta mudah digunakan."/>
                 <x-Component.Card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten" desc="Membuat desain UI/UX yang intuitif dan aset konten digital yang menarik."/>
             </div>
         </div>
