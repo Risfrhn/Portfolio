@@ -60,6 +60,9 @@ function toggleAccordion(bodyId, iconId, btnId) {
     var isOpen = body.style.maxHeight !== '0px' && body.style.maxHeight !== '';
 
     if (isOpen) {
+        // Set to current actual height first, then animate to 0
+        body.style.maxHeight  = body.scrollHeight + 'px';
+        body.offsetHeight; // force reflow
         body.style.maxHeight  = '0';
         body.style.opacity    = '0';
         body.style.marginTop  = '0';
@@ -68,13 +71,21 @@ function toggleAccordion(bodyId, iconId, btnId) {
         btn.style.borderColor = '';
         btn.style.boxShadow   = '';
     } else {
-        body.style.maxHeight  = body.scrollHeight + 'px';
+        // Use large fixed value so content is never clipped (e.g. before images load)
+        body.style.maxHeight  = '2000px';
         body.style.opacity    = '1';
         body.style.marginTop  = '0.5rem';
         icon.style.transform  = 'rotate(180deg)';
         icon.style.color      = '#a78bfa';
         btn.style.borderColor = 'rgba(168,85,247,0.5)';
         btn.style.boxShadow   = '0 0 20px rgba(139,92,246,0.2)';
+        // After transition, set to none so dynamic content is never cut off
+        body.addEventListener('transitionend', function handler() {
+            if (body.style.maxHeight !== '0px' && body.style.maxHeight !== '') {
+                body.style.maxHeight = 'none';
+            }
+            body.removeEventListener('transitionend', handler);
+        });
     }
 }
 </script>
