@@ -64,7 +64,7 @@
 
             <!-- Buttons -->
             <div class="flex flex-wrap justify-center gap-6 items-center mb-16">
-                <x-Component.Button.primary label="Unduh CV" href="{{ $dataLanding->CV ? asset('storage/' . $dataLanding->CV) : '#' }}" :solid="true" target="_blank"/>
+                <x-Component.Button.primary label="Unduh CV Saya" href="{{ $dataLanding->CV ? asset('storage/' . $dataLanding->CV) : '#' }}" :solid="true" target="_blank"/>
                 <x-Component.Button.primary label="Pengalaman Saya" href="{{ route('user.experience') }}"/>
             </div>
             
