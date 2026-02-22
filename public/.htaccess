@@ -1,23 +1,16 @@
 <IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
-    </IfModule>
-
     RewriteEngine On
     RewriteBase /app-portfolio/
 
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    # 1. JANGAN REWRITE jika request mengarah ke file atau folder yang benar-benar ada
+    # Ini menjamin file CSS/JS di folder build bisa diakses langsung
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
 
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
+    # 2. Tambahan keamanan: Jangan rewrite jika path dimulai dengan build atau livewire
+    RewriteRule ^(build|livewire) - [L]
 
-    # Send Requests To Front Controller...
-    # Jika file fisik (.js, .css, .png, dll) ada, jangan lempar ke index.php
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
+    # 3. Kirim sisa request (routes Laravel) ke index.php
     RewriteRule ^ index.php [L]
 </IfModule>
