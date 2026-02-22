@@ -23,8 +23,5 @@ class AppServiceProvider extends ServiceProvider
         if (config('app.url')) {
             URL::forceRootUrl(config('app.url'));
         }
-
-        // Pastikan Livewire mencari script di subfolder yang benar
-        \Illuminate\Support\Facades\Config::set('livewire.asset_url', config('app.url'));
     }
 }
