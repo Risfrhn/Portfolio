@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="col-span-12 grid grid-cols-1 gap-5 my-8">
-                    <x-Component.button.primary label="{{ $dataId ? 'Simpan Perubahan' : 'Simpan Data' }}" wire:click="save" class="w-full flex"/>
+                    <x-Component.Button.primary label="{{ $dataId ? 'Simpan Perubahan' : 'Simpan Data' }}" wire:click="save" class="w-full flex"/>
                     <button wire:click="{{$closeEvent}}" class="text-sm font-medium mx-2 md:mx-0 py-[8px] px-10 text-white text-red-600 rounded-full shadow-lg border-2 border-red-600 hover:bg-red-600 hover:text-white hover:shadow-[0_0_20px_rgba(130,90,250,0.4)] w-full flex items-center justify-center transition-all duration-300">
                         Batal
                     </button> 

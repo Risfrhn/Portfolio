@@ -13,6 +13,6 @@ class Floating extends Component
 
     public function render()
     {
-        return view('components.Component.button.floating');
+        return view('components.Component.Button.floating');
     }
 }

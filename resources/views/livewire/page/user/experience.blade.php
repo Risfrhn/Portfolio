@@ -73,7 +73,7 @@
                 />
             @endforeach
         @else
-            <x-Component.state.empty-state 
+            <x-Component.State.empty-state 
                 title="Tidak ada data ditemukan" 
                 description="Coba ubah kata kunci pencarian atau filter Anda." 
                 actionLabel="Reset Pencarian"

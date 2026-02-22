@@ -21,6 +21,6 @@ class Primary extends Component
 
     public function render()
     {
-        return view('components.Component.button.primary');
+        return view('components.Component.Button.primary');
     }
 }

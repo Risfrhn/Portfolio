@@ -67,8 +67,8 @@
 
             <!-- Buttons -->
             <div class="flex flex-wrap justify-center gap-6 items-center mb-16">
-                <x-Component.button.primary label="Unduh CV" href="{{ $dataLanding->CV ? asset('storage/' . $dataLanding->CV) : '#' }}" :solid="true" target="_blank"/>
-                <x-Component.button.primary label="Pengalaman Saya" href="{{ route('user.experience') }}"/>
+                <x-Component.Button.primary label="Unduh CV" href="{{ $dataLanding->CV ? asset('storage/' . $dataLanding->CV) : '#' }}" :solid="true" target="_blank"/>
+                <x-Component.Button.primary label="Pengalaman Saya" href="{{ route('user.experience') }}"/>
             </div>
             
             <!-- Socials -->
@@ -263,7 +263,7 @@
                             <x-Component.Card.project-thumbnail link="{{ route('user.project.detail', $item->id) }}" image="{{ $item->gambar_flyer ? asset('storage/'.$item->gambar_flyer) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
                         @endforeach
                     @else
-                        <x-Component.state.empty-state 
+                        <x-Component.State.empty-state 
                             class="w-full"
                             title="Belum Ada Proyek Unggulan" 
                             description="Proyek-proyek menarik akan segera ditampilkan di sini." 
@@ -288,7 +288,7 @@
                             <x-Component.Card.horizontal-list-item link="{{ route('user.project.detail', $item->id) }}" func="#" image="{{ $item->logo_projek ? asset('storage/'.$item->logo_projek) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
                         @endforeach
                     @else
-                         <x-Component.state.empty-state 
+                         <x-Component.State.empty-state 
                             class="col-span-full"
                             icon="fas fa-box-open"
                             title="Belum Ada Produk" 

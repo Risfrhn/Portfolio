@@ -63,7 +63,7 @@
             </a>
             @endforeach
         @else
-             <x-Component.state.empty-state 
+             <x-Component.State.empty-state 
                 title="Tidak ada sertifikat ditemukan" 
                 description="Coba ubah kata kunci pencarian Anda." 
                 actionLabel="Reset Pencarian"

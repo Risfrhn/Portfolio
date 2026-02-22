@@ -26,8 +26,8 @@
         <div class="flex flex-row">
             <h2 class="text-4xl mb-2 font-semibold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">Landing Page</h2>
             <div class="flex flex-row ml-auto">
-                <x-Component.button.primary label="Update Landing Data" wire:click="openEdit({{$data->id}})" />
-                <x-Component.button.primary label="Preview Landing Data" wire:click="openPreviewModalLanding" />
+                <x-Component.Button.primary label="Update Landing Data" wire:click="openEdit({{$data->id}})" />
+                <x-Component.Button.primary label="Preview Landing Data" wire:click="openPreviewModalLanding" />
             </div>
         </div>
         <livewire:component.table.table-landing :data="$data"/>
