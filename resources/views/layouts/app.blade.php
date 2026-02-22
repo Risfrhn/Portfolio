@@ -21,11 +21,12 @@
         body{    
             font-family: 'Poppins', sans-serif;
             background-color: #12121E;
+            overflow-x: hidden;
         }
     </style>
 </head>
 <body>
-    <div>
+    <div class="overflow-x-hidden w-full">
         <livewire:component.navbar.top-nav/>     
         
         <!-- Konten halaman -->

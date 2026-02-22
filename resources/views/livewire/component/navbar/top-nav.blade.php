@@ -44,8 +44,7 @@
             <!-- Menu section -->
             <div
                 id="navbar-menu"
-                class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
-                style="display: none;"
+                class="hidden items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
             >
                 <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:space-x-2 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 bg-transparent">
                     <li>
@@ -93,13 +92,13 @@
         function toggleNavbar() {
             var menu = document.getElementById('navbar-menu');
             var btn  = document.getElementById('hamburger-btn');
-            var isOpen = menu.style.display === 'block';
+            var isOpen = !menu.classList.contains('hidden');
 
             if (isOpen) {
-                menu.style.display = 'none';
+                menu.classList.add('hidden');
                 btn.setAttribute('aria-expanded', 'false');
             } else {
-                menu.style.display = 'block';
+                menu.classList.remove('hidden');
                 btn.setAttribute('aria-expanded', 'true');
             }
         }
@@ -108,9 +107,9 @@
         window.addEventListener('resize', function () {
             var menu = document.getElementById('navbar-menu');
             if (window.innerWidth >= 1024) {
-                menu.style.display = '';
-            } else if (menu.getAttribute('aria-expanded') !== 'true') {
-                menu.style.display = 'none';
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
             }
         });
     </script>

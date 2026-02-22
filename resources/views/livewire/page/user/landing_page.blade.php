@@ -4,9 +4,6 @@
     
     <!-- HERO SECTION -->
     <div id="HeroSection" class="relative flex flex-col items-center justify-center min-h-[90vh] p-4 pt-32 container mx-auto px-5 xl:px-0 overflow-hidden">
-        
-        <!-- Background Glow -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] animate-pulse pointer-events-none"></div>
 
         <!-- Floating Icons (Symmetrical Orbit)-->
         <div class="absolute inset-0 pointer-events-none">
@@ -142,7 +139,7 @@
                         <span class="text-purple-400 font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">Tentang Saya</span>
                     </div>
 
-                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                    <h2 class="text-xl md:text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">
                         Menciptakan <span class="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">Pengalaman Digital</span>
                     </h2>
                     <p class="text-gray-400 text-base lg:text-lg font-light leading-relaxed mb-8 border-l-2 border-purple-500/30 pl-6">
