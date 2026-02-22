@@ -37,13 +37,15 @@
         class="w-full overflow-hidden transition-all duration-400 ease-in-out"
         style="max-height: 0; opacity: 0; margin-top: 0;"
     >
-        <div class="p-4 rounded-xl bg-[#150b2e]/50 border border-white/5 grid grid-cols-3 gap-4">
+        <div class="p-4 rounded-xl bg-[#150b2e]/50 border border-white/5 flex flex-wrap gap-4">
             @foreach($children as $child)
-                <x-Component.Icon.skill-badge
+                <div class="flex">
+                    <x-Component.Icon.skill-badge
                     :image="$child['image']"
                     :nameTool="$child['nameTool']"
                     :levels="$child['levels']"
-                />
+                    />
+                </div>
             @endforeach
         </div>
     </div>
