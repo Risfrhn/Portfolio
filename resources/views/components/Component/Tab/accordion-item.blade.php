@@ -33,10 +33,16 @@
     </h2>
 
     <!-- ACCORDION BODY -->
-    <div 
-        class="w-full overflow-hidden transition-all duration-500 ease-in-out"
-        x-ref="container"
-        x-bind:style="isOpen ? 'max-height: ' + $refs.container.scrollHeight + 'px; opacity: 1; margin-top: 0.5rem;' : 'max-height: 0; opacity: 0; margin-top: 0;'"
+    <div
+        x-show="isOpen"
+        x-transition:enter="transition-all duration-500 ease-in-out"
+        x-transition:enter-start="opacity-0 max-h-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition-all duration-300 ease-in-out"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0 max-h-0"
+        class="w-full overflow-hidden mt-2"
+        style="display: none;"
     >
         <div class="p-4 rounded-xl bg-[#150b2e]/50 border border-white/5 flex flex-wrap gap-4">
             @foreach($children as $child)
