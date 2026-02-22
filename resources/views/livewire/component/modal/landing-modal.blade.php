@@ -3,7 +3,7 @@
         <div  class="bg-[#0b0b14] text-white w-full max-w-xl rounded-xl relative max-h-[85vh] overflow-y-auto translate-y-1">
             <div class="grid grid-cols-12 p-5">
                 <div class="col-span-12 text-center flex flex-col justify-center items-center mb-10">
-                    <img src="/Forms.gif" alt="" class="w-20">
+                    <img src="{{ asset('Forms.gif') }}" alt="" class="w-20">
                     <p class="text-2xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent my-3">Edit data landing</p>
                     <p class="text-xs w-[300px] text-gray-500">Silahkan update landing page dengan data yang baru</p>
                 </div>

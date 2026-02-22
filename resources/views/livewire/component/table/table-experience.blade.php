@@ -26,7 +26,7 @@
                     <tr class="bg-[#1D1D29] border-b dark:border-gray-700">
                         <td class="py-4 px-6" colspan="5">
                             <div class="flex gap-2 place-content-center">
-                                <img src="/error.gif" alt="">
+                                <img src="{{ asset('error.gif') }}" alt="">
                             </div>
                         </td>
                     </tr>

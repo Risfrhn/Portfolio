@@ -13,34 +13,34 @@
             <!-- Left Side -->
             <div class="absolute top-[20%] left-[10%] lg:left-[15%] animate-bounce delay-700">
                 <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(139,92,246,0.2)]">
-                    <img src="/Laravel.png" alt="Laravel" class="w-8 h-8 lg:w-10 lg:h-10 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('Laravel.png') }}" alt="Laravel" class="w-8 h-8 lg:w-10 lg:h-10 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
             <div class="absolute top-[50%] left-[5%] lg:left-[10%] animate-bounce delay-1000">
                 <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(56,189,248,0.2)]">
-                    <img src="/Tailwind.png" alt="Tailwind" class="w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('Tailwind.png') }}" alt="Tailwind" class="w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
             <div class="absolute bottom-[20%] left-[12%] lg:left-[18%] animate-bounce delay-500">
                 <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.2)]">
-                    <img src="/CI3.png" alt="CodeIgniter" class=" rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('CI3.png') }}" alt="CodeIgniter" class=" rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
             
             <!-- Right Side -->
             <div class="absolute top-[20%] right-[10%] lg:right-[15%] animate-bounce delay-300">
                 <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(97,218,251,0.2)]">
-                    <img src="/vue.png" alt="vue" class="rounded-lg w-8 h-8 lg:w-10 lg:h-10 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('vue.png') }}" alt="vue" class="rounded-lg w-8 h-8 lg:w-10 lg:h-10 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
             <div class="absolute top-[50%] right-[5%] lg:right-[10%] animate-bounce delay-1200">
                 <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.2)]">
-                    <img src="/Wordpress.png" alt="wordpress" class="rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('Wordpress.png') }}" alt="wordpress" class="rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
             <div class="absolute bottom-[20%] right-[12%] lg:right-[18%] animate-bounce delay-200">
                 <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-                    <img src="/firebase.png" alt="Firebase" class="rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('firebase.png') }}" alt="Firebase" class="rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
         </div>
@@ -116,7 +116,7 @@
                     <!-- Main Image container -->
                     <div class="absolute inset-0 flex items-center justify-center transform hover:scale-105 transition-transform duration-500">
                         <div class="w-[250px] h-[250px] xl:w-[320px] xl:h-[320px] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(139,92,246,0.3)] border border-white/10 rotate-[-5deg] hover:rotate-0 transition-all duration-500 bg-[#150b2e]">
-                            <img src="/HeaderHero.png" alt="Profile" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+                            <img src="{{ asset('HeaderHero.png') }}" alt="Profile" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
                         </div>
                     </div>
 
@@ -162,10 +162,10 @@
                 title="Pengembangan Website"
                 desc="Solusi web yang responsif, cepat, dan skalabel"
                 :children="[
-                    ['levels'=>3,'nameTool'=>'Laravel','image'=>'/Laravel.png'],
-                    ['levels'=>3,'nameTool'=>'Tailwind','image'=>'/Tailwind.png'],
-                    ['levels'=>3,'nameTool'=>'Livewire','image'=>'/Livewire.png'],
-                    ['levels'=>3,'nameTool'=>'MySQL','image'=>'/Mysql.png']
+                    ['levels'=>3,'nameTool'=>'Laravel','image'=>asset('Laravel.png')],
+                    ['levels'=>3,'nameTool'=>'Tailwind','image'=>asset('Tailwind.png')],
+                    ['levels'=>3,'nameTool'=>'Livewire','image'=>asset('Livewire.png')],
+                    ['levels'=>3,'nameTool'=>'MySQL','image'=>asset('Mysql.png')]
                 ]"
             />
 
@@ -175,10 +175,10 @@
                 title="Pengembangan Mobile"
                 desc="Aplikasi mobile native dan lintas platform"
                 :children="[
-                    ['levels'=>4,'nameTool'=>'Flutter','image'=>'/Flutter.png'],
-                    ['levels'=>3,'nameTool'=>'React Native','image'=>'/React.png'],
-                    ['levels'=>2,'nameTool'=>'Firebase','image'=>'/Firebase.png'],
-                    ['levels'=>1,'nameTool'=>'Dart','image'=>'/Dart.png']
+                    ['levels'=>4,'nameTool'=>'Flutter','image'=>asset('Flutter.png')],
+                    ['levels'=>3,'nameTool'=>'React Native','image'=>asset('React.png')],
+                    ['levels'=>2,'nameTool'=>'Firebase','image'=>asset('Firebase.png')],
+                    ['levels'=>1,'nameTool'=>'Dart','image'=>asset('Dart.png')]
                 ]"
             />
 
@@ -222,12 +222,12 @@
     <div class="w-full h-[2px] mt-[40px] md:mt-[100px] bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.5));"></div>
     <div class="relative my-24 container mx-auto px-5 lg:px-0">
         <!-- Background Assets (Grayscale + Theme) -->
-        <img src="/Boostrap.png" alt="" class="animate-icon-1 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 left-[50px] top-[70px] md:left-[230px] md:top-[70px] xl:top-[90px] xl:left-[300px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-        <img src="/Canva.png" alt="" class="animate-icon-1 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[130px] left-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:left-[150px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-        <img src="/Excel.png" alt="" class="animate-icon-3 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[200px] left-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:left-[400px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-        <img src="/CI3.png" alt="" class="animate-icon-2 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[230px] right-[50px] top-[70px] md:top-[70px] xl:top-[90px] xl:right-[300px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-        <img src="/Word.png" alt="" class="animate-icon-2 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[130px] right-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:right-[150px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-        <img src="/Laravel.png" alt="" class="animate-icon-3 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[200px] right-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:right-[400px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('Boostrap.png') }}" alt="" class="animate-icon-1 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 left-[50px] top-[70px] md:left-[230px] md:top-[70px] xl:top-[90px] xl:left-[300px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('Canva.png') }}" alt="" class="animate-icon-1 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[130px] left-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:left-[150px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('Excel.png') }}" alt="" class="animate-icon-3 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[200px] left-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:left-[400px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('CI3.png') }}" alt="" class="animate-icon-2 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[230px] right-[50px] top-[70px] md:top-[70px] xl:top-[90px] xl:right-[300px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('Word.png') }}" alt="" class="animate-icon-2 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[130px] right-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:right-[150px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('Laravel.png') }}" alt="" class="animate-icon-3 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[200px] right-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:right-[400px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
         
         <div class="hidden sm:block absolute z-0 top-1/2 left-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] lg:w-[900px] lg:h-[900px] rounded-full bg-gradient-to-r from-purple-900/20 via-blue-900/20 to-purple-900/20 blur-[150px] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
 
