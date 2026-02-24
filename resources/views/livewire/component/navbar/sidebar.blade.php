@@ -14,29 +14,29 @@
 
             <ul class="flex flex-col items-center gap-1 w-full px-2">
                 <li class="w-full">
-                    <a href="/dashboard-admin" wire:navigate
-                        class="flex items-center justify-center py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200 {{ request()->is('dashboard-admin') ? 'text-purple-400 bg-purple-500/10' : '' }}"
+                    <a href="{{ route('dashboard-admin') }}" wire:navigate
+                        class="flex items-center justify-center py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200 {{ request()->routeIs('dashboard-admin') ? 'text-purple-400 bg-purple-500/10' : '' }}"
                         title="Dashboard">
                         <i class="fa-solid fa-house text-base"></i>
                     </a>
                 </li>
                 <li class="w-full">
-                    <a href="/project-admin" wire:navigate
-                        class="flex items-center justify-center py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200 {{ request()->is('project-admin') ? 'text-purple-400 bg-purple-500/10' : '' }}"
+                    <a href="{{ route('project-admin') }}" wire:navigate
+                        class="flex items-center justify-center py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200 {{ request()->routeIs('project-admin') ? 'text-purple-400 bg-purple-500/10' : '' }}"
                         title="Project">
                         <i class="fa-solid fa-folder-open text-base"></i>
                     </a>
                 </li>
                 <li class="w-full">
-                    <a href="/experience-admin" wire:navigate
-                        class="flex items-center justify-center py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200 {{ request()->is('experience-admin') ? 'text-purple-400 bg-purple-500/10' : '' }}"
+                    <a href="{{ route('experience-admin') }}" wire:navigate
+                        class="flex items-center justify-center py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200 {{ request()->routeIs('experience-admin') ? 'text-purple-400 bg-purple-500/10' : '' }}"
                         title="Experience">
                         <i class="fa-solid fa-briefcase text-base"></i>
                     </a>
                 </li>
                 <li class="w-full">
-                    <a href="/sertifikat-admin" wire:navigate
-                        class="flex items-center justify-center py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200 {{ request()->is('sertifikat-admin') ? 'text-purple-400 bg-purple-500/10' : '' }}"
+                    <a href="{{ route('sertifikat-admin') }}" wire:navigate
+                        class="flex items-center justify-center py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200 {{ request()->routeIs('sertifikat-admin') ? 'text-purple-400 bg-purple-500/10' : '' }}"
                         title="Sertifikat">
                         <i class="fa-solid fa-certificate text-base"></i>
                     </a>
@@ -48,8 +48,8 @@
                 <p class="text-[9px] text-gray-600 font-semibold tracking-widest uppercase mb-2 text-center">Other</p>
                 <ul class="flex flex-col items-center gap-1">
                     <li class="w-full">
-                        <a href="/setting-admin" wire:navigate
-                            class="flex items-center justify-center py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200 {{ request()->is('setting-admin') ? 'text-purple-400 bg-purple-500/10' : '' }}"
+                        <a href="{{ route('setting-admin') }}" wire:navigate
+                            class="flex items-center justify-center py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200 {{ request()->routeIs('setting-admin') ? 'text-purple-400 bg-purple-500/10' : '' }}"
                             title="Setting">
                             <i class="fa-solid fa-gear text-base"></i>
                         </a>
@@ -70,36 +70,36 @@
     <nav class="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0b0b14]/95 backdrop-blur-xl border-t border-white/10 shadow-2xl">
         <div class="flex items-center justify-around px-2 py-2">
             {{-- Dashboard --}}
-            <a href="/dashboard-admin" wire:navigate
-                class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all duration-200 {{ request()->is('dashboard-admin') ? 'text-purple-400' : 'text-gray-500' }} hover:text-purple-400">
+            <a href="{{ route('dashboard-admin') }}" wire:navigate
+                class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all duration-200 {{ request()->routeIs('dashboard-admin') ? 'text-purple-400' : 'text-gray-500' }} hover:text-purple-400">
                 <i class="fa-solid fa-house text-lg"></i>
                 <span class="text-[9px] font-medium">Home</span>
             </a>
 
             {{-- Project --}}
-            <a href="/project-admin" wire:navigate
-                class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all duration-200 {{ request()->is('project-admin') ? 'text-purple-400' : 'text-gray-500' }} hover:text-purple-400">
+            <a href="{{ route('project-admin') }}" wire:navigate
+                class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all duration-200 {{ request()->routeIs('project-admin') ? 'text-purple-400' : 'text-gray-500' }} hover:text-purple-400">
                 <i class="fa-solid fa-folder-open text-lg"></i>
                 <span class="text-[9px] font-medium">Project</span>
             </a>
 
             {{-- Experience --}}
-            <a href="/experience-admin" wire:navigate
-                class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all duration-200 {{ request()->is('experience-admin') ? 'text-purple-400' : 'text-gray-500' }} hover:text-purple-400">
+            <a href="{{ route('experience-admin') }}" wire:navigate
+                class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all duration-200 {{ request()->routeIs('experience-admin') ? 'text-purple-400' : 'text-gray-500' }} hover:text-purple-400">
                 <i class="fa-solid fa-briefcase text-lg"></i>
                 <span class="text-[9px] font-medium">Experience</span>
             </a>
 
             {{-- Sertifikat --}}
-            <a href="/sertifikat-admin" wire:navigate
-                class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all duration-200 {{ request()->is('sertifikat-admin') ? 'text-purple-400' : 'text-gray-500' }} hover:text-purple-400">
+            <a href="{{ route('sertifikat-admin') }}" wire:navigate
+                class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all duration-200 {{ request()->routeIs('sertifikat-admin') ? 'text-purple-400' : 'text-gray-500' }} hover:text-purple-400">
                 <i class="fa-solid fa-certificate text-lg"></i>
                 <span class="text-[9px] font-medium">Sertifikat</span>
             </a>
 
             {{-- Setting --}}
-            <a href="/setting-admin" wire:navigate
-                class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all duration-200 {{ request()->is('setting-admin') ? 'text-purple-400' : 'text-gray-500' }} hover:text-purple-400">
+            <a href="{{ route('setting-admin') }}" wire:navigate
+                class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all duration-200 {{ request()->routeIs('setting-admin') ? 'text-purple-400' : 'text-gray-500' }} hover:text-purple-400">
                 <i class="fa-solid fa-gear text-lg"></i>
                 <span class="text-[9px] font-medium">Setting</span>
             </a>
