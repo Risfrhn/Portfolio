@@ -28,17 +28,17 @@ class AppServiceProvider extends ServiceProvider
 
         $appUrl = rtrim(config('app.url'), '/');
 
-        // 1. Paksa URL script langsung ke file livewire.js (Full URL)
-        config(['livewire.asset_url' => $appUrl . '/livewire/livewire.js']);
-
-        // 2. Daftarkan route dengan prefix subfolder eksplisit
-        // Ini memastikan data-update-uri di HTML adalah "/app-portfolio/livewire/update"
+        // 1. Daftarkan route relatif (Laravel otomatis handle subfolder dari APP_URL)
         Livewire::setUpdateRoute(function ($handle) {
-            return Route::post('/app-portfolio/livewire/update', $handle);
+            return Route::post('/livewire/update', $handle);
         });
 
         Livewire::setScriptRoute(function ($handle) {
-            return Route::get('/app-portfolio/livewire/livewire.js', $handle);
+            return Route::get('/livewire/livewire.js', $handle);
         });
+
+        // 2. Paksa Asset URL ke folder /livewire/ (WAJIB berakhiran slash)
+        // Ini memastikan script tag dpt path lengkap & absolute
+        config(['livewire.asset_url' => $appUrl . '/livewire/']);
     }
 }
