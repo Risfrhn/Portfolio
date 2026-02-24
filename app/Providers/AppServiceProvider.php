@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
         // 2. Update (POST) - Paksa rute POST agar helper route() mengembalikan path lengkap
         // Ini menjawab pertanyaan Anda: POST akan otomatis ke /livewire/update karena kita daftarkan begini
         Livewire::setUpdateRoute(function ($handle) use ($appUrl) {
-            return Route::post($appUrl . '/livewire/update', $handle);
+            return Route::post($appUrl . '/livewire/livewire.js/update', $handle);
         });
     }
 }
