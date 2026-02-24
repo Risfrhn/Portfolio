@@ -27,20 +27,26 @@ class SubfolderFixMiddleware
             return $response;
         }
 
+        // Deteksi subfolder dari APP_URL secara dinamis
+        $subfolder = rtrim(parse_url(config('app.url'), PHP_URL_PATH) ?? '', '/');
+
+        // Hanya lakukan penggantian jika ada subfolder (production)
+        if (empty($subfolder)) {
+            return $response;
+        }
+
         $content = $response->getContent();
 
-        // Cari data-update-uri yang salah (tanpa prefix subfolder) dan ganti ke yang benar
-        // Livewire secara default sering menghasilkan /livewire/update
+        // Ganti data-update-uri agar Livewire AJAX mengarah ke path yang benar
         $content = str_replace(
             'data-update-uri="/livewire/update"',
-            'data-update-uri="/app-portfolio/livewire/update"',
+            'data-update-uri="' . $subfolder . '/livewire/update"',
             $content
         );
 
-        // Jika ada variasi lain seperti /livewire/livewire.js/update
         $content = str_replace(
             'data-update-uri="/livewire/livewire.js/update"',
-            'data-update-uri="/app-portfolio/livewire/update"',
+            'data-update-uri="' . $subfolder . '/livewire/update"',
             $content
         );
 

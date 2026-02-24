@@ -22,18 +22,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $appUrl = 'https://rsfrhn.site/app-portfolio';
-        URL::forceRootUrl($appUrl);
+        $appUrl   = config('app.url');
+        $subfolder = rtrim(parse_url($appUrl, PHP_URL_PATH) ?? '', '/');
 
-        // 1. Script (GET)
-        config(['livewire.asset_url' => $appUrl . '/livewire/livewire.js']);
+        if (!empty($subfolder)) {
+            // Production (subfolder detected): force correct root URL
+            URL::forceRootUrl($appUrl);
+            config(['livewire.asset_url' => $appUrl . '/livewire/livewire.js']);
+        }
 
+        // Register Livewire routes (selalu, agar bisa diakses baik lokal maupun production)
         Livewire::setScriptRoute(function ($handle) {
             return Route::get('/livewire/livewire.js', $handle);
         });
 
-        // 2. Update (POST)
-        // Middleware akan memastikan data-update-uri di HTML menunjuk ke sini dengan benar
         Livewire::setUpdateRoute(function ($handle) {
             return Route::post('/livewire/update', $handle)->middleware('web');
         });
