@@ -22,23 +22,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (config('app.url')) {
-            URL::forceRootUrl(config('app.url'));
-        }
+        $appUrl = 'https://rsfrhn.site/app-portfolio';
+        URL::forceRootUrl($appUrl);
 
-        $appUrl = rtrim(config('app.url'), '/');
-
-        // Override interference dari .env agar selalu menggunakan Full URL
-        config(['app.asset_url' => $appUrl]);
-        config(['livewire.asset_url' => $appUrl]);
-
-        // Daftar Route Standar (Livewire akan otomatis mencari di /livewire/...)
-        Livewire::setUpdateRoute(function ($handle) {
-            return Route::post('/livewire/update', $handle);
-        });
+        // Gunakan logika 'if' (pemisahan) agar POST tidak terganggu ekstensi .js
+        // Script akan terload dari /livewire-js
+        // Update akan terkirim ke /livewire-js/update
+        config(['livewire.asset_url' => $appUrl . '/livewire-js']);
 
         Livewire::setScriptRoute(function ($handle) {
-            return Route::get('/livewire/livewire.js', $handle);
+            return Route::get('/livewire-js', $handle);
+        });
+
+        Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire-js/update', $handle);
         });
     }
 }
