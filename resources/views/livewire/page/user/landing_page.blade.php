@@ -4,43 +4,40 @@
     
     <!-- HERO SECTION -->
     <div id="HeroSection" class="relative flex flex-col items-center justify-center min-h-[90vh] p-4 pt-32 container mx-auto px-5 xl:px-0 overflow-hidden">
-        
-        <!-- Background Glow -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] animate-pulse pointer-events-none"></div>
 
         <!-- Floating Icons (Symmetrical Orbit)-->
         <div class="absolute inset-0 pointer-events-none">
             <!-- Left Side -->
             <div class="absolute top-[20%] left-[10%] lg:left-[15%] animate-bounce delay-700">
                 <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(139,92,246,0.2)]">
-                    <img src="/Laravel.png" alt="Laravel" class="w-8 h-8 lg:w-10 lg:h-10 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('Laravel.png') }}" alt="Laravel" class="w-8 h-8 lg:w-10 lg:h-10 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
             <div class="absolute top-[50%] left-[5%] lg:left-[10%] animate-bounce delay-1000">
                 <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(56,189,248,0.2)]">
-                    <img src="/Tailwind.png" alt="Tailwind" class="w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('Tailwind.png') }}" alt="Tailwind" class="w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
             <div class="absolute bottom-[20%] left-[12%] lg:left-[18%] animate-bounce delay-500">
                 <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.2)]">
-                    <img src="/CI3.png" alt="CodeIgniter" class=" rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('CI3.png') }}" alt="CodeIgniter" class=" rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
             
             <!-- Right Side -->
             <div class="absolute top-[20%] right-[10%] lg:right-[15%] animate-bounce delay-300">
                 <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(97,218,251,0.2)]">
-                    <img src="/vue.png" alt="vue" class="rounded-lg w-8 h-8 lg:w-10 lg:h-10 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('vue.png') }}" alt="vue" class="rounded-lg w-8 h-8 lg:w-10 lg:h-10 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
             <div class="absolute top-[50%] right-[5%] lg:right-[10%] animate-bounce delay-1200">
                 <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.2)]">
-                    <img src="/Wordpress.png" alt="wordpress" class="rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('Wordpress.png') }}" alt="wordpress" class="rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
             <div class="absolute bottom-[20%] right-[12%] lg:right-[18%] animate-bounce delay-200">
                 <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-                    <img src="/firebase.png" alt="Firebase" class="rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img src="{{ asset('firebase.png') }}" alt="Firebase" class="rounded-lg w-6 h-6 lg:w-8 lg:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
             </div>
         </div>
@@ -67,8 +64,8 @@
 
             <!-- Buttons -->
             <div class="flex flex-wrap justify-center gap-6 items-center mb-16">
-                <x-component.button.primary label="Unduh CV" href="{{ $dataLanding->CV ? asset('storage/' . $dataLanding->CV) : '#' }}" :solid="true" target="_blank"/>
-                <x-component.button.primary label="Pengalaman Saya" href="{{ route('user.experience') }}"/>
+                <x-Component.Button.primary label="Unduh CV Saya" href="{{ $dataLanding->CV ? asset('storage/' . $dataLanding->CV) : '#' }}" :solid="true" target="_blank"/>
+                <x-Component.Button.primary label="Pengalaman Saya" href="{{ route('user.experience') }}"/>
             </div>
             
             <!-- Socials -->
@@ -116,7 +113,7 @@
                     <!-- Main Image container -->
                     <div class="absolute inset-0 flex items-center justify-center transform hover:scale-105 transition-transform duration-500">
                         <div class="w-[250px] h-[250px] xl:w-[320px] xl:h-[320px] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(139,92,246,0.3)] border border-white/10 rotate-[-5deg] hover:rotate-0 transition-all duration-500 bg-[#150b2e]">
-                            <img src="/HeaderHero.png" alt="Profile" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+                            <img src="{{ asset('HeaderHero.png') }}" alt="Profile" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
                         </div>
                     </div>
 
@@ -142,43 +139,42 @@
                         <span class="text-purple-400 font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">Tentang Saya</span>
                     </div>
 
-                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                    <h2 class="text-xl md:text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">
                         Menciptakan <span class="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">Pengalaman Digital</span>
                     </h2>
                     <p class="text-gray-400 text-base lg:text-lg font-light leading-relaxed mb-8 border-l-2 border-purple-500/30 pl-6">
                         {{ $dataLanding->deskripsi_tentang }}
                     </p>
                 </div>
-
-                <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    
-                </div> -->
             </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-            <x-component.tab.accordion-item
+            <x-Component.Tab.accordion-item
                 id="1"
                 icon="fas fa-desktop"
                 title="Pengembangan Website"
                 desc="Solusi web yang responsif, cepat, dan skalabel"
                 :children="[
-                    ['levels'=>3,'nameTool'=>'Laravel','image'=>'/Laravel.png'],
-                    ['levels'=>3,'nameTool'=>'Tailwind','image'=>'/Tailwind.png'],
-                    ['levels'=>3,'nameTool'=>'Livewire','image'=>'/Livewire.png'],
-                    ['levels'=>3,'nameTool'=>'MySQL','image'=>'/Mysql.png']
+                    ['levels'=>4,'nameTool'=>'Laravel','image'=>asset('Laravel.png')],
+                    ['levels'=>4,'nameTool'=>'Tailwind','image'=>asset('Tailwind.png')],
+                    ['levels'=>3,'nameTool'=>'Livewire','image'=>asset('livewire.png')],
+                    ['levels'=>3,'nameTool'=>'MySQL','image'=>asset('mysql.png')],
+                    ['levels'=>3,'nameTool'=>'Codeigniter 3','image'=>asset('CI3.png')],
+                    ['levels'=>2,'nameTool'=>'Node JS','image'=>asset('node.png')],
+                    ['levels'=>2,'nameTool'=>'Express JS','image'=>asset('express.png')],
+                    ['levels'=>4,'nameTool'=>'PHP','image'=>asset('php.png')]
                 ]"
             />
 
-            <x-component.tab.accordion-item
+            <x-Component.Tab.accordion-item
                 id="2"
                 icon="fas fa-mobile-alt"
                 title="Pengembangan Mobile"
                 desc="Aplikasi mobile native dan lintas platform"
                 :children="[
-                    ['levels'=>4,'nameTool'=>'Flutter','image'=>'/Flutter.png'],
-                    ['levels'=>3,'nameTool'=>'React Native','image'=>'/React.png'],
-                    ['levels'=>2,'nameTool'=>'Firebase','image'=>'/Firebase.png'],
-                    ['levels'=>1,'nameTool'=>'Dart','image'=>'/Dart.png']
+                    ['levels'=>2,'nameTool'=>'Flutter','image'=>asset('flutter.png')],
+                    ['levels'=>2,'nameTool'=>'React Native','image'=>asset('react.png')],
+                    ['levels'=>2,'nameTool'=>'Firebase','image'=>asset('firebase.png')],
                 ]"
             />
 
@@ -209,10 +205,10 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
-                <x-component.card.stat-icon icon="fas fa-laptop-code" name="Pengembangan Web & App" desc="Pengembangan full-stack untuk website, aplikasi web, dan sistem internal."/>
-                <x-component.card.stat-icon icon="fas fa-file-alt" name="Manajemen Dokumen" desc="Memperlancar alur kerja dengan template otomatis, spreadsheet, dan pelaporan."/>
-                <x-component.card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten" desc="Membuat desain UI/UX yang intuitif dan aset konten digital yang menarik."/>
-                <x-component.card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten" desc="Membuat desain UI/UX yang intuitif dan aset konten digital yang menarik."/>
+                <x-Component.Card.stat-icon icon="fas fa-laptop-code" name="Pengembangan Web & App" desc="Pengembangan full-stack untuk website, aplikasi web, dan sistem internal."/>
+                <x-Component.Card.stat-icon icon="fas fa-file-alt" name="Manajemen Dokumen" desc="Memperlancar alur kerja dengan template otomatis, spreadsheet, dan pelaporan."/>
+               <x-Component.Card.stat-icon icon="fas fa-pencil-ruler" name="UI/UX Design" desc="Merancang antarmuka yang intuitif dan pengalaman pengguna yang nyaman serta mudah digunakan."/>
+                <x-Component.Card.stat-icon icon="fas fa-paint-brush" name="Desain & Konten" desc="Membuat desain UI/UX yang intuitif dan aset konten digital yang menarik."/>
             </div>
         </div>
     </div>
@@ -222,12 +218,12 @@
     <div class="w-full h-[2px] mt-[40px] md:mt-[100px] bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" style="filter: drop-shadow(0 0 6px rgba(168,85,247,0.5));"></div>
     <div class="relative my-24 container mx-auto px-5 lg:px-0">
         <!-- Background Assets (Grayscale + Theme) -->
-        <img src="/Boostrap.png" alt="" class="animate-icon-1 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 left-[50px] top-[70px] md:left-[230px] md:top-[70px] xl:top-[90px] xl:left-[300px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-        <img src="/Canva.png" alt="" class="animate-icon-1 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[130px] left-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:left-[150px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-        <img src="/Excel.png" alt="" class="animate-icon-3 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[200px] left-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:left-[400px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-        <img src="/CI3.png" alt="" class="animate-icon-2 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[230px] right-[50px] top-[70px] md:top-[70px] xl:top-[90px] xl:right-[300px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-        <img src="/Word.png" alt="" class="animate-icon-2 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[130px] right-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:right-[150px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-        <img src="/Laravel.png" alt="" class="animate-icon-3 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[200px] right-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:right-[400px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('Boostrap.png') }}" alt="" class="animate-icon-1 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 left-[50px] top-[70px] md:left-[230px] md:top-[70px] xl:top-[90px] xl:left-[300px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('Canva.png') }}" alt="" class="animate-icon-1 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[130px] left-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:left-[150px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('Excel.png') }}" alt="" class="animate-icon-3 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:left-[200px] left-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:left-[400px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('CI3.png') }}" alt="" class="animate-icon-2 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[230px] right-[50px] top-[70px] md:top-[70px] xl:top-[90px] xl:right-[300px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('Word.png') }}" alt="" class="animate-icon-2 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[130px] right-[100px] top-[-30px] md:top-[30px] xl:top-[30px] xl:right-[150px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <img src="{{ asset('Laravel.png') }}" alt="" class="animate-icon-3 z-0 absolute w-5 h-5 xl:w-10 xl:h-10 md:right-[200px] right-[30px] top-[10px] md:top-[-10px] xl:top-[-10px] xl:right-[400px] grayscale opacity-30 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
         
         <div class="hidden sm:block absolute z-0 top-1/2 left-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] lg:w-[900px] lg:h-[900px] rounded-full bg-gradient-to-r from-purple-900/20 via-blue-900/20 to-purple-900/20 blur-[150px] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
 
@@ -260,10 +256,10 @@
                 <div class="flex flex-wrap gap-6 justify-center">
                     @if($dataPortfolio->count() > 0)
                         @foreach($dataPortfolio->take(4) as $item)
-                            <x-component.card.project-thumbnail link="{{ route('user.project.detail', $item->id) }}" image="{{ $item->gambar_flyer ? asset('storage/'.$item->gambar_flyer) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
+                            <x-Component.Card.project-thumbnail link="{{ route('user.project.detail', $item->id) }}" image="{{ $item->gambar_flyer ? asset('storage/'.$item->gambar_flyer) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
                         @endforeach
                     @else
-                        <x-component.state.empty-state 
+                        <x-Component.State.empty-state 
                             class="w-full"
                             title="Belum Ada Proyek Unggulan" 
                             description="Proyek-proyek menarik akan segera ditampilkan di sini." 
@@ -285,10 +281,10 @@
                 <div class="grid grid-cols-12 gap-6 place-content-center">
                      @if($dataProduct->count() > 0)
                         @foreach($dataProduct->take(4) as $item)
-                            <x-component.card.horizontal-list-item link="{{ route('user.project.detail', $item->id) }}" func="#" image="{{ $item->logo_projek ? asset('storage/'.$item->logo_projek) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
+                            <x-Component.Card.horizontal-list-item link="{{ route('user.project.detail', $item->id) }}" func="#" image="{{ $item->logo_projek ? asset('storage/'.$item->logo_projek) : asset('Image.png') }}" name="{{ $item->nama_projek }}" type="{{ $item->kategori }}" desc="{{ $item->deskripsi_projek }}" />
                         @endforeach
                     @else
-                         <x-component.state.empty-state 
+                         <x-Component.State.empty-state 
                             class="col-span-full"
                             icon="fas fa-box-open"
                             title="Belum Ada Produk" 
@@ -373,12 +369,12 @@
                 <div>
                      <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider opacity-60">Social Media</p>
                      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 place-content-center">
-                        <x-component.contact.social-link name="LinkedIn" icon="fab fa-linkedin" link="www.linkedin.com/in/muhammad-risky-farhan-596783309" bgColor="#0077B5"/>
-                        <x-component.contact.social-link name="Github" icon="fab fa-github" link="https://github.com/Risfrhn/" bgColor="#4141aa"/>
-                        <x-component.contact.social-link name="Instagram" icon="fab fa-instagram" link="https://www.instagram.com/risfrhn_/" bgColor="#8900df"/>
-                        <x-component.contact.social-link name="Email" icon="fa-solid fa-envelope" link="" bgColor="#D44638"/>
-                        <x-component.contact.social-link name="Steam" icon="fab fa-steam" link="https://steamcommunity.com/id/Zoow1/" bgColor="#012f9a"/>
-                        <x-component.contact.social-link name="Whatsapp" icon="fab fa-phone" link="wa.me/081345765427" bgColor="#25D366"/>
+                        <x-Component.Contact.social-link name="LinkedIn" icon="fab fa-linkedin" link="www.linkedin.com/in/muhammad-risky-farhan-596783309" bgColor="#0077B5"/>
+                        <x-Component.Contact.social-link name="Github" icon="fab fa-github" link="https://github.com/Risfrhn/" bgColor="#4141aa"/>
+                        <x-Component.Contact.social-link name="Instagram" icon="fab fa-instagram" link="https://www.instagram.com/risfrhn_/" bgColor="#8900df"/>
+                        <x-Component.Contact.social-link name="Email" icon="fa-solid fa-envelope" link="" bgColor="#D44638"/>
+                        <x-Component.Contact.social-link name="Steam" icon="fab fa-steam" link="https://steamcommunity.com/id/Zoow1/" bgColor="#012f9a"/>
+                        <x-Component.Contact.social-link name="Whatsapp" icon="fab fa-phone" link="wa.me/081345765427" bgColor="#25D366"/>
                     </div>
                 </div>
             </div>

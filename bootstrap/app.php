@@ -11,7 +11,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->append(\App\Http\Middleware\SubfolderFixMiddleware::class);
+        $middleware->redirectTo(guests: '/login-page');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

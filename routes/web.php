@@ -21,10 +21,22 @@ Route::get('/experience/{id}', App\Livewire\Page\User\ExperienceDetail::class)->
 Route::get('/sertifikat/{id}', App\Livewire\Page\User\SertifikatDetail::class)->name('user.sertifikat.detail');
 
 // admin
-Route::get('/login-page', LoginPage::class);
-Route::get('/dashboard-admin', Dashboard::class)->name('dashboard-admin');
-Route::get('/project-admin', Project::class)->name('dashboard-admin');
-Route::get('/experience-admin', Experience::class)->name('experience-admin');
-Route::get('/sertifikat-admin', Sertifikat::class)->name('sertifikat-admin');
-Route::get('/setting-admin', Setting::class)->name('setting-admin');
+Route::get('/login-page', LoginPage::class)->name('login');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard-admin', Dashboard::class)->name('dashboard-admin');
+    Route::get('/project-admin', Project::class)->name('project-admin');
+    Route::get('/experience-admin', Experience::class)->name('experience-admin');
+    Route::get('/sertifikat-admin', Sertifikat::class)->name('sertifikat-admin');
+    Route::get('/setting-admin', Setting::class)->name('setting-admin');
+});
+
+// Route untuk clear cache di hosting
+Route::get('/clear-cache', function() {
+    \Illuminate\Support\Facades\Artisan::call('config:clear');
+    \Illuminate\Support\Facades\Artisan::call('cache:clear');
+    \Illuminate\Support\Facades\Artisan::call('view:clear');
+    \Illuminate\Support\Facades\Artisan::call('route:clear');
+    return "Cache is cleared";
+});
 
