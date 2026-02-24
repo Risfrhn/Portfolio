@@ -26,19 +26,20 @@ class AppServiceProvider extends ServiceProvider
             URL::forceRootUrl(config('app.url'));
         }
 
-        // 1. Paksa Asset URL ke file JS lengkap dengan prefix subfolder
-        // Hasil di HTML: src="/app-portfolio/livewire/livewire.js?id=..."
-        config(['livewire.asset_url' => '/app-portfolio/livewire/livewire.js']);
+        $appUrl = rtrim(config('app.url'), '/');
 
-        // 2. Daftarkan route Script (relatif terhadap Laravel root)
+        // 1. Set Asset URL ke folder khusus (Livewire akan otomatis tambah /livewire.js dan /update)
+        // Hasil: https://rsfrhn.site/app-portfolio/livewire-app/livewire.js
+        config(['livewire.asset_url' => $appUrl . '/livewire-app']);
+
+        // 2. Daftar Route Script
         Livewire::setScriptRoute(function ($handle) {
-            return Route::get('/livewire/livewire.js', $handle);
+            return Route::get('/livewire-app/livewire.js', $handle);
         });
 
-        // 3. Daftarkan route Update (mengikuti cara Livewire menyusun URL dari asset_url)
-        // Hasil di HTML: data-update-uri="/app-portfolio/livewire/livewire.js/update"
+        // 3. Daftar Route Update (PENTING: Tanpa .js di tengah agar POST aman)
         Livewire::setUpdateRoute(function ($handle) {
-            return Route::post('/livewire/livewire.js/update', $handle);
+            return Route::post('/livewire-app/update', $handle);
         });
     }
 }
