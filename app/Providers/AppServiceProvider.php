@@ -35,8 +35,8 @@ class AppServiceProvider extends ServiceProvider
             return Route::get('/livewire/livewire.js', $handle);
         });
 
-        // 2. Paksa Asset URL menggunakan full URL dari .env (dengan trailing slash)
+        // 2. Paksa Asset URL menggunakan full URL (ditambah /livewire agar sinkron dengan route)
         $appUrl = rtrim(config('app.url'), '/');
-        config(['livewire.asset_url' => $appUrl . '/']);
+        config(['livewire.asset_url' => $appUrl . '/livewire']);
     }
 }
