@@ -26,21 +26,19 @@ class AppServiceProvider extends ServiceProvider
             URL::forceRootUrl(config('app.url'));
         }
 
-        if (config('app.url')) {
-            URL::forceRootUrl(config('app.url'));
-        }
+        // 1. Paksa Asset URL ke file JS lengkap dengan prefix subfolder
+        // Hasil di HTML: src="/app-portfolio/livewire/livewire.js?id=..."
+        config(['livewire.asset_url' => '/app-portfolio/livewire/livewire.js']);
 
-        // 1. Daftarkan route secara relatif (Laravel otomatis tambah prefix subfolder)
-        Livewire::setUpdateRoute(function ($handle) {
-            return Route::post('/livewire/update', $handle);
-        });
-
+        // 2. Daftarkan route Script (relatif terhadap Laravel root)
         Livewire::setScriptRoute(function ($handle) {
             return Route::get('/livewire/livewire.js', $handle);
         });
 
-        // 2. Set asset_url ke null agar Livewire menggunakan helper asset()
-        // Helper asset() akan otomatis menggunakan APP_URL (https://rsfrhn.site/app-portfolio)
-        config(['livewire.asset_url' => null]);
+        // 3. Daftarkan route Update (mengikuti cara Livewire menyusun URL dari asset_url)
+        // Hasil di HTML: data-update-uri="/app-portfolio/livewire/livewire.js/update"
+        Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire/livewire.js/update', $handle);
+        });
     }
 }
