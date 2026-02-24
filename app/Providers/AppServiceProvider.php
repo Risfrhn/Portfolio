@@ -27,21 +27,18 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $appUrl = rtrim(config('app.url'), '/');
-        $livewireHandler = $appUrl . '/livewire-handler';
 
-        // 1. Set Asset URL ke handler khusus (Tanpa .js agar tidak diblokir server)
-        // Hasil Script: https://rsfrhn.site/app-portfolio/livewire-handler
-        // Hasil Update: https://rsfrhn.site/app-portfolio/livewire-handler/update
-        config(['livewire.asset_url' => $livewireHandler]);
+        // Override interference dari .env agar selalu menggunakan Full URL
+        config(['app.asset_url' => $appUrl]);
+        config(['livewire.asset_url' => $appUrl]);
 
-        // 2. Daftar Route Script (relatif terhadap app root)
-        Livewire::setScriptRoute(function ($handle) {
-            return Route::get('/livewire-handler', $handle);
+        // Daftar Route Standar (Livewire akan otomatis mencari di /livewire/...)
+        Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire/update', $handle);
         });
 
-        // 3. Daftar Route Update (relatif terhadap app root)
-        Livewire::setUpdateRoute(function ($handle) {
-            return Route::post('/livewire-handler/update', $handle);
+        Livewire::setScriptRoute(function ($handle) {
+            return Route::get('/livewire/livewire.js', $handle);
         });
     }
 }
