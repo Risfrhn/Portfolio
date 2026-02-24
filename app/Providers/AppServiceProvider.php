@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
         // 2. Update (POST)
         // Middleware akan memastikan data-update-uri di HTML menunjuk ke sini dengan benar
         Livewire::setUpdateRoute(function ($handle) {
-            return Route::post('/livewire/update', $handle);
+            return Route::post('/livewire/update', $handle)->middleware('web');
         });
     }
 }
