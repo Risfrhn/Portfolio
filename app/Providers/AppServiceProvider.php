@@ -25,17 +25,17 @@ class AppServiceProvider extends ServiceProvider
         $appUrl = 'https://rsfrhn.site/app-portfolio';
         URL::forceRootUrl($appUrl);
 
-        // 1. Script (GET) - Paksa ke file .js
+        // 1. Script (GET)
         config(['livewire.asset_url' => $appUrl . '/livewire/livewire.js']);
 
         Livewire::setScriptRoute(function ($handle) {
             return Route::get('/livewire/livewire.js', $handle);
         });
 
-        // 2. Update (POST) - Paksa rute POST agar helper route() mengembalikan path lengkap
-        // Ini menjawab pertanyaan Anda: POST akan otomatis ke /livewire/update karena kita daftarkan begini
-        Livewire::setUpdateRoute(function ($handle) use ($appUrl) {
-            return Route::post($appUrl . '/livewire/livewire.js/update', $handle);
+        // 2. Update (POST)
+        // Middleware akan memastikan data-update-uri di HTML menunjuk ke sini dengan benar
+        Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire/update', $handle);
         });
     }
 }
