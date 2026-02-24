@@ -26,7 +26,17 @@ class AppServiceProvider extends ServiceProvider
             URL::forceRootUrl(config('app.url'));
         }
 
-        // Gunakan path relatif untuk subfolder agar script & update route benar
-        config(['livewire.asset_url' => '/app-portfolio']);
+        // 1. Daftarkan route secara eksplisit (relatif terhadap sistem Laravel di subfolder)
+        Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire/update', $handle);
+        });
+
+        Livewire::setScriptRoute(function ($handle) {
+            return Route::get('/livewire/livewire.js', $handle);
+        });
+
+        // 2. Paksa Asset URL menggunakan full URL dari .env (dengan trailing slash)
+        $appUrl = rtrim(config('app.url'), '/');
+        config(['livewire.asset_url' => $appUrl . '/']);
     }
 }
