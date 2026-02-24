@@ -26,13 +26,15 @@ class AppServiceProvider extends ServiceProvider
             URL::forceRootUrl(config('app.url'));
         }
 
+        $prefix = config('livewire.asset_url', '');
+
         // Paksa Livewire untuk menggunakan route subfolder
-        Livewire::setUpdateRoute(function ($handle) {
-            return Route::post('/livewire/update', $handle);
+        Livewire::setUpdateRoute(function ($handle) use ($prefix) {
+            return Route::post($prefix . '/livewire/update', $handle);
         });
 
-        Livewire::setScriptRoute(function ($handle) {
-            return Route::get('/livewire/livewire.js', $handle);
+        Livewire::setScriptRoute(function ($handle) use ($prefix) {
+            return Route::get($prefix . '/livewire/livewire.js', $handle);
         });
     }
 }
