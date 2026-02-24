@@ -26,15 +26,16 @@ class AppServiceProvider extends ServiceProvider
             URL::forceRootUrl(config('app.url'));
         }
 
-        $prefix = config('livewire.asset_url', '');
+        // Pastikan Livewire menggunakan APP_URL sebagai basis asset agar script tag benar
+        config(['livewire.asset_url' => config('app.url') ?? '/app-portfolio']);
 
-        // Paksa Livewire untuk menggunakan route subfolder
-        Livewire::setUpdateRoute(function ($handle) use ($prefix) {
-            return Route::post($prefix . '/livewire/update', $handle);
+        // Route harus relatif terhadap root aplikasi (subfolder sudah dihandle Laravel/Server)
+        Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire/update', $handle);
         });
 
-        Livewire::setScriptRoute(function ($handle) use ($prefix) {
-            return Route::get($prefix . '/livewire/livewire.js', $handle);
+        Livewire::setScriptRoute(function ($handle) {
+            return Route::get('/livewire/livewire.js', $handle);
         });
     }
 }
