@@ -27,19 +27,21 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $appUrl = rtrim(config('app.url'), '/');
+        $livewireHandler = $appUrl . '/livewire-handler';
 
-        // 1. Set Asset URL ke folder khusus (Livewire akan otomatis tambah /livewire.js dan /update)
-        // Hasil: https://rsfrhn.site/app-portfolio/livewire-app/livewire.js
-        config(['livewire.asset_url' => $appUrl . '/livewire-app']);
+        // 1. Set Asset URL ke handler khusus (Tanpa .js agar tidak diblokir server)
+        // Hasil Script: https://rsfrhn.site/app-portfolio/livewire-handler
+        // Hasil Update: https://rsfrhn.site/app-portfolio/livewire-handler/update
+        config(['livewire.asset_url' => $livewireHandler]);
 
-        // 2. Daftar Route Script
+        // 2. Daftar Route Script (relatif terhadap app root)
         Livewire::setScriptRoute(function ($handle) {
-            return Route::get('/livewire-app/livewire.js', $handle);
+            return Route::get('/livewire-handler', $handle);
         });
 
-        // 3. Daftar Route Update (PENTING: Tanpa .js di tengah agar POST aman)
+        // 3. Daftar Route Update (relatif terhadap app root)
         Livewire::setUpdateRoute(function ($handle) {
-            return Route::post('/livewire-app/update', $handle);
+            return Route::post('/livewire-handler/update', $handle);
         });
     }
 }
